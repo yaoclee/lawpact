@@ -10,9 +10,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=u"用户")
     phone_number = models.CharField(u"电话号码", max_length=15, blank=True)
     pic = models.ImageField(u"头像", upload_to='images', blank=True)
-    validatecode = models.CharField(max_length=128, blank=True)
-    contract_url = models.URLField()
+    contract_url = models.URLField(blank=True)
     
+    #For user active by the email
+    activation_key = models.CharField(max_length=40, null=True)
+    key_expires = models.DateTimeField(blank=True, null=True)
+   
     class Meta:
         verbose_name = u"注册用户"
         verbose_name_plural = u"注册用户"

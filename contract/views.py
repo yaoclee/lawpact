@@ -3,11 +3,13 @@
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render_to_response, render
+from django.shortcuts import render_to_response, render, get_object_or_404
 from django.http.response import HttpResponseRedirect
 from contract.form import RegisterForm
 from contract.models import UserProfile
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+import hashlib
 
 def index(request):
     return HttpResponse("Welcome to LawPact")
@@ -21,13 +23,14 @@ def user_login(request):
         
         user = authenticate(username=username, password=password)
         if user is not None:
-            if user.is_active:
+            #Remove is_active check since user may not using email validation code and he can login correctly
+            #if user.is_active:
                 print "login success!"
                 login(request, user) #produce session
                 #return render(request, 'contract/index.html')
                 return HttpResponseRedirect('/')
-            else:
-                error_msg = "User was not active!"
+            #else:
+                #error_msg = "User was not active!"
                 #return render(request, "User account is disabled!")
         else:
             print "Invalid login details: {0}, {1}".format(username, password)
@@ -53,14 +56,34 @@ def register(request):
             password = rf.cleaned_data['password']
             user = User.objects.create_user(username, email, password) 
             if user is not None:
+                user.is_active = False
                 user.save()
+                
+                #save UserProfile
+                activekey = hashlib.sha1(username).hexdigest()[:15]
+                user.activation_key = activekey
+
+                user_profile = UserProfile(user=user,)
+                user_profile.activation_key = activekey
+                user_profile.save()
+
+                ##send email##
+                mail_title = u'律师网账号激活'
+                mail_content = u'亲爱的，感谢您的注册，请点击下面链接激活账号\n'
+                active_link = 'http://localhost:8000/activate/' + activekey
+                mail_content += active_link
+                mail_from = 'imblues@126.com'
+                mail_to = [user.email]
+                send_mail(mail_title,
+                          mail_content,
+                          mail_from,
+                          mail_to)
+                
                 print "success to register"
             else:
                 print "failed to register"
 
-            user_profile = UserProfile(user=user,)
-            user_profile.save()
-            
+                        
             msg = "注册成功，请登录"
             return render(request, 'contract/regSuccess.html')
         else:
@@ -69,3 +92,17 @@ def register(request):
             return render(request, 'contract/register.html', {'form' : rf})
     
     return render(request, 'contract/register.html')
+
+def activation(request, key):
+    #print 'key=%s' % key
+    profile = get_object_or_404(UserProfile, activation_key=key)
+    if profile is not None:
+        if profile.user.is_active == False:
+            print "激活成功"
+            profile.user.is_active = True
+            profile.user.save()
+        return HttpResponse(u'账号激活成功')
+    return HttpResponse(u'该账号不存在')
+    
+    
+    
