@@ -28,7 +28,7 @@ admin.site.register(models.UserContract, UserContractAdmin)
 admin.site.register(models.Backlog)
 
 
-admin.site.unregister(User)
+#admin.site.unregister(User)
 admin.site.unregister(Group)
 admin.site.unregister(Site)
 

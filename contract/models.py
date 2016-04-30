@@ -8,7 +8,7 @@ from bsddb.test.test_all import verbose
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=u"用户")
-    phone_number = models.CharField(u"电话号码", max_length=15)
+    phone_number = models.CharField(u"电话号码", max_length=15, blank=True)
     pic = models.ImageField(u"头像", upload_to='images', blank=True)
     validatecode = models.CharField(max_length=128, blank=True)
     contract_url = models.URLField()

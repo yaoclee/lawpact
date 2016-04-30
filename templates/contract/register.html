@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>注册</title>
+</head>
+
+<body>
+	<h1>注册页面</h1>
+		{% if form.password.errors %}
+		{{ form.password.errors }}
+        {% endif %}
+
+		{% if form.username.errors %}
+		{{ form.username.errors }}
+        {% endif %}
+		
+		{% if form.email.errors %}
+		{{ form.email.errors }}
+        {% endif %}
+		
+		{% if form.confirm_password.errors %}
+		{{ form.confirm_password.errors }}
+        {% endif %}
+		
+	<form id="register_form" method="post" action="/register/">{% csrf_token %}
+		Username: <input type="text" name="username" value="" size="50" /> <br />
+		Email: <input type="text" name="email" value="" size="50" /> <br />
+		Password: <input type="password" name="password" value="" size="50" /><br />
+		Confirm Password: <input type="password" name="confirm_password" value="" size="50" /><br />
+		<input type="submit" value="submit" />
+	</form>
+</body>
+</html>
