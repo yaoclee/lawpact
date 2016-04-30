@@ -7,6 +7,7 @@ from django.conf import settings
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
+        url(r'^login/$', views.user_login, name='login'),
         #url(r'^about/$', views.about, name='about'),
         #url(r'^add_category/$', views.add_category, name='add_category'),
         #url(r'^register/$', views.register, name='register'),

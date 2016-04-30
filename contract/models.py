@@ -7,9 +7,11 @@ from django.utils.translation import ugettext_lazy as _
 from bsddb.test.test_all import verbose
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    phone_number = models.CharField(max_length=15)
-    pic = models.ImageField(upload_to='images', blank=True)
+    user = models.OneToOneField(User, verbose_name=u"用户")
+    phone_number = models.CharField(u"电话号码", max_length=15)
+    pic = models.ImageField(u"头像", upload_to='images', blank=True)
+    validatecode = models.CharField(max_length=128, blank=True)
+    contract_url = models.URLField()
     
     class Meta:
         verbose_name = u"注册用户"
@@ -41,6 +43,10 @@ class Backlog(models.Model):
     user = models.ForeignKey(User)
     date = models.DateField()
     content = models.TextField()
+    
+    class Meta:
+        verbose_name = u"待办事项"
+        verbose_name_plural = u"待办事项"
     
     def __unicode__(self):
         return self.user.username
