@@ -45,9 +45,12 @@ def register(request):
             #user = register_form.save()
             #user.save()
             dt = request.POST
-            username = dt.get('username')
-            email = dt.get('email')
-            password = dt.get('password')
+            #username = dt.get('username')
+            username = rf.cleaned_data['username']
+            #email = dt.get('email')
+            email = rf.cleaned_data['email']
+            #password = dt.get('password')
+            password = rf.cleaned_data['password']
             user = User.objects.create_user(username, email, password) 
             if user is not None:
                 user.save()
@@ -61,6 +64,8 @@ def register(request):
             msg = "×¢²á³É¹¦£¬ÇëµÇÂ¼"
             return render(request, 'contract/regSuccess.html')
         else:
+            print "fail to validate"
+            #print rf.cleaned_data['username']
             return render(request, 'contract/register.html', {'form' : rf})
     
     return render(request, 'contract/register.html')

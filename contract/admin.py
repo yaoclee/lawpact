@@ -1,12 +1,20 @@
+# coding=utf8
+
 from django.contrib import admin
 from contract import models 
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django_evolution.models import Evolution
+from django.db.models.base import get_absolute_url
 
 class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ['user__username',]
+    list_display = ('user', 'get_email', 'contract_url')
+
+    def get_email(self, obj):
+        return obj.user.email
+    get_email.short_description = u"注册邮箱"
 
 class UserContractAdmin(admin.ModelAdmin):
     list_display = ('user', 'name', 'backlog', 'content')

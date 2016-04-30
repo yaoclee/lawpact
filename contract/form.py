@@ -39,7 +39,7 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError(u'此邮箱已经注册，请从新输入')
         return email
     
-    def clean(self):
+    def clean_confirm_password(self):
         cleaned_data = super(RegisterForm, self).clean()
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
