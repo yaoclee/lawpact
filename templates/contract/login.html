@@ -6,12 +6,14 @@
 
 <body>
 	<h1>请登录</h1>
-	<form id="login_form" method="post" action="/login/">
-	    {% csrf_token %}
+	<form id="login_form" method="post" action="/login/">{% csrf_token %}
 		Username: <input type="text" name="username" value="" size="50" />
 		<br />
 		Password: <input type="password" name="password" value="" size="50" />
 		<br />
+		{% if err_msg %}
+		{{ err_msg }} <p>
+		{% endif %}
 		<input type="submit" value="submit" />
 	</form>
 </body>
