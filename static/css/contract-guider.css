@@ -1,0 +1,24 @@
+.nav-tabs > li > a
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #000;
+    border: 2px solid #202020;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover
+{
+    color: #fff;
+    border: 2px solid #202020;
+    background-color: #202020;
+}
+
+div.thumbnail-wrapper
+{
+	background-color: #e8e8e8;
+}

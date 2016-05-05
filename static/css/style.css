@@ -1,0 +1,813 @@
+/**************************************************
+ *
+ *
+ *
+ * body
+ *
+ *
+ *
+ **************************************************/
+body
+{
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    /* 用于相对定位 */
+
+    position: relative;
+
+    text-align: center;
+}
+
+.body-wrapper
+{
+    overflow: hidden;
+
+    margin-top: 40px;
+}
+
+.p-btn
+{
+    font-size: inherit !important;
+    line-height: 50px !important;
+
+    margin: 0 !important;
+    padding: 0 20px !important;
+
+    -webkit-transition: all .2s ease !important;
+         -o-transition: all .2s ease !important;
+            transition: all .2s ease !important;
+    vertical-align: middle !important;
+
+    color: #fff !important;
+    border: 0 !important;
+    -webkit-border-radius: 0 !important;
+       -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+    background-color: #c0d23e !important;
+    -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+            box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.p-btn:hover
+{
+    background-color: #530d85 !important;
+}
+
+.s-btn
+{
+    font-size: inherit !important;
+    line-height: 50px !important;
+
+    height: 50px !important;
+    margin: 0 !important;
+    padding: 0 20px !important;
+
+    -webkit-transition: all .2s ease !important;
+         -o-transition: all .2s ease !important;
+            transition: all .2s ease !important;
+    vertical-align: middle !important;
+
+    color: #000 !important;
+    border: 2px solid #202020 !important;
+    -webkit-border-radius: 0 !important;
+       -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+    background-color: transparent !important;
+    -webkit-box-shadow: none !important;
+       -moz-box-shadow: none !important;
+            box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.s-btn:hover
+{
+    color: #fff !important;
+    background-color: #202020 !important;
+}
+
+/* 默认段落风格 */
+
+div.welcome
+{
+    color: #530d85;
+    background-color: #e8e8e8;
+    margin-bottom: 30px;
+}
+/* 默认文本选择风格 字体颜色纯白，背景黑色透明 */
+::-moz-selection
+{
+    color: #fff;
+    background: #c0d23e;
+    text-shadow: none;
+}
+
+::selection
+{
+    color: #fff;
+    background: #c0d23e;
+    text-shadow: none;
+}
+
+/* 默认文本选择风格end */
+
+.default-h1,
+{
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 50px;
+
+    margin-top: 10px;
+}
+
+.default-h1 strong
+{
+    font-size: 48px;
+}
+
+.default-h2
+{
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 50px;
+
+    margin-top: 10px;
+}
+
+.default-h3
+{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+/* 默认粗字体 */
+strong
+{
+    font-weight: 700;
+}
+
+/* 默认段落风格end */
+
+/* 默认图片风格 */
+img
+{
+    max-width: 100%;
+}
+/* 默认图片风格end */
+
+/* 默认链接风格 */
+
+a
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    font-size: inherit;
+    border-bottom: 1px solid #c0d23e;
+    color: #c0d23e;
+    font-weight: 700;
+}
+
+a:hover,
+a:focus
+{
+    border-bottom: 1px solid #530d85;
+    color: #530d85;
+}
+
+/* 默认链接风格end */
+
+
+
+/* 按钮式链接风格 */
+.btn-link
+{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+
+    display: inline-block;
+
+    height: 50px;
+    margin: 5px;
+    padding: 15px 20px 0 20px;
+
+    border: 1px solid #fff;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    background: rgba(0, 0, 0, .3);
+}
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active,
+.btn-link:active:focus
+{
+    opacity: .6;
+    outline: 0;
+    background: rgba(0, 0, 0, .3);
+}
+
+.btn-link i
+{
+    font-size: 20px;
+    line-height: 20px;
+
+    padding-right: 5px;
+
+    vertical-align: middle;
+}
+/* 按钮式链接风格end */
+
+/**************************************************
+ *
+ *
+ *
+ * top nav
+ *
+ *
+ *
+ **************************************************/
+
+nav
+{
+    margin-bottom: 0 !important;
+
+    background-color: #000;
+}
+
+nav *
+{
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+
+    text-align: center;
+
+    color: #fff;
+}
+
+/* 头像图片 */
+nav .avatar
+{
+    width: 40px;
+    height: 40px;
+
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+
+/* 网站logo */
+nav .brand
+{
+    float: left;
+}
+
+.navbar-toggle span
+{
+    background-color: #c0d23e;
+}
+
+/* 导航栏中链接风格 */
+
+nav.navbar a,
+nav.navbar a:hover,
+nav.navbar a:focus
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    /* 无下划线 */
+    text-decoration: none;
+
+    color: #fff;
+    /* 颜色纯白 */
+    background-color: inherit;
+    border: 0;
+}
+
+.nav .open > a
+{
+    border: 0 !important;
+    background-color: #c0d23e !important;
+}
+
+.collapse > ul > li > a
+{
+    line-height: 32px;
+
+    padding: 0;
+
+    background-color: transparent;
+}
+
+.collapse.in > ul > li > a,
+.collapse > ul > li > a:hover,
+.collapse > ul > li > a:focus,
+.collapse > ul > li > a:active
+{
+    background-color: #c0d23e;
+}
+
+.dropdown-menu
+{
+    padding: 0;
+
+    border: 0;
+}
+
+.dropdown-menu > li > a
+{
+    color: #fff;
+    background-color: #c0d23e;
+}
+
+.dropdown-menu > li > a:hover
+{
+    transform: translate3d(3px, 0, 0);
+
+    color: #fff;
+    background-color: #c0d23e;
+}
+
+/**************************************************
+ *
+ *
+ *
+ * footer
+ *
+ *
+ *
+ **************************************************/
+
+footer
+{
+    margin-top: 40px;
+    padding: 40px 0;
+
+    background-color: #202020;
+}
+
+footer p
+{
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    color: #fff;
+}
+
+footer .footer-border
+{
+    width: 200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+
+    border-top: 1px solid #fff;
+}
+
+footer ul.social
+{
+    padding: 0;
+}
+
+footer ul.social li
+{
+    display: inline-block;
+}
+
+footer ul.social li a
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    width: 60px;
+    font-size: 24px;
+    line-height: 56px;
+    font-weight: 500;
+    border: 2px solid #fff;
+    display: inline-block;
+    color: #fff;
+    background-color: #202020;
+}
+
+footer ul.social li a:hover,
+footer ul.social li a:focus
+{
+    color: #202020;
+    background-color: #fff;
+}
+
+footer ul.info li
+{
+    list-style-type:none;
+    color: #fff;
+    font-size: 18px;
+}
+
+footer ul.info li span
+{
+    padding-right: 10px;
+}
+
+footer ul.info li a
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    font-size: 16px;
+    border-bottom: 1px solid #c0d23e;
+    color: #c0d23e;
+    font-weight: 700;
+}
+
+footer ul.info li a:hover,
+footer ul.info li a:focus
+{
+    border-bottom: 1px solid #530d85;
+    color: #530d85;
+}
+
+/* 默认footer风格end */
+
+/**************************************************
+ *
+ *
+ *
+ * form
+ *
+ *
+ *
+ **************************************************/
+
+/* 默认form风格 */
+
+/* 最外层框架
+   整个form包含top和bottom两部分 */
+.form-box
+{
+    /* 占据整个栅格 */
+    /* 向下偏移 */
+    margin-top: 0;
+
+    color: #fff;
+}
+
+.form-box .form-control,
+.form-box .input-group-addon
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+}
+
+/* form标题部分
+   包括左边个一个H3（左上）和一个P（左下），右边一个图片 */
+.form-top
+{
+    /* 清除form-top-left的浮动 */
+    overflow: hidden;
+
+    padding: 0 25px 15px 25px;
+
+    text-align: left;
+
+    background: #530d85;
+}
+
+.form-top-left
+{
+    /* 与后面元素排在同一行 */
+    float: left;
+    /* 占75%宽度 */
+
+    width: 75%;
+    padding-top: 25px;
+}
+
+.form-top-left h3
+{
+    margin-top: 0;
+}
+.form-top-left p
+{
+    opacity: .8;
+}
+
+/* top右侧图片 */
+.form-top-right
+{
+    /* 图片大小 */
+    font-size: 66px;
+    /* 图片粗细 */
+    line-height: 100px;
+    /* 与前面元素排在同一行 */
+
+    float: left;
+    /* 占用25%宽度 */
+
+    width: 25%;
+    padding-top: 5px;
+
+    text-align: right;
+
+    opacity: .3;
+}
+
+/* form bottom部分，包含<form> */
+.form-bottom
+{
+    /* 清除form-top-left的浮动 */
+    overflow: hidden;
+    /* padding部分，体现主题色 */
+
+    padding: 25px 25px 30px 25px;
+
+    text-align: left;
+
+    background: #530d85;
+    opacity: 0.9;
+}
+
+/* form中textarea默认参数 */
+.form-bottom form textarea
+{
+    height: 100px;
+}
+
+/* form中button默认参数 */
+.form-bottom form button.btn
+{
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+
+    color: #fff;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    background-color: #c0d23e ;
+}
+
+/* 校验出错后为控件添加的风格，由JS添加 */
+.form-bottom form .input-error
+{
+    /* 边框3px红色渐变 */
+    box-shadow: 0 0 3px 3px red;
+}
+
+form input[type='text'],
+form input[type='password'],
+{
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    vertical-align: middle;
+
+    color: #888;
+    border: 3px solid #fff;
+    background: #fff;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+}
+
+form textarea,
+form textarea.form-control
+{
+    line-height: 30px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+form input[type='text']:focus,
+form input[type='password']:focus,
+form textarea:focus,
+form textarea.form-control:focus
+{
+    border: 3px solid #fff;
+    outline: 0;
+    background: #fff;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
+}
+
+/* 设置placeholder为灰色 */
+form input[type='text']:-moz-placeholder,
+form input[type='password']:-moz-placeholder,
+form textarea:-moz-placeholder,
+form textarea.form-control:-moz-placeholder
+{
+    color: #888;
+}
+
+form input[type='text']:-ms-input-placeholder,
+form input[type='password']:-ms-input-placeholder,
+form textarea:-ms-input-placeholder,
+form textarea.form-control:-ms-input-placeholder
+{
+    color: #888;
+}
+
+form input[type='text']::-webkit-input-placeholder,
+form input[type='password']::-webkit-input-placeholder,
+form textarea::-webkit-input-placeholder,
+form textarea.form-control::-webkit-input-placeholder
+{
+    color: #888;
+}
+/* 设置placeholder为灰色end */
+
+/* 时间选择按钮 */
+
+.bootstrap-datetimepicker-widget
+{
+    color: #000;
+    background-color: #fff;
+}
+
+/* 默认form风格end */
+
+
+
+/**************************************************
+ *
+ *
+ *
+ * go to top
+ *
+ *
+ *
+ **************************************************/
+
+/* 返回顶部按钮 */
+
+#top-link-block a.well
+{
+    font-family: 'Roboto', 'Noto Sans SC', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 30px;
+
+    text-align: center;
+
+    color: #fff;
+    border: none;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    background-color: #c0d23e ;
+}
+
+/* affix-top时显示在window之外 */
+#top-link-block.affix-top
+{
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+}
+#top-link-block.affix
+{
+    right: 10px;
+    bottom: 10px;
+}
+
+/* 返回顶部按钮end */
+
+
+/**************************************************
+ *
+ *
+ *
+ * 主页
+ *
+ *
+ *
+ **************************************************/
+
+/* 巨幕 */
+
+.jumbotron
+{
+    height: 250px;
+
+    background: url(../img/jumbotron2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+}
+
+/* 巨幕end */
+
+/* 缩略图介绍 */
+
+div.thumbnail-wrapper
+{
+    margin-top: 10px;
+}
+
+div.thumbnail-wrapper h2
+{
+    color: #202020;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+div.thumbnail-wrapper a.more
+{
+    position: absolute;
+    right: 16px;
+    top: 0;
+    text-decoration: none;
+}
+
+a.thumbnail
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    border: 0;
+    color: #fff;
+    background-color: #530d85;
+    text-decoration: none;
+}
+
+a.thumbnail:focus,
+a.thumbnail:hover
+{
+    background-color: #c0d23e;
+}
+
+.thumbnail h4
+{
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.thumbnail p
+{
+    color: #fff;
+    font-weight: 500;
+}
+
+.thumbnail i
+{
+    font-size: 6em;
+
+    margin: 20px;
+}
+
+/* 缩略图介绍end */
+
+
+/* 向导 */
+
+.guider-wrapper
+{
+    position: relative;
+
+    display: table;
+}
+
+.guider-view
+{
+    width: 80% !important;
+    margin-right: 10% !important;
+    margin-bottom: 5px !important;
+    margin-left: 10% !important;
+
+    background-color: rgba(0,0,0,.3) !important;
+}
+
+/* 向导end */

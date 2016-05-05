@@ -1,4 +1,4 @@
-# coding=gbk
+# coding=utf-8
 
 from django.http import HttpResponse
 from django.template.context import RequestContext
@@ -12,7 +12,8 @@ from django.core.mail import send_mail
 import hashlib
 
 def index(request):
-    return HttpResponse("Welcome to LawPact")
+    return render_to_response("index.html")
+    #return HttpResponse("Welcome to LawPact")
 
 def user_login(request):
     #context = RequestContext(request)
@@ -68,8 +69,8 @@ def register(request):
                 user_profile.save()
 
                 ##send email##
-                mail_title = u'ÂÉÊ¦ÍøÕËºÅ¼¤»î'
-                mail_content = u'Ç×°®µÄ£¬¸ĞĞ»ÄúµÄ×¢²á£¬Çëµã»÷ÏÂÃæÁ´½Ó¼¤»îÕËºÅ\n'
+                mail_title = u'å¾‹å¾‹ç½‘è´¦å·æ¿€æ´»'
+                mail_content = u'äº²çˆ±çš„ï¼Œæ„Ÿè°¢æ‚¨çš„æ³¨å†Œï¼Œè¯·ç‚¹å‡»ä¸‹é¢é“¾æ¥æ¿€æ´»è´¦å·\n\n'
                 active_link = 'http://localhost:8000/activate/' + activekey
                 mail_content += active_link
                 mail_from = 'imblues@126.com'
@@ -84,7 +85,7 @@ def register(request):
                 print "failed to register"
 
                         
-            msg = "×¢²á³É¹¦£¬ÇëµÇÂ¼"
+            msg = "æ³¨å†ŒæˆåŠŸï¼Œè¯·ç™»å½•"
             return render(request, 'contract/regSuccess.html')
         else:
             print "fail to validate"
@@ -98,11 +99,25 @@ def activation(request, key):
     profile = get_object_or_404(UserProfile, activation_key=key)
     if profile is not None:
         if profile.user.is_active == False:
-            print "¼¤»î³É¹¦"
+            print "æ¿€æ´»æˆåŠŸ"
             profile.user.is_active = True
             profile.user.save()
-        return HttpResponse(u'ÕËºÅ¼¤»î³É¹¦')
-    return HttpResponse(u'¸ÃÕËºÅ²»´æÔÚ')
+        return HttpResponse(u'è´¦å·æ¿€æ´»æˆåŠŸ')
+    return HttpResponse(u'è¯¥è´¦å·ä¸å­˜åœ¨')
     
-    
-    
+import os
+ 
+def save_pdf(request, html):
+    print 'html=%s' % html
+    cmd = 'echo ' + html + ' | wkhtmltopdf - test.pdf'
+    print cmd,
+    os.system(cmd)
+    return HttpResponse("generate pdf successuflly")
+
+def print_test_pdf(request):
+    return printPdf('test.pdf')
+
+def printPdf(path):
+    with open(path, "rb") as f:
+        data = f.read()
+    return HttpResponse(data, mimetype='application/pdf')

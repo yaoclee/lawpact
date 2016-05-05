@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>生成向导</title>
+    <meta name="description" content="有娱-生成向导">
+    <meta name="author" content="xiao kai, peng">
+
+    <!-- 导入Roboto字体
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
+    <!-- 导入noto sans sc字体
+    <link rel="stylesheet" href="http://fonts.useso.com/earlyaccess/notosanssc.css"> -->
+
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/contract-guider.css">
+
+    <!-- 加载各种icon -->
+    <link rel="icon" href="../img/logo.ico">
+    <link rel="shortcut icon" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+
+
+</head>
+
+<body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">示例1</a>
+						</li>
+						<li>
+							<a href="#">示例2</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								用户名
+								<img src="../img/avatar.jpg" class="avatar">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">我的合同</a></li>
+								<li><a href="#">站内信</a></li>
+								<li><a href="#">账户管理</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">退出登录</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 welcome">
+					<h1>开始创建合同吧！</h1>
+					<h3>
+						如果你已经熟悉合同种类，请直接按名字搜索想要创建的合同。
+					</h3>
+					<h3 hidden>
+						另外我们也提供向导，按照提示简单选择即可找到合适的合同。
+					</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<!--<ul class="nav nav-tabs" id="switch-bar">
+						<li role="presentation" class="active"><a href="#search-view" aria-controls="home" role="tab" data-toggle="tab">合同搜索</a></li>
+						<li role="presentation"><a href="#guid-view" aria-controls="profile" role="tab" data-toggle="tab">合同向导</a></li>
+					</ul> -->
+
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="search-view">
+							<div class="form-box">
+								<div hidden class="form-top">
+									<div class="form-top-left">
+										<h3 class="default-h3">
+											合同搜索
+										</h3>
+										<p>
+											按合同种类搜索合同
+										</p>
+									</div>
+									<div class="form-top-right">
+										<i class="fa fa-cloud"></i>
+									</div>
+								</div>
+								<div class="form-bottom">
+								    <div class="input-group search_div">
+								      <input type="search" class="form-control" placeholder="在合同库中搜索...">
+								      <span class="input-group-btn">
+								        <button class="btn btn-default search_btn" type="button"><span class="fa fa-search"></span></button>
+								      </span>
+								    </div>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>著作与许可</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>文学作品改编许可合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧剧本委托创作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影剧本委托创作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧剧本版权转让合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影剧本版权转让合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>剧本摄制电视剧许可合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>剧本摄制电影许可使用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>影视剧主题曲委托创作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>音乐作品许可使用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>摄影、图片及美术作品许可使用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>投融资</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影联合投资摄制合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧联合投资摄制合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>广告植入合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>商业赞助合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>版权预售合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>植入广告代理合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>人员聘用</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>导演聘用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>演员聘用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>制片人聘用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>制片主任聘用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>摄像聘用合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>器材场地</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>车辆租赁合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>器材设备租赁合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>场地租赁合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>委托制作</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>音效委托制作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>特效制作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>录音合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>字幕制作合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>发行</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影影院发行代理合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧电视播映许可合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧电视播映许可合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>信息网络传播许可合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>影视剧版权转让合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>音像制品出版发行合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影拷贝复制合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="row thumbnail-wrapper">
+								<div class="col-sm-12">
+									<h2>其他合同</h2>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电视剧宣传服务合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>电影宣传服务合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3">
+									<a href="#" class="thumbnail">
+										<div class="caption">
+											<h4>法律服务合同</h4>
+											<p>...</p>
+										</div>
+									</a>
+								</div>
+							</div>
+
+						</div>
+						<div role="tabpanel" class="tab-pane" id="guid-view">
+							<div class="form-box">
+								<div class="form-top">
+									<div class="form-top-left">
+										<h3 class="default-h3">
+											合同向导
+										</h3>
+										<p>
+											按部就班，轻松找到
+										</p>
+									</div>
+									<div class="form-top-right">
+										<i class="fa fa-check-square-o"></i>
+									</div>
+								</div>
+								<div class="form-bottom">
+									<div hidden class="guider">
+										<ul>名字
+											<li>
+												张三
+												<ul>亲戚
+													<li>
+														三姑
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														六姨
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														七婶
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												李四
+												<ul>亲戚
+													<li>
+														三姑
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														六姨
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														七婶
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												王二
+												<ul>亲戚
+													<li>
+														三姑
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														六姨
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														七婶
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li>
+												麻子
+												<ul>亲戚
+													<li>
+														三姑
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														六姨
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+													<li>
+														七婶
+														<ul>亲戚的亲戚
+															<li>的老公</li>
+															<li>的公公</li>
+															<li>的外公</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright © 2016 XXXX 版权所有</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="social">
+						<li><a href="" class="fa fa-qq"></a></li>
+						<li><a href="" class="fa fa-weixin"></a></li>
+						<li><a href="" class="fa fa-weibo"></a></li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 返回顶部悬浮按钮 -->
+	<span id="top-link-block" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
+	        <i class="fa fa-arrow-up"></i>返回顶部
+	    </a>
+	</span>
+
+	<!-- 加载JS -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/contract-guider.js"></script>
+</body>
+</html>

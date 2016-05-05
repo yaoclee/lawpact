@@ -54,7 +54,7 @@ TIME_ZONE = 'Asia/Shanghai'
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'zh-CN'
-DEFAULT_CHARSET = 'gbk'
+DEFAULT_CHARSET = 'utf-8'
 
 SITE_ID = 1
 
@@ -150,6 +150,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'contract',
     'south',
+    'wkhtmltopdf',
     #'django_evolution'
 )
 

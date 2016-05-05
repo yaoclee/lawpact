@@ -1,0 +1,219 @@
+/**************************************************
+ *
+ *
+ *
+ * progress-bar
+ *
+ *
+ *
+ **************************************************/
+div.progress
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+}
+
+div.progress div.progress-bar
+{
+    background-color: #c0d23e;
+}
+
+
+/**************************************************
+ *
+ *
+ *
+ * pagination
+ *
+ *
+ *
+ **************************************************/
+div.pagination
+{
+    margin-top: 10px;
+}
+
+div.pagination button,
+div.pagination button:active,
+div.pagination button:focus,
+div.pagination button:hover
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #c0d23e;
+    border: 2px solid #c0d23e;
+}
+
+div.pagination button.disabled,
+div.pagination button.disabled:active,
+div.pagination button.disabled:focus,
+div.pagination button.disabled:hover
+{
+    color: #ccc;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    outline:0;
+}
+
+/**************************************************
+ *
+ *
+ *
+ * nav-tabs
+ *
+ *
+ *
+ **************************************************/
+
+/* 合同生成表单 */
+
+#questionnaire
+{
+    margin-top: 0;
+}
+
+#questionnaire div.form-bottom
+{
+    height: 470px;
+}
+
+/* 超小屏幕（手机，小于 768px） */
+@media (max-width: 768px)
+{
+    #questionnaire div.form-bottom
+    {
+        height: auto;
+    }
+}
+
+.nav-tabs
+{
+    border-bottom: 0;
+}
+
+.nav-tabs > li > a
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #000;
+    border: 2px solid #202020;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover
+{
+    color: #fff;
+    border: 2px solid #202020;
+    background-color: #202020;
+}
+
+.separator-title
+{
+    float: left;
+}
+
+.separator
+{
+    float: left;
+
+    width: 50px;
+    margin-top: 14px;
+}
+
+div.section-box
+{
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+/* 合同生成表单end */
+
+/**************************************************
+ *
+ *
+ *
+ * 合同预览窗口
+ *完全参照word设置
+ *
+ *
+ **************************************************/
+
+.a4-warpper
+{
+    background-color: #530d85;
+}
+
+.a4-paper
+{
+    margin: 0 auto;
+    width: 21cm;
+    /*height: 29.7cm;*/
+    height: 641px;
+    font-size: 14pt;
+    line-height: 1.5;
+    text-align: left;
+    background-color: #fff;
+    color: #000;
+    overflow: auto;
+}
+
+.a4-margin
+{
+    margin-top: 2.54cm;
+    margin-right: 3.17cm;
+    margin-bottom: 2.54cm;
+    margin-left: 3.17cm;
+}
+
+/* 普通段落首行缩进2个字 */
+.para
+{
+    text-indent: 28pt;
+    text-align: justify;
+}
+
+/* 列表段落首行悬挂缩进，参照word */
+.list
+{
+    padding-left: 0.74cm;
+    text-indent: -0.74cm;
+    text-align: justify;
+}
+
+.title
+{
+    text-align: center;
+    font-size: 28pt;
+    font-weight: bold;
+}
+
+/* 超小屏幕（手机，小于 768px） */
+@media (max-width: 21cm)
+{
+    .a4-paper
+    {
+        width:100%;
+    }
+
+    .a4-margin
+    {
+        margin: 0;
+    }
+}
+
+
+
+
+
+

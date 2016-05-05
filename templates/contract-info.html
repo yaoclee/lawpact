@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>合同管理</title>
+    <meta name="description" content="有娱-合同管理">
+    <meta name="author" content="xiao kai, peng">
+
+    <!-- 导入Roboto字体
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
+    <!-- 导入noto sans sc字体
+    <link rel="stylesheet" href="http://fonts.useso.com/earlyaccess/notosanssc.css"> -->
+
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/contract-info.css">
+
+    <!-- 加载各种icon -->
+    <link rel="icon" href="../img/logo.ico">
+    <link rel="shortcut icon" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+
+
+</head>
+
+<body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">示例1</a>
+						</li>
+						<li>
+							<a href="#">示例2</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								用户名
+								<img src="../img/avatar.jpg" class="avatar">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">我的合同</a></li>
+								<li><a href="#">站内信</a></li>
+								<li><a href="#">账户管理</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">退出登录</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="body-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12" id="doc-info-view">
+					<ul class="nav nav-tabs" id="switch-bar">
+						<li role="presentation" class="active"><a href="#table-view" aria-controls="home" role="tab" data-toggle="tab">合同</a></li>
+						<li role="presentation"><a href="#calendar-view" aria-controls="profile" role="tab" data-toggle="tab">日历</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="table-view">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-box">
+										<div class="form-top">
+											<div class="form-top-left">
+												<h3 class="default-h3">
+													合同列表
+												</h3>
+												<p>
+													编辑合同名称和标签，修改法律状态
+												</p>
+											</div>
+											<div class="form-top-right">
+												<i class="fa fa-table"></i>
+											</div>
+										</div>
+										<div class="form-bottom">
+										    <div class="input-group search_div">
+										      <input type="search" class="form-control" placeholder="可按编号、名称、标签等搜索您的合同...">
+										      <span class="input-group-btn">
+										        <button class="btn btn-default search_btn" type="button"><span class="fa fa-search"></span></button>
+										      </span>
+										    </div>
+											<div class="table-responsive">
+												<table class="table info">
+													<caption>您共有30份合同，显示第1-10份合同...</caption>
+													<thead>
+														<tr>
+															<th>合同编号</th>
+															<th>合同名称</th>
+															<th>合同类型</th>
+															<th>状态</th>
+															<th>法律状态</th>
+															<th>标签</th>
+															<th>操作</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>2</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>3</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>4</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>5</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>6</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>7</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>8</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>9</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>10</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>11</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>12</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>13</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>14</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>15</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>16</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>17</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>18</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>19</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>20</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>21</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>22</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>23</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>24</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>25</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>26</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>27</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>28</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>29</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>30</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+														<tr>
+															<td>31</td>
+															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
+															<td>影视合同</td>
+															<td>已审核</td>
+															<td>
+																<select name="status" class="table_select">
+																	<option value="agree" class="label label-success">已生效</option>
+																	<option value="disagree" class="label label-danger">已终止</option>
+																</select>
+															</td>
+															<td><input type="text" name="lable" placeholder="未设置"></td>
+															<td><button type="button" class="btn btn-default delete">删除</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="row">
+												<div class="col-sm-1 col-sm-offset-1">
+													<button type="button" class="btn btn-default prev">上一页</button>
+												</div>
+												<div class="col-sm-1 col-sm-offset-8">
+													<button type="button" class="btn btn-default next">下一页</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="calendar-view">
+							<div class="row">
+								<div class="col-sm-12">
+									<div id="calendar">
+									</div>
+
+									<div class="modal fade" id="add-event" tabindex="-1" role="dialog" aria-labelledby="Label">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+														<span aria-hidden="true">&times;</span>
+													</button>
+													<h4 class="modal-title" id="Label">添加事件</h4>
+												</div>
+												<div class="modal-body">
+								                    <input hidden name="id"/>
+													<div class="form-group">
+														<label for="script-content" class="sr-only">事件说明</label>
+														<textarea name="title" placeholder="事件说明" class="form-control"></textarea>
+													</div>
+													<div class="form-group">
+										                <div class='input-group date' id='datetimepicker1'>
+										                	<label for="script-name" class="sr-only">开始时间</label>
+										                    <input name="start" type='text' class="form-control" placeholder="开始时间"/>
+										                    <span class="input-group-addon">
+										                        <i class="fa fa-calendar"></i>
+										                    </span>
+										                </div>
+										            </div>
+													<div class="form-group">
+										                <div class='input-group date' id='datetimepicker2'>
+										                	<label for="script-name" class="sr-only">结束时间</label>
+										                    <input name="end" type='text' class="form-control" placeholder="结束时间"/>
+										                    <span class="input-group-addon">
+										                        <i class="fa fa-calendar"></i>
+										                    </span>
+										                </div>
+										            </div>
+								                    <input hidden name="backgroundColor"/>
+													<div class="form-group">
+														<label for="ref" class="sr-only">关联合同</label>
+														<select name="ref" placeholder="关联合同(编号)" class="form-control">
+														</select>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+													<button type="button" class="btn btn-primary">保存事件</button>
+													<button type="button" class="btn btn-danger">删除事件</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright © 2016 XXXX 版权所有</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="social">
+						<li><a href="" class="fa fa-qq"></a></li>
+						<li><a href="" class="fa fa-weixin"></a></li>
+						<li><a href="" class="fa fa-weibo"></a></li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 返回顶部悬浮按钮 -->
+	<span id="top-link-block" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
+	        <i class="fa fa-arrow-up"></i>返回顶部
+	    </a>
+	</span>
+
+	<!-- 加载JS -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/lang/zh-cn.js"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/contract-info.js"></script>
+</body>
+</html>
+

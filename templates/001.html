@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>文学作品改编权合同</title>
+    <meta name="description" content="有娱-文学作品改编权合同">
+    <meta name="author" content="xiao kai, peng">
+
+    <!-- 导入Roboto字体
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
+    <!-- 导入noto sans sc字体
+    <link rel="stylesheet" href="http://fonts.useso.com/earlyaccess/notosanssc.css"> -->
+
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+	<link href="https://cdn.bootcss.com/hint.css/2.1.0/hint.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/contract-creater.css">
+
+    <!-- 加载各种icon -->
+    <link rel="icon" href="../img/logo.ico">
+    <link rel="shortcut icon" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+
+
+</head>
+
+<body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">示例1</a>
+						</li>
+						<li>
+							<a href="#">示例2</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								用户名
+								<img src="../img/avatar.jpg" class="avatar">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">我的合同</a></li>
+								<li><a href="#">站内信</a></li>
+								<li><a href="#">账户管理</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">退出登录</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="jumbotron hidden-xs">
+			<div class="container">
+			<h1>文学作品改编权合同</h1>
+			<p id="time"></p>
+			</div>
+		</div>
+	</header>
+
+	<main class="body-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+							60%
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1" id="doc-create-view">
+					<ul class="nav nav-tabs" id="switch-bar">
+						<li role="presentation" class="active"><a href="#questionnaire-view" aria-controls="home" role="tab" data-toggle="tab">问卷</a></li>
+						<li role="presentation"><a href="#sample-view" aria-controls="profile" role="tab" data-toggle="tab">预览</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="questionnaire-view">
+							<div class="form-box" id="questionnaire">
+								<div class="form-top">
+									<div class="form-top-left">
+										<h3 class="default-h3">
+											文学作品改编权合同
+										</h3>
+										<p>请按要求填入信息，我们将为您自动生成一份合同</p>
+									</div>
+									<div class="form-top-right">
+										<i class="fa fa-list"></i>
+									</div>
+								</div>
+								<div class="form-bottom">
+									<form role="form" action="url" method="post" class="registration-form">
+										<div id="section-1">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">甲方</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-001" class="sr-only">许可方：(以下简称：“甲方”)：</label>
+												<input type="text" name="001-001" placeholder="许可方：(以下简称：“甲方”)：" class="form-control">
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-002" class="sr-only">法定代表人：</label>
+														<input type="text" name="001-002" placeholder="法定代表人：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-003" class="sr-only">负责人证件号码：</label>
+														<input type="number" name="001-003" placeholder="负责人证件号码：" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-004" class="sr-only">联系地址：</label>
+												<textarea name="001-004" placeholder="联系地址：" class="form-control"></textarea>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-005" class="sr-only">联系电话：</label>
+														<input type="text" name="001-005" placeholder="联系电话：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-006" class="sr-only">代理人员：</label>
+														<input type="text" name="001-006" placeholder="代理人员：" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-007" class="sr-only">电子邮箱：</label>
+												<input type="email" name="001-007" placeholder="电子邮箱：" class="form-control">
+											</div>
+										</div>
+
+										<div id="section-2">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">乙方</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-008" class="sr-only">被许可方：(以下简称：“乙方”)：</label>
+												<input type="text" name="001-008" placeholder="被许可方：(以下简称：“乙方”)：" class="form-control">
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-009" class="sr-only">法定代表人：</label>
+														<input type="text" name="001-009" placeholder="法定代表人：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-010" class="sr-only">负责人证件号码：</label>
+														<input type="number" name="001-010" placeholder="负责人证件号码：" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-011" class="sr-only">联系地址：</label>
+												<textarea name="001-011" placeholder="联系地址：" class="form-control"></textarea>
+											</div>
+											<div class="row">
+												<div class="col-sm-5">
+													<div class="form-group">
+														<label for="001-012" class="sr-only">联系电话：</label>
+														<input type="text" name="001-012" placeholder="联系电话：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-7">
+													<div class="form-group">
+														<label for="001-013" class="sr-only">委托人员：</label>
+														<input type="text" name="001-013" placeholder="委托人员：" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-014" class="sr-only">电子邮箱：</label>
+												<input type="email" name="001-014" placeholder="电子邮箱：" class="form-control">
+											</div>
+										</div>
+
+										<div id="section-3">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">许可作品</p><hr class="separator" />
+											</div>
+											<div class="row">
+												<div class="col-sm-9">
+													<div class="form-group">
+														<label for="001-015" class="sr-only">作品名称：</label>
+														<input type="text" name="001-015" placeholder="作品名称：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group">
+														<label for="001-016" class="sr-only">作者：</label>
+														<input type="text" name="001-016" placeholder="作者：" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+										                <div class='input-group date' id='datetimepicker1'>
+										                	<label for="001-017" class="sr-only">创作完成时间：</label>
+										                    <input type='text' name="001-017" class="form-control" placeholder="创作完成时间："/>
+										                    <span class="input-group-addon">
+										                        <i class="fa fa-calendar"></i>
+										                    </span>
+										                </div>
+										            </div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label for="001-018">作品所有范围：</label>
+														<input type="radio" name="001-018" value="独立">独立
+														<input type="radio" name="001-018" value="共同" checked="true">共同
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-019">作品是否出版：</label>
+												<input type="radio" name="001-019" value="出版">出版
+												<input type="radio" name="001-019" value="未出版" checked="true">未出版
+											</div>
+											<div id="001-019">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+											                <div class='input-group date' id='datetimepicker2'>
+											                	<label for="001-020" class="sr-only">出版时间：</label>
+											                    <input type='text' name="001-020" class="form-control" placeholder="出版时间："/>
+											                    <span class="input-group-addon">
+											                        <i class="fa fa-calendar"></i>
+											                    </span>
+											                </div>
+											            </div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group">
+															<label for="001-021" class="sr-only">出版机构名称：</label>
+															<input type="text" name="001-021" placeholder="出版机构名称：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="001-022" class="sr-only">ISBN：</label>
+													<input type="text" name="001-022" placeholder="ISBN：" class="form-control">
+												</div>
+												<div class="form-group">
+													<label for="001-023">作品著作权是否已登记：</label>
+													<input type="radio" name="001-023" value="已登记">已登记
+													<input type="radio" name="001-023" value="未登记" checked="true">未登记
+												</div>
+												<div id="001-023">
+													<div class="row">
+														<div class="col-sm-4">
+															<div class="form-group">
+												                <div class='input-group date' id='datetimepicker3'>
+												                	<label for="001-024" class="sr-only">登记时间：</label>
+												                    <input type='text' name="001-024" class="form-control" placeholder="登记时间："/>
+												                    <span class="input-group-addon">
+												                        <i class="fa fa-calendar"></i>
+												                    </span>
+												                </div>
+												            </div>
+														</div>
+														<div class="col-sm-8">
+															<div class="form-group">
+																<label for="001-025" class="sr-only">登记号：</label>
+																<input type="text" name="001-025" placeholder="登记号：" class="form-control">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div id="section-4">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">许可内容</p><hr class="separator" />
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+										                <div class='input-group date' id='datetimepicker4'>
+										                	<label for="001-026" class="sr-only">许可开始时间：</label>
+										                    <input type='text' name="001-026" class="form-control" placeholder="许可开始时间："/>
+										                    <span class="input-group-addon">
+										                        <i class="fa fa-calendar"></i>
+										                    </span>
+										                </div>
+										            </div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+										                <div class='input-group date' id='datetimepicker5'>
+										                	<label for="001-027" class="sr-only">许可结束时间：</label>
+										                    <input type='text' name="001-027" class="form-control" placeholder="许可结束时间："/>
+										                    <span class="input-group-addon">
+										                        <i class="fa fa-calendar"></i>
+										                    </span>
+										                </div>
+										            </div>
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-028">许可范围：</label>
+												<input type="radio" name="001-028" value="全世界">全世界
+												<input type="radio" name="001-028" value="中国境内（不包括港澳台地区）" checked="true">中国境内（不包括港澳台地区）
+											</div>
+											<div class="form-group">
+												<label for="001-029" class="sr-only">改编作品类型：</label>
+												<input type="text" name="001-029" placeholder="改编作品类型：" class="form-control" data-hint="甲方授权乙方可将原作品改编成的作品类型">
+											</div>
+											<div class="form-group">
+												<label for="001-030">许可类型：</label>
+												<input type="radio" name="001-030" value="一般性许可" checked="true">一般性许可
+												<input type="radio" name="001-030" value="排他性许可">排他性许可
+												<input type="radio" name="001-030" value="独占专有性许可">独占专有性许可
+											</div>
+											<div class="form-group">
+												<label for="001-031">前述附属许可权利的性质：</label>
+												<input type="radio" name="001-031" value="一般性许可" checked="true">一般性许可
+												<input type="radio" name="001-031" value="排他性许可">排他性许可
+												<input type="radio" name="001-031" value="独占专有性许可">独占专有性许可
+											</div>
+											<div class="form-group">
+												<label for="001-032" data-hint="甲方是否有权将许可权利转许可其他第三方行使">转许可权：</label>
+												<input type="radio" name="001-032" value="有">有
+												<input type="radio" name="001-032" value="无" checked="true">无
+											</div>
+											<div id="001-032">
+												<div class="form-group">
+													<label for="001-033" class="sr-only">转许可最迟通知甲方天数：</label>
+													<input type="number" name="001-033" placeholder="转许可最迟通知甲方天数：" class="form-control">
+												</div>
+											</div>
+										</div>
+
+										<div id="section-5">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">作品交付</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-034" class="sr-only">作品最迟交付天数：</label>
+												<input type="number" name="001-034" placeholder="作品最迟交付天数：" class="form-control">
+											</div>
+											<div class="form-group">
+												<label for="001-035" class="sr-only">交付要求：</label>
+												<textarea name="001-035" placeholder="交付要求：" class="form-control"></textarea>
+											</div>
+										</div>
+
+										<div id="section-6">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">许可费用</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-036">支付方式：</label>
+												<input type="radio" name="001-036" value="一次性支付" checked="true">一次性支付
+												<input type="radio" name="001-036" value="分两期支付">分两期支付
+												<input type="radio" name="001-036" value="分三期支付">分三期支付
+											</div>
+											<div id="001-036-1">
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label for="001-037" class="sr-only">最迟支付天数：</label>
+															<input type="number" name="001-037" placeholder="最迟支付天数：" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group">
+															<label for="001-038" class="sr-only">总金额：</label>
+															<div class="input-group">
+																<span class="input-group-addon">人民币</span>
+																<input type="number" name="001-038" placeholder="总金额：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label for="001-039" class="sr-only">户名：</label>
+															<input type="text" name="001-039" placeholder="户名：" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group">
+															<label for="001-040" class="sr-only">开户行：</label>
+															<input type="text" name="001-040" placeholder="开户行：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="001-041" class="sr-only">账号：</label>
+													<input type="number" name="001-041" placeholder="账号：" class="form-control">
+												</div>
+											</div>
+											<div id="001-036-2">
+												<div class="form-group">
+													<label for="001-042" class="sr-only">总金额：</label>
+													<div class="input-group">
+														<span class="input-group-addon">人民币</span>
+														<input type="number" name="001-042" placeholder="总金额：" class="form-control">
+														<span class="input-group-addon">万元</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-043" class="sr-only">一期支付比例：</label>
+															<div class="input-group">
+																<input type="number" name="001-043" placeholder="一期支付比例：" class="form-control">
+																<span class="input-group-addon">%</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="001-044" class="sr-only">一期支付费用：</label>
+															<div class="input-group">
+																<span class="input-group-addon">即，人民币</span>
+																<input type="number" name="001-044" placeholder="一期支付费用：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-045" class="sr-only">最迟支付天数：</label>
+															<input type="number" name="001-045" placeholder="最迟支付天数：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-046" class="sr-only">二期支付比例：</label>
+															<div class="input-group">
+																<input type="number" name="001-046" placeholder="二期支付比例：" class="form-control">
+																<span class="input-group-addon">%</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="001-047" class="sr-only">二期支付费用：</label>
+															<div class="input-group">
+																<span class="input-group-addon">即，人民币</span>
+																<input type="number" name="001-047" placeholder="二期支付费用：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+											                <div class='input-group date' id='datetimepicker6'>
+											                	<label for="001-048" class="sr-only">最迟支付日期：</label>
+											                    <input type='text' name="001-048" class="form-control" placeholder="最迟支付日期："/>
+											                    <span class="input-group-addon">
+											                        <i class="fa fa-calendar"></i>
+											                    </span>
+											                </div>
+											            </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label for="001-049" class="sr-only">户名：</label>
+															<input type="text" name="001-049" placeholder="户名：" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group">
+															<label for="001-050" class="sr-only">开户行：</label>
+															<input type="text" name="001-050" placeholder="开户行：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="001-051" class="sr-only">账号：</label>
+													<input type="number" name="001-051" placeholder="账号：" class="form-control">
+												</div>
+											</div>
+											<div id="001-036-3">
+												<div class="form-group">
+													<label for="001-052" class="sr-only">总金额：</label>
+													<div class="input-group">
+														<span class="input-group-addon">人民币</span>
+														<input type="number" name="001-052" placeholder="总金额：" class="form-control">
+														<span class="input-group-addon">万元</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-053" class="sr-only">一期支付比例：</label>
+															<div class="input-group">
+																<input type="number" name="001-053" placeholder="一期支付比例：" class="form-control">
+																<span class="input-group-addon">%</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="001-054" class="sr-only">一期支付费用：</label>
+															<div class="input-group">
+																<span class="input-group-addon">即，人民币</span>
+																<input type="number" name="001-054" placeholder="一期支付费用：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-055" class="sr-only">最迟支付天数：</label>
+															<input type="number" name="001-055" placeholder="最迟支付天数：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-056" class="sr-only">二期支付比例：</label>
+															<div class="input-group">
+																<input type="number" name="001-056" placeholder="二期支付比例：" class="form-control">
+																<span class="input-group-addon">%</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="001-057" class="sr-only">二期支付费用：</label>
+															<div class="input-group">
+																<span class="input-group-addon">即，人民币</span>
+																<input type="number" name="001-057" placeholder="二期支付费用：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+											                <div class='input-group date' id='datetimepicker7'>
+											                	<label for="001-058" class="sr-only">最迟支付日期：</label>
+											                    <input type='text' name="001-058" class="form-control" placeholder="最迟支付日期："/>
+											                    <span class="input-group-addon">
+											                        <i class="fa fa-calendar"></i>
+											                    </span>
+											                </div>
+											            </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label for="001-059" class="sr-only">三期支付比例：</label>
+															<div class="input-group">
+																<input type="number" name="001-059" placeholder="三期支付比例：" class="form-control">
+																<span class="input-group-addon">%</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label for="001-060" class="sr-only">三期支付费用：</label>
+															<div class="input-group">
+																<span class="input-group-addon">即，人民币</span>
+																<input type="number" name="001-060" placeholder="三期支付费用：" class="form-control">
+																<span class="input-group-addon">万元</span>
+															</div>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+											                <div class='input-group date' id='datetimepicker8'>
+											                	<label for="001-061" class="sr-only">最迟支付日期：</label>
+											                    <input type='text' name="001-061" class="form-control" placeholder="最迟支付日期："/>
+											                    <span class="input-group-addon">
+											                        <i class="fa fa-calendar"></i>
+											                    </span>
+											                </div>
+											            </div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label for="001-062" class="sr-only">户名：</label>
+															<input type="text" name="001-062" placeholder="户名：" class="form-control">
+														</div>
+													</div>
+													<div class="col-sm-8">
+														<div class="form-group">
+															<label for="001-063" class="sr-only">开户行：</label>
+															<input type="text" name="001-063" placeholder="开户行：" class="form-control">
+														</div>
+													</div>
+												</div>
+												<div class="form-group">
+													<label for="001-064" class="sr-only">账号：</label>
+													<input type="number" name="001-064" placeholder="账号：" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="001-065">税费承担：</label>
+												<input type="radio" name="001-065" value="含税">含税
+												<input type="radio" name="001-065" value="不含税" checked="true">不含税
+											</div>
+											<div id="001-065">
+												<div class="form-group">
+													<label for="001-075" class="sr-only">税费：</label>
+													<div class="input-group">
+														<span class="input-group-addon">人民币</span>
+														<input type="number" name="001-075" placeholder="税费：" class="form-control">
+														<span class="input-group-addon">元</span>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div id="section-7">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">知识产权归属</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-066" class="sr-only">新作品权属：</label>
+												<input type="text" name="001-066" placeholder="新作品权属：" class="form-control">
+											</div>
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="form-group">
+														<label for="001-067" class="sr-only">作者：</label>
+														<input type="text" name="001-067" placeholder="作者：" class="form-control">
+													</div>
+												</div>
+												<div class="col-sm-9">
+													<div class="form-group">
+														<label for="001-068" class="sr-only">作品名称：</label>
+														<input type="text" name="001-068" placeholder="作品名称：" class="form-control">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div id="section-8">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">权利义务</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-069" class="sr-only">最晚通知天数：</label>
+												<input type="number" name="001-069" placeholder="最晚通知天数：" class="form-control">
+											</div>
+										</div>
+
+										<div id="section-9">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">违约责任</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-070" class="sr-only">违约金比例：</label>
+												<div class="input-group">
+													<span class="input-group-addon">每逾期1天</span>
+													<input type="number" name="001-070" placeholder="违约金比例：" class="form-control">
+													<span class="input-group-addon">‰</span>
+												</div>
+											</div>
+										</div>
+
+										<div id="section-10">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">合同解除</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-071" class="sr-only">最大未履约天数：</label>
+												<input type="number" name="001-071" placeholder="最大未履约天数：" class="form-control">
+											</div>
+											<div class="form-group">
+												<label for="001-072" class="sr-only">最大支付违约金天数：</label>
+												<input type="number" name="001-072" placeholder="最大支付违约金天数：" class="form-control">
+											</div>
+										</div>
+
+										<div id="section-11">
+											<div class="section-box">
+												<hr class="separator" /><p class="separator-title">附则</p><hr class="separator" />
+											</div>
+											<div class="form-group">
+												<label for="001-073" class="sr-only">本合同份数：</label>
+												<input type="number" name="001-073" placeholder="本合同份数：" class="form-control">
+											</div>
+											<button type="submit" class="btn">提交合同信息</button>
+										</div>
+									</form>
+								</div>
+								<div class="row">
+									<div class="col-sm-1 col-sm-offset-1">
+										<div class="pagination">
+											<button type="button" class="btn btn-default prev">上一页</button>
+										</div>
+									</div>
+									<div class="col-sm-1 col-sm-offset-8">
+										<div class="pagination">
+											<button type="button" class="btn btn-default next">下一页</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="sample-view">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright © 2016 XXXX 版权所有</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="social">
+						<li><a href="" class="fa fa-qq"></a></li>
+						<li><a href="" class="fa fa-weixin"></a></li>
+						<li><a href="" class="fa fa-weibo"></a></li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 返回顶部悬浮按钮 -->
+	<span id="top-link-block" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
+	        <i class="fa fa-arrow-up"></i>返回顶部
+	    </a>
+	</span>
+
+	<!-- 加载JS -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment.min.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.11.2/locale/zh-cn.js"></script>
+	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment-with-locales.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	<script src="../js/script.js"></script>
+	<script src="../js/001.js"></script>
+</body>
+</html>

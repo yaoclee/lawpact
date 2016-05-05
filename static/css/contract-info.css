@@ -1,0 +1,197 @@
+/**************************************************
+ *
+ *
+ *
+ * tab
+ *
+ *
+ *
+ **************************************************/
+.nav-tabs > li > a
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #000;
+    border: 2px solid #202020;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li > a:hover
+{
+    color: #fff;
+    border: 2px solid #202020;
+    background-color: #202020;
+}
+
+/**************************************************
+ *
+ *
+ *
+ * table
+ *
+ *
+ *
+ **************************************************/
+/* 列表风格 */
+
+table.info,
+table.info caption
+{
+    text-align: left;
+	background-color: #fff;
+    color: #000;
+}
+
+table.info thead th,
+table.info tbody td
+{
+    text-align: center;
+}
+
+.table_select
+{
+    color: #fff;
+    border: none;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    background-color: transparent;
+}
+
+.page_option
+{
+    background-color: rgba(0,0,0,.3);
+}
+
+
+table.info input,
+table.info input:focus
+{
+    text-align: center;
+
+    border: none;
+    background-color: transparent;
+}
+
+input[type='search']
+{
+    font-size: 20px;
+
+    height: 50px;
+
+    color: #000;
+    border: none;
+    -webkit-border-radius: 90px 0 0 90px;
+       -moz-border-radius: 90px 0 0 90px;
+            border-radius: 90px 0 0 90px;
+}
+
+button.search_btn
+{
+    font-size: 20px;
+    border: 0;
+    color: #000;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    background-color: #fff;
+    padding: 11px;
+}
+
+div.search_div
+{
+    padding-bottom: 20px;
+}
+button.delete,
+button.delete:active,
+button.delete:focus,
+button.delete:hover
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #fff;
+    background-color: #d9534f;
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 21px;
+    font-size: 16px;
+    outline: 0;
+}
+
+/* 列表风格end */
+
+/**************************************************
+ *
+ *
+ *
+ * pagination
+ *
+ *
+ *
+ **************************************************/
+
+button.prev,
+button.prev:active,
+button.prev:focus,
+button.prev:hover,
+button.next,
+button.next:active,
+button.next:focus,
+button.next:hover
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #c0d23e;
+    border: 2px solid #c0d23e;
+    outline: 0;
+}
+
+button.prev.disabled,
+button.prev.disabled:active,
+button.prev.disabled:focus,
+button.prev.disabled:hover,
+button.next.disabled,
+button.next.disabled:active,
+button.next.disabled:focus,
+button.next.disabled:hover
+{
+    color: #ccc;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    outline:0;
+}
+
+/**************************************************
+ *
+ *
+ *
+ * Calendar
+ *
+ *
+ *
+ **************************************************/
+
+.fc-state-default.fc-corner-left,
+.fc-state-default.fc-corner-right,
+.modal-content,
+.modal-content .form-control,
+.modal-content .input-group-addon,
+.fc-event,
+.modal-content button
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+}
+
