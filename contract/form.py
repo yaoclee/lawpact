@@ -1,4 +1,4 @@
-# coding=gbk
+# coding=utf-8
 from django import forms
 from django.contrib.auth.models import User
 from contract.models import UserProfile
@@ -29,14 +29,14 @@ class RegisterForm(forms.Form):
         username = self.cleaned_data['username']
         res = User.objects.filter(username=username)
         if len(res) != 0:
-            raise forms.ValidationError(u'´ËêÇ³ÆÒÑ¾­×¢²á£¬Çë´ÓĞÂÊäÈë')
+            raise forms.ValidationError(u'æ­¤æ˜µç§°å·²ç»æ³¨å†Œï¼Œè¯·ä»æ–°è¾“å…¥')
         return username
     
     def clean_email(self):
         email = self.cleaned_data['email']
         res = User.objects.filter(email=email)
         if len(res) != 0:
-            raise forms.ValidationError(u'´ËÓÊÏäÒÑ¾­×¢²á£¬Çë´ÓĞÂÊäÈë')
+            raise forms.ValidationError(u'æ­¤é‚®ç®±å·²ç»æ³¨å†Œï¼Œè¯·ä»æ–°è¾“å…¥')
         return email
     
     def clean_confirm_password(self):
@@ -45,4 +45,4 @@ class RegisterForm(forms.Form):
         confirm_password = cleaned_data.get('confirm_password')
         if password and confirm_password:
             if password != confirm_password:
-                raise forms.ValidationError(u'Á½´ÎÃÜÂëÊäÈë²»Ò»ÖÂ£¬ÇëÖØĞÂÊäÈë')
+                raise forms.ValidationError(u'ä¸¤æ¬¡å¯†ç è¾“å…¥ä¸ä¸€è‡´ï¼Œè¯·é‡æ–°è¾“å…¥')
