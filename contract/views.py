@@ -2,7 +2,7 @@
 
 from django.http import HttpResponse
 from django.template.context import RequestContext
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.http.response import HttpResponseRedirect
 from contract.form import RegisterForm
@@ -12,7 +12,8 @@ from django.core.mail import send_mail
 import hashlib
 
 def index(request):
-    return render_to_response("index.html")
+    context = RequestContext(request)
+    return render_to_response("index.html", context)
     #return HttpResponse("Welcome to LawPact")
 
 def user_login(request):
@@ -35,9 +36,13 @@ def user_login(request):
                 #return render(request, "User account is disabled!")
         else:
             print "Invalid login details: {0}, {1}".format(username, password)
-            error_msg = "Wrong username or password!"
+            error_msg = u"用户名或密码错误，请重新输入！"
             #render(request, "Invalid detailed provided.")
-    return render(request, 'contract/login.html', {'err_msg' : error_msg})
+    return render(request, 'login.html', {'err_msg' : error_msg})
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 def register(request):
     #err_msg = ""

@@ -1,4 +1,4 @@
-# coding=gbk
+# coding=utf-8
 
 from django.db import models
 from django.contrib.auth.models import User
@@ -7,9 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 from bsddb.test.test_all import verbose
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, verbose_name=u"ÓÃ»§")
-    phone_number = models.CharField(u"µç»°ºÅÂë", max_length=15, blank=True)
-    pic = models.ImageField(u"Í·Ïñ", upload_to='images', blank=True)
+    user = models.OneToOneField(User, verbose_name=u"ç”¨æˆ·")
+    phone_number = models.CharField(u"ç”µè¯å·ç ", max_length=15, blank=True)
+    pic = models.ImageField(u"å¤´åƒ", upload_to='images', blank=True)
     contract_url = models.URLField(blank=True)
     
     #For user active by the email
@@ -17,27 +17,41 @@ class UserProfile(models.Model):
     key_expires = models.DateTimeField(blank=True, null=True)
    
     class Meta:
-        verbose_name = u"×¢²áÓÃ»§"
-        verbose_name_plural = u"×¢²áÓÃ»§"
+        verbose_name = u"æ³¨å†Œç”¨æˆ·"
+        verbose_name_plural = u"æ³¨å†Œç”¨æˆ·"
     
     def __unicode__(self):
         return self.user.username
     
+CONTRACT_STATUS_CHOICES = (
+    ('0', u'æœªå®¡æ ¸'),
+    ('1', u'å·²å®¡æ ¸'),
+    ('2', u'å®¡æ ¸ä¸­'),
+)
+
+LAW_STATUS_CHOICES = (
+    ('0', u'å·²ç”Ÿæ•ˆ'),
+    ('1', u'å·²ç»ˆæ­¢'),
+
+)
 
 class UserContract(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=50, verbose_name=_('name'))
-    type = models.CharField(max_length=20, verbose_name=u"ºÏÍ¬ÀàĞÍ")
-    contract_status = models.BooleanField(verbose_name = u"ºÏÍ¬×´Ì¬")
-    law_status = models.BooleanField()
+    type = models.CharField(max_length=20, verbose_name=u"åˆåŒç±»å‹")
+    #contract_status = models.BooleanField(verbose_name = u"åˆåŒçŠ¶æ€")
+    #law_status = models.BooleanField()
+    contract_status = models.CharField(verbose_name = u"åˆåŒçŠ¶æ€", max_length=1, choices=CONTRACT_STATUS_CHOICES)
+    law_status = models.CharField(verbose_name = u"æ³•å¾‹çŠ¶æ€", max_length=1, choices=LAW_STATUS_CHOICES)
+
     backlog_date = models.DateField()
     backlog = models.CharField(max_length=200)
     content = models.TextField()
     file = models.FileField(upload_to='files', blank=True)
     
     class Meta:
-        verbose_name = u"ÓÃ»§ºÏÍ¬"
-        verbose_name_plural = u"ÓÃ»§ºÏÍ¬"
+        verbose_name = u"ç”¨æˆ·åˆåŒ"
+        verbose_name_plural = u"ç”¨æˆ·åˆåŒ"
     
     def __unicode__(self):
         return self.name
@@ -48,8 +62,8 @@ class Backlog(models.Model):
     content = models.TextField()
     
     class Meta:
-        verbose_name = u"´ı°ìÊÂÏî"
-        verbose_name_plural = u"´ı°ìÊÂÏî"
+        verbose_name = u"å¾…åŠäº‹é¡¹"
+        verbose_name_plural = u"å¾…åŠäº‹é¡¹"
     
     def __unicode__(self):
         return self.user.username
