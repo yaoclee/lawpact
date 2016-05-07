@@ -17,8 +17,8 @@ class UserProfile(models.Model):
     key_expires = models.DateTimeField(blank=True, null=True)
    
     class Meta:
-        verbose_name = u"注册用户"
-        verbose_name_plural = u"注册用户"
+        verbose_name = u"1.注册用户信息"
+        verbose_name_plural = u"1.注册用户信息"
     
     def __unicode__(self):
         return self.user.username
@@ -50,8 +50,8 @@ class UserContract(models.Model):
     file = models.FileField(upload_to='files', blank=True)
     
     class Meta:
-        verbose_name = u"用户合同"
-        verbose_name_plural = u"用户合同"
+        verbose_name = u"2.合同信息"
+        verbose_name_plural = u"2.合同信息"
     
     def __unicode__(self):
         return self.name
@@ -62,8 +62,8 @@ class Backlog(models.Model):
     content = models.TextField()
     
     class Meta:
-        verbose_name = u"待办事项"
-        verbose_name_plural = u"待办事项"
+        verbose_name = u"3.待办事项列表"
+        verbose_name_plural = u"3.待办事项列表"
     
     def __unicode__(self):
         return self.user.username
