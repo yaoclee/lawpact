@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+{% load static %}
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
 
 	<title>文学作品改编权合同</title>
     <meta name="description" content="有娱-文学作品改编权合同">
-    <meta name="author" content="xiao kai, peng">
+    <meta name="author" content="xiaokai, peng">
 
     <!-- 导入Roboto字体
     <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
@@ -18,16 +19,16 @@
 	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	<link href="https://cdn.bootcss.com/hint.css/2.1.0/hint.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/contract-creater.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/contract-creater.css' %}">
 
     <!-- 加载各种icon -->
-    <link rel="icon" href="../img/logo.ico">
-    <link rel="shortcut icon" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+    <link rel="icon" href="{% static 'img/logo.ico' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/logo.ico' %}">
 
 
 </head>
@@ -38,7 +39,7 @@
 		<nav role="navigation" class="navbar navbar-static-top">
 			<div class="container">
 				<a class="brand" href="#">
-					<img alt="Brand" src="../img/logo.ico">
+					<img alt="Brand" src="{% static 'img/logo.ico' %}">
 				</a>
 
 				<div class="navbar-header">
@@ -67,7 +68,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 								用户名
-								<img src="../img/avatar.jpg" class="avatar">
+								<img src="{% static 'img/avatar.jpg' %}" class="avatar">
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu">
@@ -124,7 +125,8 @@
 									</div>
 								</div>
 								<div class="form-bottom">
-									<form role="form" action="url" method="post" class="registration-form">
+									<form role="form" action="/create_contract/" method="post" class="registration-form">
+										{% csrf_token %}
 										<div id="section-1">
 											<div class="section-box">
 												<hr class="separator" /><p class="separator-title">甲方</p><hr class="separator" />
@@ -730,6 +732,7 @@
 												<label for="001-073" class="sr-only">本合同份数：</label>
 												<input type="number" name="001-073" placeholder="本合同份数：" class="form-control">
 											</div>
+											<input type="hidden" name="content" id="id_content" value="<html><head><meta charset='UTF-8'></head><h1>合同标题</h1><h5>合同内容</h5></html>"><br />
 											<button type="submit" class="btn">提交合同信息</button>
 										</div>
 									</form>
@@ -797,7 +800,7 @@
 	<script src="https://cdn.bootcss.com/moment.js/2.11.2/locale/zh-cn.js"></script>
 	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment-with-locales.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-	<script src="../js/script.js"></script>
-	<script src="../js/001.js"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="{% static 'js/001.js' %}"></script>
 </body>
 </html>

@@ -17,14 +17,19 @@ urlpatterns = patterns('',
         url(r'^spdf/(?P<html>.+)$', views.save_pdf, name='generate_pdf'),
         url(r'^get_test_pdf/$', views.print_test_pdf, name='get_pdf_file'),
 
+        # not confirmed
         url(r'^pdf/$', PDFTemplateView.as_view(template_name='contract/3.html', filename='my_pdf.pdf'),
             name='pdf'),
+        url(r'^create_contract/$', views.create_contract, name='create_new_contract'),
 
+        #test urls...
+        url(r'^test_create/$', views.test_create, name='test_create_contract'),
         #url(r'^about/$', views.about, name='about'),
         #url(r'^add_category/$', views.add_category, name='add_category'),
         #url(r'^register/$', views.register, name='register'),
         #url(r'^login/$', views.user_login, name='login'),
         #url(r'^category/(?P<category_name_url>\w+)/$', views.category, name='category'),
+
         )
 
 if settings.DEBUG:

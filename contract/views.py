@@ -10,6 +10,7 @@ from contract.models import UserProfile
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
+import cmd
 
 def index(request):
     context = RequestContext(request)
@@ -112,6 +113,7 @@ def activation(request, key):
     
 import os
  
+# not confirmed
 def save_pdf(request, html):
     print 'html=%s' % html
     cmd = 'echo ' + html + ' | wkhtmltopdf - test.pdf'
@@ -126,3 +128,27 @@ def printPdf(path):
     with open(path, "rb") as f:
         data = f.read()
     return HttpResponse(data, mimetype='application/pdf')
+
+import sys
+import io
+def create_contract(request):
+    print sys.getdefaultencoding()
+    if request.method == 'POST':
+        html_content = request.POST['content']
+        if len(html_content) > 0:
+            #save as html file
+            report_name = 'upload'
+            html_file_name = report_name + ".html"
+            with io.open(html_file_name, "wt", encoding='utf-8') as f:
+                f.write(html_content)
+            pdf_file_name = report_name + ".pdf"
+            cmd = 'wkhtmltopdf ' + html_file_name + ' ' + pdf_file_name
+            print cmd
+            os.system(cmd)
+        #return save_pdf(request, html_content)
+        return HttpResponse(html_content)
+    return HttpResponse(u"请求地址无效")
+# Just for testing
+def test_create(request):
+    context = RequestContext(request)
+    return render_to_response("001.html", context)
