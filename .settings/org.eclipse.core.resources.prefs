@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//contract/admin.py=utf8
+encoding//contract/admin.py=utf-8
 encoding//contract/form.py=utf-8
 encoding//contract/models.py=utf-8
 encoding//contract/views.py=utf-8
