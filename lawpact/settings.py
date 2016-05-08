@@ -151,7 +151,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'contract',
     'south',
-    'wkhtmltopdf',
+    #'wkhtmltopdf',
     #'django_evolution'
 )
 

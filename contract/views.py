@@ -96,9 +96,9 @@ def register(request):
         else:
             print "fail to validate"
             #print rf.cleaned_data['username']
-            return render(request, 'contract/register.html', {'form' : rf})
+            return render(request, 'register.html', {'form' : rf})
     
-    return render(request, 'contract/register.html')
+    return render(request, 'register.html')
 
 def activation(request, key):
     #print 'key=%s' % key

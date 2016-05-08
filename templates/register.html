@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
@@ -7,7 +8,7 @@
 
 	<title>注册</title>
     <meta name="description" content="有娱-注册">
-    <meta name="author" content="xiao kai, peng">
+    <meta name="author" content="xiaokai, peng">
 
     <!-- 导入Roboto字体
     <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
@@ -16,15 +17,15 @@
 
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- 加载各种icon -->
-    <link rel="icon" href="../img/logo.ico">
-    <link rel="shortcut icon" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+    <link rel="icon" href="{% static 'img/logo.ico' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/logo.ico' %}">
 
 
 </head>
@@ -35,7 +36,7 @@
 		<nav role="navigation" class="navbar navbar-static-top">
 			<div class="container">
 				<a class="brand" href="#">
-					<img alt="Brand" src="../img/logo.ico">
+					<img alt="Brand" src="{% static 'img/logo.ico' %}">
 				</a>
 
 				<div class="navbar-header">
@@ -114,23 +115,24 @@
 							</div>
 						</div>
 						<div class="form-bottom">
-							<form role="form" action="" method="post" class="registration-form">
+							<form role="form" action="/register/" method="post" class="registration-form"> {% csrf_token %}
 								<div class="form-group">
 									<label for="regiser-account" class="sr-only">账号</label>
-									<input type="text" name="regiser-account" placeholder="请输入账号，以字母开头..." class="form-account form-control">
-								</div>
-								<div class="form-group">
-									<label for="regiser-password" class="sr-only">密码</label>
-									<input type="password" name="regiser-password" placeholder="请输入8至16位密码..." class="form-password form-control">
-								</div>
-								<div class="form-group">
-									<label for="regiser-duplicate-password" class="sr-only">请重复输入密码</label>
-									<input type="password" name="regiser-duplicate-password" placeholder="请重复输入密码..." class="form-duplicate-password form-control">
+									<input type="text" name="username" value="" placeholder="请输入账号，以字母开头..." class="form-account form-control">{{ form.username.errors }}
 								</div>
 								<div class="form-group">
 									<label for="regiser-email" class="sr-only">电子邮箱</label>
-									<input type="text" name="regiser-email" placeholder="请输入电子邮箱..." class="form-email form-control">
+									<input type="text" name="email" value="" placeholder="请输入电子邮箱..." class="form-email form-control">{{ form.email.errors }}
 								</div>
+								<div class="form-group">
+									<label for="regiser-password" class="sr-only">密码</label>
+									<input type="password" name="password" value="" placeholder="请输入8至16位密码..." class="form-password form-control">{{ form.password.errors }}
+								</div>
+								<div class="form-group">
+									<label for="regiser-duplicate-password" class="sr-only">请重复输入密码</label>
+									<input type="password" name="confirm_password" value="" placeholder="请重复输入密码..." class="form-duplicate-password form-control">{{ form.confirm_password.errors }}
+								</div>
+								
 								<button type="submit" class="btn">提交注册信息</button>
 							</form>
 						</div>
@@ -177,6 +179,6 @@
 	<!-- 加载JS -->
 	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="../js/script.js"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
