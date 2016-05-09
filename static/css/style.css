@@ -235,11 +235,12 @@ a:focus
  *
  **************************************************/
 
-nav
+nav.navbar
 {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
 
     background-color: #000;
+    border: 0;
 }
 
 nav *
@@ -257,18 +258,41 @@ nav *
 /* 头像图片 */
 nav .avatar
 {
-    width: 40px;
-    height: 40px;
+    height: 50px;
 
-    -webkit-border-radius: 4px;
-       -moz-border-radius: 4px;
-            border-radius: 4px;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
 }
 
 /* 网站logo */
 nav .brand
 {
     float: left;
+}
+
+nav .brand img
+{
+    height: 50px;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+}
+
+.collapse .navbar-left li a
+{
+    width: 84px;
+    padding: 9px 10px;
+}
+
+.collapse .navbar-right.no-avatar li a
+{
+    padding: 9px 5px;
+}
+
+.collapse .navbar-right.no-avatar li span
+{
+    line-height: 50px;
 }
 
 .navbar-toggle span
@@ -386,7 +410,8 @@ footer ul.social li
     display: inline-block;
 }
 
-footer ul.social li a
+footer ul.social li a,
+div.bdsharebuttonbox a
 {
     -webkit-transition: all .3s;
        -moz-transition: all .3s;
@@ -394,20 +419,28 @@ footer ul.social li a
          -o-transition: all .3s;
             transition: all .3s;
     width: 60px;
+    height: auto;
     font-size: 24px;
     line-height: 56px;
     font-weight: 500;
     border: 2px solid #fff;
     display: inline-block;
     color: #fff;
+    background-image:none;
     background-color: #202020;
+    float:none;
+    margin:0;
+    padding:0;
 }
 
 footer ul.social li a:hover,
-footer ul.social li a:focus
+footer ul.social li a:focus,
+div.bdsharebuttonbox a:hover,
+div.bdsharebuttonbox a:focus
 {
     color: #202020;
     background-color: #fff;
+    text-decoration: none;
 }
 
 footer ul.info li
@@ -571,6 +604,13 @@ footer ul.info li a:focus
     box-shadow: 0 0 3px 3px red;
 }
 
+/* 校验成功后为控件添加的风格，由JS添加 */
+.form-bottom form .input-valid
+{
+    /* 边框3px红色渐变 */
+    box-shadow: 0 0 3px 3px #5cb85c;
+}
+
 form input[type='text'],
 form input[type='password'],
 {
@@ -732,6 +772,14 @@ form textarea.form-control::-webkit-input-placeholder
 div.thumbnail-wrapper
 {
     margin-top: 10px;
+    background-color: #e8e8e8;
+}
+
+.thumbnail-wrapper a
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
 }
 
 div.thumbnail-wrapper h2

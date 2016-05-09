@@ -158,8 +158,8 @@ div.section-box
 {
     margin: 0 auto;
     width: 21cm;
-    /*height: 29.7cm;*/
-    height: 641px;
+    height: 29.7cm;
+    
     font-size: 14pt;
     line-height: 1.5;
     text-align: left;

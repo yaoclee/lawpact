@@ -106,6 +106,26 @@ div.search_div
 {
     padding-bottom: 20px;
 }
+
+button.preview,
+button.preview:active,
+button.preview:focus,
+button.preview:hover
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #fff;
+    background-color: #286090;
+    border: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 21px;
+    font-size: 16px;
+    outline: 0;
+    margin-right: 4px;
+}
+
 button.delete,
 button.delete:active,
 button.delete:focus,

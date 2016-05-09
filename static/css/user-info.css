@@ -1,0 +1,38 @@
+fieldset
+{
+	overflow: hidden;
+	color: #fff;
+	border:1px solid #fff;
+}
+
+fieldset legend
+{
+	width: auto;
+	color: #fff;
+	border: 0;
+	margin-left:20px;
+}
+
+.user-info label
+{
+	background-color: transparent;
+	text-align: right;
+	color: #fff;
+	border: 0;
+}
+
+
+input[type="file"]
+{
+    background-color: #fff;
+}
+
+button[type="submit"]
+{
+	margin-top: 20px;
+}
+
+#img-preview img
+{
+	width: 200px;
+}

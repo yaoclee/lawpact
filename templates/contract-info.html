@@ -18,72 +18,21 @@
 	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/contract-info.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/contract-info.css">
 
     <!-- 加载各种icon -->
-    <link rel="icon" href="../img/logo.ico">
-    <link rel="shortcut icon" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" href="../img/logo.ico">
+    <link rel="icon" href="../static/img/logo.ico">
+    <link rel="shortcut icon" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="../static/img/logo.ico">
 
 
 </head>
 
 <body>
-	<header>
-		<!-- 置顶导航 -->
-		<nav role="navigation" class="navbar navbar-static-top">
-			<div class="container">
-				<a class="brand" href="#">
-					<img alt="Brand" src="../img/logo.ico">
-				</a>
-
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-
-				<div class="collapse navbar-collapse" id="main_top_navbar">
-					<!-- 以下填充置顶导航中的链接 -->
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="#">示例1</a>
-						</li>
-						<li>
-							<a href="#">示例2</a>
-						</li>
-					</ul>
-
-					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
-					<!-- 这里示例下拉菜单 -->
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								用户名
-								<img src="../img/avatar.jpg" class="avatar">
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="#">我的合同</a></li>
-								<li><a href="#">站内信</a></li>
-								<li><a href="#">账户管理</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">退出登录</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
 	<main class="body-wrapper">
 		<div class="container">
 			<div class="row">
@@ -145,7 +94,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>2</td>
@@ -159,7 +108,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>3</td>
@@ -173,7 +122,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>4</td>
@@ -187,7 +136,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>5</td>
@@ -201,7 +150,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>6</td>
@@ -215,7 +164,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>7</td>
@@ -229,7 +178,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>8</td>
@@ -243,7 +192,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>9</td>
@@ -257,7 +206,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>10</td>
@@ -271,7 +220,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>11</td>
@@ -285,7 +234,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>12</td>
@@ -299,7 +248,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>13</td>
@@ -313,7 +262,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>14</td>
@@ -327,7 +276,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>15</td>
@@ -341,7 +290,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>16</td>
@@ -355,7 +304,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>17</td>
@@ -369,7 +318,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>18</td>
@@ -383,7 +332,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>19</td>
@@ -397,7 +346,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>20</td>
@@ -411,7 +360,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>21</td>
@@ -425,7 +374,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>22</td>
@@ -439,7 +388,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>23</td>
@@ -453,7 +402,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>24</td>
@@ -467,7 +416,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>25</td>
@@ -481,7 +430,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>26</td>
@@ -495,7 +444,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>27</td>
@@ -509,7 +458,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>28</td>
@@ -523,7 +472,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>29</td>
@@ -537,7 +486,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>30</td>
@@ -551,7 +500,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 														<tr>
 															<td>31</td>
@@ -565,7 +514,7 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default delete">删除</button></td>
+															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
 													</tbody>
 												</table>
@@ -646,33 +595,6 @@
 		</div>
 	</main>
 
-	<footer>
-		<div class="container">
-			<div class="footer-border"></div>
-			<div class="row">
-				<div class="col-sm-4">
-					<p>Copyright © 2016 XXXX 版权所有</p>
-				</div>
-				<div class="col-sm-4">
-					<ul class="social">
-						<li><a href="" class="fa fa-qq"></a></li>
-						<li><a href="" class="fa fa-weixin"></a></li>
-						<li><a href="" class="fa fa-weibo"></a></li>
-					</ul>
-				</div>
-				<div class="col-sm-4">
-					<ul class="info">
-						<li><span class="fa fa-question-circle"></span><a href="">关于我们</a></li>
-						<li><span class="fa fa-user-plus"></span><a href="">商务合作</a></li>
-						<li><span class="fa fa-info-circle"></span><a href="">免责声明</a></li>
-						<li><span class="fa fa-envelope"></span><a href="">联系我们</a></li>
-						<li><span class="fa fa-h-square"></span><a href="">帮助</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-
 	<!-- 返回顶部悬浮按钮 -->
 	<span id="top-link-block" class="hidden">
 	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
@@ -687,8 +609,8 @@
 	<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/lang/zh-cn.js"></script>
-	<script src="../js/script.js"></script>
-	<script src="../js/contract-info.js"></script>
+	<script src="../static/js/script.js"></script>
+	<script src="../static/js/contract-info.js"></script>
 </body>
 </html>
 
