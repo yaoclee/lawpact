@@ -89,7 +89,8 @@ $('div.modal-footer button.btn-primary').click(function(event) {
                 title:  $('textarea[placeholder="事件说明"]').val(),
                 start:  start.format('YYYY-MM-DD'),
                 end:    end.format('YYYY-MM-DD'),
-                backgroundColor:  'rgb('+r+','+g+','+b+')'
+                backgroundColor:  'rgb('+r+','+g+','+b+')',
+                ref:    $('select[name="ref"]').val()
             },
             function (data, textStatus, jqXHR){
                 alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
@@ -105,6 +106,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
                 title:  $('textarea[placeholder="事件说明"]').val(),
                 start:  start.format('YYYY-MM-DD'),
                 end:    end.format('YYYY-MM-DD'),
+                ref:    $('select[name="ref"]').val()
             },
             function (data, textStatus, jqXHR){
                 alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
@@ -320,16 +322,43 @@ $('button.search_btn').click(function(event) {
     if ('' == search_text)
     {
         //显示所有合同
-        $('table.table.info tbody').children().each(function(index, el) {
-            $(this).show();
-        });
+        setPage(1);
     }
     else
     {
         $('table.table.info tbody').children().each(function(index, el) {
             var id = $(this).children('td:eq(0)').text();
-            var name = $(this).children('td:eq(1) input').val();
+            var name = $(this).find('input[name="name"]').val();
+            var type = $(this).children('td:eq(2)').text();
+            var state = $(this).children('td:eq(3)').text();
+            var status = $(this).find('select').val();
+            var tag = $(this).find('input[name="lable"]').val();
+
+            if ((id.match(search_text)) ||
+                (name.match(search_text)) ||
+                (type.match(search_text)) ||
+                (state.match(search_text)) ||
+                (status.match(search_text)) ||
+                (tag.match(search_text))
+                )
+            {
+                $(this).show();
+            }
+            else
+            {
+                $(this).hide();
+            }
         });
+        $('button.prev').addClass("disabled");
+        $('button.next').addClass("disabled");
+        $('caption').text("");
+    }
+});
+
+$('input[type="search"]').keypress(function(event) {
+    if (13 == event.keyCode)
+    {
+        $('button.search_btn').click();
     }
 });
 
