@@ -73,7 +73,7 @@ $(document).ready(function() {
 
 $('div.modal-footer button.btn-primary').click(function(event) {
     var start = $.fullCalendar.moment($('input[placeholder="开始时间"]').val(), 'YYYY年MM月DD日');
-    var end =$.fullCalendar.moment($('input[placeholder="结束时间"]').val().val(), 'YYYY年MM月DD日');
+    var end = $.fullCalendar.moment($('input[placeholder="结束时间"]').val(), 'YYYY年MM月DD日');
     end.add(1, 'day');
 
     if ('' == $('input[name="id"]').val())

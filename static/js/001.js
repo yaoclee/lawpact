@@ -161,7 +161,8 @@ function getVal (selector)
 }
 
 /* 生成预览HTML */
-$('a[href="#sample-view"]').on('show.bs.tab', function (e) {
+function preview_html()
+{
 	var index = $('<div class="a4-warpper"></div>').appendTo($('#sample-view'));
 	index = $('<div class="a4-paper"></div>').appendTo(index);
 	index = $('<div class="a4-margin"></div>').appendTo(index);
@@ -342,7 +343,10 @@ $('a[href="#sample-view"]').on('show.bs.tab', function (e) {
 	$('<p>甲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;方：</p>').appendTo(index);
 	$('<p>授权代表：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;授权代表：</p>').appendTo(index);
 	$('<p>日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：</p>').appendTo(index);
-})
+}
+
+/* 生成预览HTML */
+$('a[href="#sample-view"]').on('show.bs.tab', preview_html())
 
 /* 删除预览HTML */
 $('a[href="#sample-view"]').on('hidden.bs.tab', function (e) {
@@ -462,6 +466,32 @@ $(document).ready(function() {
 	setPage(1);
 });
 
+$('button[type="submit"]').click(function(event) {
+	preview_html();
+	$("<input hidden type='text' name='html' value='"+$('div.a4-margin').html()+"'>").insertBefore(this);
+	$('#sample-view').empty();
+	$('').empty();
 
+	if (("" != $('input[name="001-026"]').val())&&("" != $('input[name="001-027"]').val()))
+	{
+	    var start = moment($('input[name="001-026"]').val(), 'YYYY年MM月DD日');
+	    var end = moment($('input[name="001-027"]').val(), 'YYYY年MM月DD日');
+	    end.add(1, 'day');
+		var tmpStr = 'title:'+'"《文学作品改编权合同》许可时间",'
+		tmpStr += 'start:';
+		tmpStr = tmpStr + '"'+start.format('YYYY-MM-DD')+'",';
+		tmpStr += 'end:';
+		tmpStr = tmpStr + '"'+end.format('YYYY-MM-DD')+'",';
+	    var r = Math.floor(Math.random()*255);
+	    var g = Math.floor(Math.random()*255);
+	    var b = Math.floor(Math.random()*255);
+	    tmpStr += 'backgroundColor:';
+	    tmpStr = tmpStr + '"rgb('+r+','+g+','+b+')"';
+		$("<input hidden type='text' name='event1' value='"+tmpStr+"'>").insertBefore(this);
+	}
+});
 
-
+$("form").submit(function(e){
+    e.preventDefault();
+    alert("Submit prevented");
+});
