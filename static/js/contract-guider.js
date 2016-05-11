@@ -93,3 +93,50 @@ $(document).ready(function() {
     start = $('<div class="row" id="guider-wrapper"></div>').appendTo(start);
     GetGuiderStart(start, $(".guider>ul"));
 });
+
+//搜索模板
+$('button.search_btn').click(function(event) {
+    var search_text = $('input[type="search"]').val();
+
+    if ('' == search_text)
+    {
+        $('div.thumbnail-wrapper').each(function(index, el) {
+            $(this).show();
+            $(this).find("div.col-sm-3").each(function(index, el) {
+                $(this).show();
+            });
+        });
+    }
+    else
+    {
+        $('div.thumbnail-wrapper').each(function(index, el) {
+            var find = false;
+            $(this).find('h4').each(function(index, el) {
+                if (($(this).text()).match(search_text))
+                {
+                    find = true;
+                    $(this).parents("div.col-sm-3").show();
+                }
+                else
+                {
+                    $(this).parents("div.col-sm-3").hide();
+                }
+            });
+            if (!find)
+            {
+                $(this).hide();
+            }
+            else
+            {
+                $(this).show();
+            }
+        });
+    }
+});
+
+$('input[type="search"]').keypress(function(event) {
+    if (13 == event.keyCode)
+    {
+        $('button.search_btn').click();
+    }
+});

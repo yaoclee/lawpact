@@ -327,12 +327,12 @@ $('button.search_btn').click(function(event) {
     else
     {
         $('table.table.info tbody').children().each(function(index, el) {
-            var id = $(this).children('td:eq(0)').text();
-            var name = $(this).find('input[name="name"]').val();
-            var type = $(this).children('td:eq(2)').text();
-            var state = $(this).children('td:eq(3)').text();
-            var status = $(this).find('select').val();
-            var tag = $(this).find('input[name="lable"]').val();
+            var id      = $(this).children('td:eq(0)').text();
+            var name    = $(this).find('input[name="name"]').val();
+            var type    = $(this).children('td:eq(2)').text();
+            var state   = $(this).children('td:eq(3)').text();
+            var status  = $(this).find('select').val();
+            var tag     = $(this).find('input[name="lable"]').val();
 
             if ((id.match(search_text)) ||
                 (name.match(search_text)) ||
