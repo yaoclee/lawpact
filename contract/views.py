@@ -164,7 +164,7 @@ def create_contract(request):
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
 
-            user_contract = UserContract(user=user, name=name)
+            user_contract = UserContract(user=user, name=name, content=html_content)
             #user_contract.save()
      
             file_path = 'files/%s/%s' % (user.id, 'upload.pdf')
