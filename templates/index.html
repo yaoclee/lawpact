@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
@@ -16,28 +17,92 @@
 
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css'  %}" >
 
     <!-- 加载各种icon -->
-    <link rel="icon" href="../static/img/logo.ico">
-    <link rel="shortcut icon" href="../static/img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/img/logo.ico">
-    <link rel="apple-touch-icon-precomposed" href="../static/img/logo.ico">
+    <link rel="icon" href="{% static 'img/logo.ico' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/logo.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/logo.ico' %}>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/logo.ico' %}>
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/logo.ico' %}">
 
 
 </head>
 
 <body>
-	<main>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="{% static 'img/logo.ico' %}">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#">示例1</a>
+						</li>
+						<li>
+							<a href="#">示例2</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						{% if user.is_authenticated %}
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								{{ user }}<img src="{% static 'img/avatar.jpg' %}" class="avatar">
+								<span class="caret"></span>
+							</a> 
+							<ul class="dropdown-menu">
+								<li><a href="#">我的合同</a></li>
+								<li><a href="#">站内信</a></li>
+								<li><a href="#">账户管理</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="test_create">创建合同</a></li>
+								<li><a href="logout">退出登录</a></li>
+							</ul>	
+						</li>
+						{% else %}
+							<li>
+								<a href="login">登录</a>
+							</li>
+							<li>
+								<span>|</span>
+							</li>
+							<li>
+								<a href="register">注册</a>
+							</li>
+
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 		<div class="jumbotron">
 			<div class="container">
 			<h1>添加介绍</h1>
 			<p>...</p>
 			</div>
 		</div>
+	</header>
 
+	<main>
 		<div class="container">
 			<!-- 幻灯片 -->
 			<div id="carousel" class="carousel slide" data-ride="carousel">
@@ -50,14 +115,14 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img src="../static/img/jumbotron.jpg" alt="...">
+						<img src="{% static 'img/jumbotron.jpg' %}" alt="...">
 						<div class="carousel-caption">
 							<h3>巨幕1</h3>
 							<p>...</p>
 						</div>
 					</div>
 					<div class="item">
-						<img src="../static/img/jumbotron.jpg" alt="...">
+						<img src="{% static 'img/jumbotron.jpg' %}" alt="...">
 						<div class="carousel-caption">
 							<h3>巨幕2</h3>
 							<p>...</p>
@@ -70,6 +135,7 @@
 					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 					<span class="sr-only">前一个介绍</span>
 				</a>
+
 				<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
 					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">后一个介绍</span>
@@ -121,6 +187,33 @@
 		</div>
 	</main>
 
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright © 2016 XXXX 版权所有</p>
+				</div>
+				<div class="col-sm-4">
+					<ul class="social">
+						<li><a href="" class="fa fa-qq"></a></li>
+						<li><a href="" class="fa fa-weixin"></a></li>
+						<li><a href="" class="fa fa-weibo"></a></li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 	<!-- 返回顶部悬浮按钮 -->
 	<span id="top-link-block" class="hidden">
 	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
@@ -131,6 +224,6 @@
 	<!-- 加载JS -->
 	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="../static/js/script.js"></script>
+	<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -6,11 +6,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.http.response import HttpResponseRedirect
 from contract.form import RegisterForm
-from contract.models import UserProfile
+from contract.models import UserProfile, UserContract
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
 import cmd
+from lawpact.settings import USER_FILE_PATH
+from django.core.files import File
+from django.core.files.base import ContentFile
 
 def index(request):
     context = RequestContext(request)
@@ -134,17 +137,45 @@ import io
 def create_contract(request):
     print sys.getdefaultencoding()
     if request.method == 'POST':
-        html_content = request.POST['content']
+        html_content = request.POST['html']
+        #print html_content
         if len(html_content) > 0:
             #save as html file
-            report_name = 'upload'
+            print "user id is: %d" % request.user.id
+            report_name = USER_FILE_PATH + str(request.user.id) + '\\upload'
             html_file_name = report_name + ".html"
+            """
+            dir = os.path.dirname(html_file_name)
+            if not os.path.exists(dir):
+                os.makedirs(dir)
+                """
             with io.open(html_file_name, "wt", encoding='utf-8') as f:
                 f.write(html_content)
+
             pdf_file_name = report_name + ".pdf"
             cmd = 'wkhtmltopdf ' + html_file_name + ' ' + pdf_file_name
             print cmd
             os.system(cmd)
+            
+            #Write user table
+            user = request.user
+            name = u"影视合同"
+            content = html_content
+            file = open(pdf_file_name, 'r')
+            djangofile = File(file)
+
+            user_contract = UserContract(user=user, name=name)
+            #user_contract.save()
+     
+            file_path = 'files/%s/%s' % (user.id, 'upload.pdf')
+            print file_path
+            user_contract.file = file_path #'files/14/upload.pdf'
+            user_contract.save()
+            #user_contract.file.save(html_file_name, ContentFile(djangofile.read()), save=True)
+            #user_contract.file.save(pdf_file_name, djangofile, save=True)
+            
+            file.close()
+            
         #return save_pdf(request, html_content)
         return HttpResponse(html_content)
     return HttpResponse(u"请求地址无效")
