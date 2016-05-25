@@ -31,6 +31,62 @@
 </head>
 
 <body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../static/img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<a href="./index.html">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+						</li>
+						<li>
+							<a href="./contract-guider.html">合同生成</a>
+						</li>
+						<li>
+							<a href="./contract-info.html">合同管理</a>
+						</li>
+						<li>
+							<a href="./about.html">联系我们</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								用户名
+								<img src="../static/img/avatar.jpg" class="avatar">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="./user-info.html">个人资料</a></li>
+								<li><a href="./contract-info.html">我的合同</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">退出登录</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
 	<main>
 		<div class="container">
 			<div class="row">
@@ -52,12 +108,12 @@
 				        	<button class="btn btn-default search_btn" type="button"><span class="fa fa-search"></span></button>
 				      	</span>
 				    </div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-1" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>著作与许可</h2>
 						</div>
 						<div class="col-sm-3">
-							<a href="#" class="thumbnail">
+							<a href="/literature" class="thumbnail">
 								<div class="caption">
 									<h4>文学作品改编许可合同</h4>
 									<p>...</p>
@@ -137,7 +193,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-2" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>投融资</h2>
 						</div>
@@ -190,7 +246,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-3" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>人员聘用</h2>
 						</div>
@@ -235,7 +291,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-4" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>器材场地</h2>
 						</div>
@@ -264,7 +320,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-5" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>委托制作</h2>
 						</div>
@@ -301,7 +357,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-6" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>发行</h2>
 						</div>
@@ -362,7 +418,7 @@
 							</a>
 						</div>
 					</div>
-					<div class="row thumbnail-wrapper">
+					<div id="category-7" class="row thumbnail-wrapper">
 						<div class="col-sm-12">
 							<h2>其他合同</h2>
 						</div>
@@ -395,6 +451,33 @@
 			</div>
 		</div>
 	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright  2016 有娱. All Rights Reserved</p>
+				</div>
+				<div class="col-sm-4">
+					<div class="bdsharebuttonbox">
+						<a href="#" class="fa fa-qq" data-cmd="tqq"></a>
+						<a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
+						<a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="./about.html">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="./about.html">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="./about.html">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="./about.html">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="./about.html">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- 返回顶部悬浮按钮 -->
 	<span id="top-link-block" class="hidden">

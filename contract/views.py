@@ -48,6 +48,27 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+def guider(request):
+    context = RequestContext(request     )
+    return render_to_response("contract-guider.html", context)
+
+def contract_info(request):
+    context = RequestContext(request)
+    return render_to_response("contract-info.html", context)
+
+
+def literature(request):
+    context = RequestContext(request)
+    return render_to_response("001.html", context)
+
+def user_info(request):
+    context = RequestContext(request)
+    return render_to_response("user-info.html", context)
+
+def about(request):
+    context = RequestContext(request)
+    return render_to_response("about.html", context)
+
 def register(request):
     #err_msg = ""
     if request.method == 'POST':
@@ -144,11 +165,10 @@ def create_contract(request):
             print "user id is: %d" % request.user.id
             report_name = USER_FILE_PATH + str(request.user.id) + '\\upload'
             html_file_name = report_name + ".html"
-            """
+
             dir = os.path.dirname(html_file_name)
             if not os.path.exists(dir):
                 os.makedirs(dir)
-                """
             with io.open(html_file_name, "wt", encoding='utf-8') as f:
                 f.write(html_content)
 

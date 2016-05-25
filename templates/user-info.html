@@ -31,204 +31,323 @@
 </head>
 
 <body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../static/img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<a href="./index.html">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+						</li>
+						<li>
+							<a href="./contract-guider.html">合同生成</a>
+						</li>
+						<li>
+							<a href="./contract-info.html">合同管理</a>
+						</li>
+						<li>
+							<a href="./about.html">联系我们</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								用户名
+								<img src="../static/img/avatar.jpg" class="avatar">
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li><a href="./user-info.html">个人资料</a></li>
+								<li><a href="./contract-info.html">我的合同</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">退出登录</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
 	<main class="body-wrapper">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2">
-					<div class="form-box">
-						<div class="form-top">
-							<div class="form-top-left">
-								<h3 class="default-h3">
-									用户信息
-								</h3>
-								<p>
-									请尽量准确填写并完善您的用户信息，以便我们更好地提供优质服务
-								</p>
-							</div>
-							<div class="form-top-right">
-								<i class="fa fa-table"></i>
+				<div class="col-sm-3">
+					<ul class="nav nav-tabs nav-pills nav-stacked" role="tablist">
+						<li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">账号信息</a></li>
+						<li role="presentation"><a href="#information" aria-controls="information" role="tab" data-toggle="tab">用户信息</a></li>
+						<li role="presentation"><a href="#avatar" aria-controls="avatar" role="tab" data-toggle="tab">修改头像</a></li>
+						<li role="presentation"><a href="#password" aria-controls="password" role="tab" data-toggle="tab">修改密码</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-9">
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="profile">
+							<div class="form-bottom user-info">
+								<div class="form-box">
+									<form role="form" action="url" method="post">
+										<fieldset>
+											<legend>账号信息</legend>
+											<div hidden class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="id" class="form-control">ID</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="id" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="name" class="form-control">用户名</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="name" class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="email" class="form-control">电子邮箱</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="email" name="email" class="form-control">
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<button type="submit" class="btn">提交修改</button>
+									</form>
+								</div>
 							</div>
 						</div>
-						<div class="form-bottom user-info">
-							<form role="form" action="url" method="post">
-								<fieldset>
-									<legend>必填信息</legend>
-									<div hidden class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="id" class="form-control">ID</label>
+						<div role="tabpanel" class="tab-pane fade" id="information">
+							<div class="form-bottom user-info">
+								<div class="form-box">
+									<form role="form" action="url" method="post">
+										<fieldset>
+											<legend>用户信息</legend>
+											<div hidden class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="id" class="form-control">ID</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="id" class="form-control">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="text" name="id" class="form-control">
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="property" class="form-control">用户性质</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="radio" name="property" value="个人">个人
+														<input type="radio" name="property" value="公司">公司
+														<input type="radio" name="property" value="工作室">工作室
+														<input type="radio" name="property" value="其他">其他
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="name" class="form-control">用户名</label>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="" class="form-control">职业/职务</label>
+													</div>
+													<div class="col-sm-9">
+														<input type="checkbox" name="编剧">编剧
+														<input type="checkbox" name="导演">导演
+														<input type="checkbox" name="演员">演员
+														<input type="checkbox" name="经纪人">经纪人
+														<input type="checkbox" name="制片人">制片人
+														<input type="checkbox" name="策划">策划
+														<input type="checkbox" name="宣传">宣传
+														<input type="checkbox" name="发行">发行
+														<input type="checkbox" name="法务/律师">法务/律师
+														<input type="checkbox" name="其他">其他
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="text" name="name" class="form-control">
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="company" class="form-control">所属公司</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="company" class="form-control">
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="change-passwaord" class="form-control">修改密码</label>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="address" class="form-control">联系地址</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="address" class="form-control">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="radio" name="change-passwaord" value="修改">修改
-												<input type="radio" name="change-passwaord" value="不修改" checked="true">不修改
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="company-email" class="form-control">公司邮箱</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="email" name="company-email" class="form-control">
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div hidden id="origin-password" class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="origin-password" class="form-control">原密码</label>
+										</fieldset>
+										<button type="submit" class="btn">提交修改</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="avatar">
+							<div class="form-bottom user-info">
+								<div class="form-box">
+									<form role="form">
+										<fieldset>
+											<legend>修改头像</legend>
+											<div hidden class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="id" class="form-control">ID</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="id" class="form-control">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="password" name="origin-password" class="form-control">
+											<div id="img-path" class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="img-path" class="form-control">选择头像</label>
+													</div>
+													<div class="col-sm-2">
+														<button type="button" id="browse" class="btn">打开文件</button>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div hidden id="new-password" class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="new-password" class="form-control">新密码</label>
+											<div id="img-preview" class="form-group">
+												<div class="row">
+													<div class="col-sm-6 col-sm-offset-3" id="preview">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="password" name="new-password" class="form-control">
+										</fieldset>
+										<button type="button" id="start_upload" class="btn">提交修改</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="password">
+							<div class="form-bottom user-info">
+								<div class="form-box">
+									<form role="form" action="url" method="post">
+										<fieldset>
+											<legend>修改密码</legend>
+											<div hidden class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="id" class="form-control">ID</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="id" class="form-control">
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div hidden id="re-new-password" class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="re-new-password" class="form-control">重复密码</label>
+											<div id="origin-password" class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="origin-password" class="form-control">原密码</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="password" name="origin-password" class="form-control">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="password" name="re-new-password" class="form-control">
+											<div id="new-password" class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="new-password" class="form-control">新密码</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="password" name="new-password" class="form-control">
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="email" class="form-control">电子邮箱</label>
+											<div id="re-new-password" class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="re-new-password" class="form-control">重复密码</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="password" name="re-new-password" class="form-control">
+													</div>
+												</div>
 											</div>
-											<div class="col-sm-6">
-												<input type="email" name="email" class="form-control">
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<fieldset>
-									<legend>选填信息</legend>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="change-avadar" class="form-control">用户头像</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="radio" name="change-avadar" value="修改">修改
-												<input type="radio" name="change-avadar" value="不修改" checked="true">不修改
-											</div>
-										</div>
-									</div>
-									<div id="img-path" class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="img-path" class="form-control">选择头像</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="file" name="img-path" class="form-control" accept="image/*">
-											</div>
-										</div>
-									</div>
-									<div id="img-preview" class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<img src="../static/img/avatar.jpg" alt="加载失败">
-											</div>
-											<div class="col-sm-2">
-												<button type="button" class="btn">上传头像</button>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="property" class="form-control">用户性质</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="radio" name="property" value="个人">个人
-												<input type="radio" name="property" value="公司">公司
-												<input type="radio" name="property" value="工作室">工作室
-												<input type="radio" name="property" value="其他">其他
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="" class="form-control">职业/职务</label>
-											</div>
-											<div class="col-sm-9">
-												<input type="checkbox" name="编剧">编剧
-												<input type="checkbox" name="导演">导演
-												<input type="checkbox" name="演员">演员
-												<input type="checkbox" name="经纪人">经纪人
-												<input type="checkbox" name="制片人">制片人
-												<input type="checkbox" name="策划">策划
-												<input type="checkbox" name="宣传">宣传
-												<input type="checkbox" name="发行">发行
-												<input type="checkbox" name="法务/律师">法务/律师
-												<input type="checkbox" name="其他">其他
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="company" class="form-control">所属公司</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="text" name="company" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="address" class="form-control">联系地址</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="text" name="address" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-3">
-												<label for="company-email" class="form-control">公司邮箱</label>
-											</div>
-											<div class="col-sm-6">
-												<input type="email" name="company-email" class="form-control">
-											</div>
-										</div>
-									</div>
-								</fieldset>
-								<button type="submit" class="btn">提交修改</button>
-							</form>
+										</fieldset>
+										<button type="submit" class="btn">提交修改</button>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright  2016 有娱. All Rights Reserved</p>
+				</div>
+				<div class="col-sm-4">
+					<div class="bdsharebuttonbox">
+						<a href="#" class="fa fa-qq" data-cmd="tqq"></a>
+						<a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
+						<a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="./about.html">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="./about.html">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="./about.html">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="./about.html">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="./about.html">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- 返回顶部悬浮按钮 -->
 	<span id="top-link-block" class="hidden">
@@ -240,6 +359,7 @@
 	<!-- 加载JS -->
 	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/plupload/2.1.8/plupload.full.min.js"></script>
 	<script src="../static/js/script.js"></script>
 	<script src="../static/js/user-info.js"></script>
 </body>
