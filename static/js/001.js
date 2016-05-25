@@ -346,7 +346,9 @@ function preview_html()
 }
 
 /* 生成预览HTML */
-$('a[href="#sample-view"]').on('show.bs.tab', preview_html())
+$('a[href="#sample-view"]').on('show.bs.tab', function (e){
+	preview_html();
+})
 
 /* 删除预览HTML */
 $('a[href="#sample-view"]').on('hidden.bs.tab', function (e) {
@@ -466,12 +468,31 @@ $(document).ready(function() {
 	setPage(1);
 });
 
+function ReplaceCSS(text)
+{
+	var para_reg = new RegExp('class="para"','g');
+	var para_replace = 'style="font-size:14pt;line-height:1.5;text-indent:28pt;text-align:justify"';
+
+	var list_reg = new RegExp('class="list"','g');
+	var list_replace = 'style="font-size:14pt;line-height:1.5;padding-left:0.74cm;text-indent:-0.74cm;text-align:justify"';
+
+	var title_reg = new RegExp('class="title"','g');
+	var title_replace = 'style="font-size:28pt;font-weight:bold;line-height:1.5;text-align:center"';
+
+	text = text.replace(para_reg, para_replace);  
+	text = text.replace(list_reg, list_replace);  
+	text = text.replace(title_reg, title_replace);  
+
+	return text;
+}
+
 $('button[type="submit"]').click(function(event) {
 	preview_html();
-	$("<input hidden type='text' name='html' value='"+$('div.a4-margin').html()+"'>").insertBefore(this);
+	var head = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"></head><body>';
+	var html = ReplaceCSS($('div.a4-margin').html());
+	//var html = $('div.a4-margin').html();
+	$("<input hidden type='text' name='html' value='"+head+html+"</body></html>'>").insertBefore(this);
 	$('#sample-view').empty();
-	$('').empty();
-
 	if (("" != $('input[name="001-026"]').val())&&("" != $('input[name="001-027"]').val()))
 	{
 	    var start = moment($('input[name="001-026"]').val(), 'YYYY年MM月DD日');
@@ -489,9 +510,4 @@ $('button[type="submit"]').click(function(event) {
 	    tmpStr = tmpStr + '"rgb('+r+','+g+','+b+')"';
 		$("<input hidden type='text' name='event1' value='"+tmpStr+"'>").insertBefore(this);
 	}
-});
-
-$("form").submit(function(e){
-    e.preventDefault();
-    alert("Submit prevented");
 });

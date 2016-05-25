@@ -759,7 +759,7 @@ form textarea.form-control::-webkit-input-placeholder
 {
     height: 250px;
 
-    background: url(../img/jumbotron2.jpg);
+    background: url(../img/banner1.jpg);
     background-repeat: no-repeat;
     background-position: center;
     color: #fff;
@@ -767,7 +767,23 @@ form textarea.form-control::-webkit-input-placeholder
 
 /* 巨幕end */
 
+/* 幻灯片 */
+div.carousel-caption
+{
+    background-color: rgba(83, 13, 133, 0.5);
+    padding: 30px;
+    bottom: 30%;
+}
+
+/* 幻灯片end */
+
 /* 缩略图介绍 */
+
+.carousel h1,
+.carousel p
+{
+    text-align: left;
+}
 
 div.thumbnail-wrapper
 {
@@ -797,6 +813,11 @@ div.thumbnail-wrapper a.more
     text-decoration: none;
 }
 
+div.thumbnail-wrapper img
+{
+    background-color: #e8e8e8;
+}
+
 a.thumbnail
 {
     -webkit-transition: all .3s;
@@ -808,6 +829,7 @@ a.thumbnail
     color: #fff;
     background-color: #530d85;
     text-decoration: none;
+    padding: 0;
 }
 
 a.thumbnail:focus,
@@ -859,3 +881,41 @@ a.thumbnail:hover
 }
 
 /* 向导end */
+
+/**************************************************
+ *
+ *
+ *
+ * nav-tabs
+ *
+ *
+ *
+ **************************************************/
+
+.nav-stacked > li > a
+{
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+        -ms-transition: all .3s;
+         -o-transition: all .3s;
+            transition: all .3s;
+    /* 无下划线 */
+    text-decoration: none;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #fff;
+    /* 颜色纯白 */
+    background-color: #202020;
+    border: 0;
+}
+
+.nav-stacked > li.active > a,
+.nav-stacked > li.active > a:hover,
+.nav-stacked > li.active > a:focus,
+.nav-stacked > li > a:hover,
+.nav-stacked > li > a:focus
+{
+    background-color: #c0d23e;
+}
+

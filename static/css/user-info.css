@@ -27,12 +27,18 @@ input[type="file"]
     background-color: #fff;
 }
 
+#start_upload,
 button[type="submit"]
 {
 	margin-top: 20px;
 }
 
-#img-preview img
+#preview img
 {
-	width: 200px;
+	background-color: #fff;
+}
+
+div.alert
+{
+    border-radius: 0;
 }

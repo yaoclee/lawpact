@@ -122,14 +122,14 @@ $('button.search_btn').click(function(event) {
                     $(this).parents("div.col-sm-3").hide();
                 }
             });
-            if (!find)
-            {
-                $(this).hide();
-            }
-            else
+            if (find)
             {
                 $(this).show();
             }
+            else
+            {
+                $(this).hide();
+           }
         });
     }
 });
