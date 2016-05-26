@@ -20,7 +20,7 @@ STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 MEDIA_PATH = os.path.join(PROJECT_PATH, 'media')
 DATABASE_PATH = os.path.join(PROJECT_PATH, 'lawpact.sqlite')
 
-USER_FILE_PATH = os.path.join(MEDIA_PATH, 'files\\')
+USER_FILE_PATH = os.path.join(MEDIA_PATH, 'files/')
 
 #Email settings
 EMAIL_HOST = 'smtp.126.com'

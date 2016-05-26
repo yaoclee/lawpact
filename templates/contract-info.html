@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
@@ -123,7 +124,7 @@
 										        <button class="btn btn-default search_btn" type="button"><span class="fa fa-search"></span></button>
 										      </span>
 										    </div>
-											<div class="table-responsive">
+											<div>
 												<table class="table info">
 													<caption>您共有30份合同，显示第1-10份合同...</caption>
 													<thead>
@@ -138,11 +139,13 @@
 														</tr>
 													</thead>
 													<tbody>
+													{% for obj in objs %}
 														<tr>
-															<td>1</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
+															<td>{{ obj.id }}</td>
+															<td><input type="text" name="name" value="{{ obj.name }}"></td>
+															<td>{{ obj.type }}</td>
+															<td>{{ obj.get_contract_status_display }} 
+															</td>
 															<td>
 																<select name="status" class="table_select">
 																	<option value="agree" class="label label-success">已生效</option>
@@ -150,428 +153,21 @@
 																</select>
 															</td>
 															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>2</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
 															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
+																<div class="btn-group">
+																	<button type="button" class="btn btn-default activation dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">操作
+																		<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu">
+																		<li><a class="preview" href="/preview-contract/{{ obj.id }}">预览/下载</a></li>
+																		<li><button type="button" class="btn btn-default preview">提交审核</button></li>
+																		<li role="separator" class="divider"></li>
+																		<li><button type="button" class="btn btn-default delete">删除</button></li>
+																	</ul>
+																</div>
 															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
 														</tr>
-														<tr>
-															<td>3</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>4</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>5</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>6</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>7</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>8</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>9</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>10</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>11</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>12</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>13</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>14</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>15</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>16</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>17</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>18</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>19</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>20</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>21</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>22</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>23</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>24</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>25</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>26</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>27</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>28</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>29</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>30</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
-														<tr>
-															<td>31</td>
-															<td><input type="text" name="name" value="奥特曼暴打小怪兽"></td>
-															<td>影视合同</td>
-															<td>已审核</td>
-															<td>
-																<select name="status" class="table_select">
-																	<option value="agree" class="label label-success">已生效</option>
-																	<option value="disagree" class="label label-danger">已终止</option>
-																</select>
-															</td>
-															<td><input type="text" name="lable" placeholder="未设置"></td>
-															<td><button type="button" class="btn btn-default preview">预览/下载</button><button type="button" class="btn btn-default delete">删除</button></td>
-														</tr>
+													{% endfor %}
 													</tbody>
 												</table>
 											</div>

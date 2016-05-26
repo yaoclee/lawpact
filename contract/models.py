@@ -4,7 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils.translation import ugettext_lazy as _
-from bsddb.test.test_all import verbose
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=u"用户")
@@ -44,7 +43,7 @@ class UserContract(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=50, verbose_name=_('name'))
     type = models.CharField(max_length=20, verbose_name=u"合同类型", blank=True)
-    contract_status = models.BooleanField(verbose_name = u"合同状态", blank=True)
+    #contract_status = models.BooleanField(verbose_name = u"合同状态", blank=True)
     contract_status = models.CharField(verbose_name = u"合同状态", max_length=1, choices=CONTRACT_STATUS_CHOICES, blank=True)
     law_status = models.CharField(verbose_name = u"法律状态", max_length=1, choices=LAW_STATUS_CHOICES, blank=True)
 

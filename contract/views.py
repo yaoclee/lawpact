@@ -4,16 +4,18 @@ from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response, render, get_object_or_404
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, Http404
 from contract.form import RegisterForm
 from contract.models import UserProfile, UserContract
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
 import cmd
-from lawpact.settings import USER_FILE_PATH
+from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH
 from django.core.files import File
 from django.core.files.base import ContentFile
+from django.contrib import auth
+from django.contrib.staticfiles.views import serve
 
 def index(request):
     context = RequestContext(request)
@@ -49,12 +51,17 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
 def guider(request):
-    context = RequestContext(request     )
+    context = RequestContext(request)
     return render_to_response("contract-guider.html", context)
 
 def contract_info(request):
     context = RequestContext(request)
-    return render_to_response("contract-info.html", context)
+    user = request.user
+    #user = auth.get_user(request)
+    #contracts = UserContract.objects.all()
+    if user is not None:
+        contracts = UserContract.objects.filter(user=user)
+    return render_to_response("contract-info.html", {'objs' : contracts}, context)
 
 
 def literature(request):
@@ -68,6 +75,30 @@ def user_info(request):
 def about(request):
     context = RequestContext(request)
     return render_to_response("about.html", context)
+
+def preview_contract(request, offset):
+    try:
+        offset = int(offset)
+    except ValueError:
+        raise Http404()
+    
+    contract = UserContract.objects.get(id=offset, user=request.user)
+    #filepath = contract.content
+    #print filepath
+    #context = RequestContext(request)
+    filepath = contract.content
+    return HttpResponse(filepath)
+    #absolute_path = os.path.join(MEDIA_PATH, filepath)
+    #fpdf = open(absolute_path, "rb")
+    #print absolute_path
+    #return serve(request, absolute_path)
+    """
+    with open(absolute_path, 'r') as pdf:
+        response = HttpResponse(pdf.read(), mimetype='application/pdf')
+        response['Content-Disposition'] = 'inline;filename=some_file.pdf'
+        return response
+    pdf.closed
+    """
 
 def register(request):
     #err_msg = ""
@@ -155,6 +186,8 @@ def printPdf(path):
 
 import sys
 import io
+from datetime import datetime
+
 def create_contract(request):
     print sys.getdefaultencoding()
     if request.method == 'POST':
@@ -163,7 +196,9 @@ def create_contract(request):
         if len(html_content) > 0:
             #save as html file
             print "user id is: %d" % request.user.id
-            report_name = USER_FILE_PATH + str(request.user.id) + '\\upload'
+            
+            timestamp = datetime.now().strftime("%Y%B%d%I%M")
+            report_name = USER_FILE_PATH + str(request.user.id) + '/' +timestamp
             html_file_name = report_name + ".html"
 
             dir = os.path.dirname(html_file_name)
@@ -184,10 +219,10 @@ def create_contract(request):
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
 
-            user_contract = UserContract(user=user, name=name, content=html_content)
+            user_contract = UserContract(user=user, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=1)
             #user_contract.save()
      
-            file_path = 'files/%s/%s' % (user.id, 'upload.pdf')
+            file_path = 'files/%s/%s%s' % (user.id, timestamp, '.pdf')
             print file_path
             user_contract.file = file_path #'files/14/upload.pdf'
             user_contract.save()
@@ -197,7 +232,8 @@ def create_contract(request):
             file.close()
             
         #return save_pdf(request, html_content)
-        return HttpResponse(html_content)
+        #return HttpResponse(html_content)
+        return HttpResponseRedirect('/contract-info/')
     return HttpResponse(u"请求地址无效")
 # Just for testing
 def test_create(request):

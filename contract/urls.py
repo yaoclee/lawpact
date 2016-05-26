@@ -1,12 +1,12 @@
 from django.conf.urls import patterns, url
 from contract import views
 
-from wkhtmltopdf.views import PDFTemplateView
+#from wkhtmltopdf.views import PDFTemplateView
 
 import os
 from django.conf.urls.static import static
 from django.conf import settings
-from numpy.distutils.from_template import template_name_re
+#from numpy.distutils.from_template import template_name_re
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
@@ -18,14 +18,15 @@ urlpatterns = patterns('',
         url(r'^literature/$', views.literature, name='literature_contract'),
         url(r'^user-info/$', views.user_info, name='user_info'),
         url(r'^about/$', views.about, name='about'),
+        url(r'^preview-contract/(\d)/$', views.preview_contract, name='preview_contract'),
 
         url(r'^activate/(?P<key>.+)$', views.activation, name='activation'),
         url(r'^spdf/(?P<html>.+)$', views.save_pdf, name='generate_pdf'),
         url(r'^get_test_pdf/$', views.print_test_pdf, name='get_pdf_file'),
 
         # not confirmed
-        url(r'^pdf/$', PDFTemplateView.as_view(template_name='contract/3.html', filename='my_pdf.pdf'),
-            name='pdf'),
+        #url(r'^pdf/$', PDFTemplateView.as_view(template_name='contract/3.html', filename='my_pdf.pdf'),
+            #name='pdf'),
         url(r'^create_contract/$', views.create_contract, name='create_new_contract'),
 
         #test urls...

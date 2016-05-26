@@ -107,6 +107,23 @@ div.search_div
     padding-bottom: 20px;
 }
 
+button.activation,
+button.activation:active,
+button.activation:focus,
+button.activation:hover
+{
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    color: #fff;
+    background-color: #286090;
+    border: 0;
+    padding: 0 15px;
+    height: 21px;
+    font-size: 16px;
+    outline: 0;
+}
+
 button.preview,
 button.preview:active,
 button.preview:focus,
@@ -118,12 +135,29 @@ button.preview:hover
     color: #fff;
     background-color: #286090;
     border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
     height: 21px;
     font-size: 16px;
     outline: 0;
-    margin-right: 4px;
+    width: 100%;
+}
+
+
+a.preview,
+a.preview:active,
+a.preview:focus,
+a.preview:hover
+{
+    color: #fff !important;
+    background-color: #286090 !important;
+    border: 0 !important;
+    padding: 0 !important;
+    height: 21px !important;
+    font-size: 16px !important;
+    outline: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+    transform: none !important;
 }
 
 button.delete,
@@ -137,11 +171,11 @@ button.delete:hover
     color: #fff;
     background-color: #d9534f;
     border: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 0;
     height: 21px;
     font-size: 16px;
     outline: 0;
+    width: 100%;
 }
 
 /* 列表风格end */
