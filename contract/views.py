@@ -4,7 +4,8 @@ from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response, render, get_object_or_404
-from django.http.response import HttpResponseRedirect, Http404
+from django.http.response import HttpResponseRedirect, Http404,\
+    StreamingHttpResponse, HttpResponseNotFound
 from contract.form import RegisterForm
 from contract.models import UserProfile, UserContract
 from django.contrib.auth.models import User
@@ -15,7 +16,6 @@ from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.contrib import auth
-from django.contrib.staticfiles.views import serve
 
 def index(request):
     context = RequestContext(request)
@@ -76,6 +76,8 @@ def about(request):
     context = RequestContext(request)
     return render_to_response("about.html", context)
 
+import os
+
 def preview_contract(request, offset):
     try:
         offset = int(offset)
@@ -86,19 +88,28 @@ def preview_contract(request, offset):
     #filepath = contract.content
     #print filepath
     #context = RequestContext(request)
-    filepath = contract.content
-    return HttpResponse(filepath)
+    filepath = contract.file.name
     #absolute_path = os.path.join(MEDIA_PATH, filepath)
-    #fpdf = open(absolute_path, "rb")
-    #print absolute_path
-    #return serve(request, absolute_path)
-    """
-    with open(absolute_path, 'r') as pdf:
-        response = HttpResponse(pdf.read(), mimetype='application/pdf')
-        response['Content-Disposition'] = 'inline;filename=some_file.pdf'
-        return response
-    pdf.closed
-    """
+    filename = os.path.join(MEDIA_PATH, filepath)
+    
+    import mimetypes
+    mimetypes.init()
+    
+    try:
+        fsock = open(filename, "rb")
+        file_name = os.path.basename(filename)
+        file_size = os.path.getsize(filename)
+        print "file size is: " + str(file_size)
+        mime_type_guess = mimetypes.guess_type(file_name)
+        if mime_type_guess is not None:
+            response = HttpResponse(fsock, mimetype=mime_type_guess[0])
+        response['Content-Disposition'] = 'attachment; filename=contract.pdf'# + file_name
+        print "file_name is: %s, file type is %s" % (file_name, mime_type_guess[0])
+    except IOError:
+        response = HttpResponseNotFound()
+    return response
+            
+    
 
 def register(request):
     #err_msg = ""
@@ -166,8 +177,6 @@ def activation(request, key):
         return HttpResponse(u'账号激活成功')
     return HttpResponse(u'该账号不存在')
     
-import os
- 
 # not confirmed
 def save_pdf(request, html):
     print 'html=%s' % html
