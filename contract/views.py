@@ -103,8 +103,9 @@ def preview_contract(request, offset):
         mime_type_guess = mimetypes.guess_type(file_name)
         if mime_type_guess is not None:
             response = HttpResponse(fsock, mimetype=mime_type_guess[0])
-        response['Content-Disposition'] = 'attachment; filename=contract.pdf'# + file_name
-        print "file_name is: %s, file type is %s" % (file_name, mime_type_guess[0])
+        name_for_user = request.user.username + '%' + file_name
+        response['Content-Disposition'] = 'attachment; filename=%s' % name_for_user # + file_name
+        #print "file_name is: %s, file type is %s" % (file_name, mime_type_guess[0])
     except IOError:
         response = HttpResponseNotFound()
     return response

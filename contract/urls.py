@@ -18,7 +18,7 @@ urlpatterns = patterns('',
         url(r'^literature/$', views.literature, name='literature_contract'),
         url(r'^user-info/$', views.user_info, name='user_info'),
         url(r'^about/$', views.about, name='about'),
-        url(r'^preview-contract/(\d)/$', views.preview_contract, name='preview_contract'),
+        url(r'^preview-contract/(\d+)/$', views.preview_contract, name='preview_contract'),
 
         url(r'^activate/(?P<key>.+)$', views.activation, name='activation'),
         url(r'^spdf/(?P<html>.+)$', views.save_pdf, name='generate_pdf'),
