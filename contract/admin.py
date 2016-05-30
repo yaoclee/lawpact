@@ -11,6 +11,11 @@ from django.db.models.base import get_absolute_url
 class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ['user__username',]
     list_display = ('user', 'get_email', 'contract_url')
+    #readonly_fields = ('get_email',)
+    fields = ('user', ('real_name', 'phone_number'), 
+              'property', ('bianju', 'daoyan', 'yanyuan', 'jingjiren', 'zhipianren', 'cehua', 'xuanchuan', 'faxing', 'fawu', 'qita'), 
+              ('company_name', 'company_address', 'company_email'))
+    readonly_fields = ('get_email',)
 
     def get_email(self, obj):
         return obj.user.email

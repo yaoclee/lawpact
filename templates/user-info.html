@@ -162,32 +162,32 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
-														<label for="property" class="form-control">用户性质</label>
+														<label for="property" class="form-control">用户性质:{{ user.userprofile.property }}</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="radio" name="property" value="个人">个人
-														<input type="radio" name="property" value="公司">公司
-														<input type="radio" name="property" value="工作室">工作室
-														<input type="radio" name="property" value="其他">其他
+														<input type="radio" name="property" value="个人" {% ifequal user.userprofile.property '0' %} checked {% endifequal %}>个人
+														<input type="radio" name="property" value="公司" {% ifequal user.userprofile.property '1' %} checked {% endifequal %}>公司
+														<input type="radio" name="property" value="工作室" {% ifequal user.userprofile.property '2' %} checked {% endifequal %}>工作室
+														<input type="radio" name="property" value="其他" {% ifequal user.userprofile.property '3' %} checked {% endifequal %}>其他
 													</div>
 												</div>
 											</div>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
-														<label for="" class="form-control">职业/职务</label>
+														<label for="" class="form-control">职业/职务:</label>
 													</div>
 													<div class="col-sm-9">
-														<input type="checkbox" name="编剧">编剧
-														<input type="checkbox" name="导演">导演
-														<input type="checkbox" name="演员">演员
-														<input type="checkbox" name="经纪人">经纪人
-														<input type="checkbox" name="制片人">制片人
-														<input type="checkbox" name="策划">策划
-														<input type="checkbox" name="宣传">宣传
-														<input type="checkbox" name="发行">发行
-														<input type="checkbox" name="法务/律师">法务/律师
-														<input type="checkbox" name="其他">其他
+														<input type="checkbox" name="编剧" {% if user.userprofile.bianju %} checked="checked" {% endif %}>编剧
+														<input type="checkbox" name="导演" {% if user.userprofile.daoyan %} checked="checked" {% endif %}>导演
+														<input type="checkbox" name="演员" {% if user.userprofile.yanyuan %} checked="checked" {% endif %}>演员
+														<input type="checkbox" name="经纪人" {% if user.userprofile.jingjiren %} checked="checked" {% endif %}>经纪人
+														<input type="checkbox" name="制片人" {% if user.userprofile.zhipianren %} checked="checked" {% endif %}>制片人
+														<input type="checkbox" name="策划" {% if user.userprofile.cehua %} checked="checked" {% endif %}>策划
+														<input type="checkbox" name="宣传" {% if user.userprofile.xuanchuan %} checked="checked" {% endif %}>宣传
+														<input type="checkbox" name="发行" {% if user.userprofile.faxing %} checked="checked" {% endif %}>发行
+														<input type="checkbox" name="法务/律师" {% if user.userprofile.fawu %} checked="checked" {% endif %}>法务/律师
+														<input type="checkbox" name="其他" {% if user.userprofile.qita %} checked="checked" {% endif %}>其他
 													</div>
 												</div>
 											</div>

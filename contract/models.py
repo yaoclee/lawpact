@@ -40,7 +40,18 @@ class UserProfile(models.Model):
     
     #optional info
     property = models.CharField(verbose_name = u"用户性质", max_length=1, choices=USER_PROPERTY_CHOICES, blank=True)
-    occupation = models.CharField(verbose_name = u"职业", max_length=1, choices=USER_OCCUPATION_CHOICES, blank=True)
+    #occupation = models.CharField(verbose_name = u"职业", max_length=1, choices=USER_OCCUPATION_CHOICES, blank=True)
+    
+    bianju = models.BooleanField(u"编剧", blank=True)
+    daoyan = models.BooleanField(u"导演", blank=True)
+    yanyuan = models.BooleanField(u"演员", blank=True)
+    jingjiren = models.BooleanField(u"经纪人", blank=True)
+    zhipianren = models.BooleanField(u"制片人", blank=True)
+    cehua = models.BooleanField(u"策划", blank=True)
+    xuanchuan = models.BooleanField(u"宣传", blank=True)
+    faxing = models.BooleanField(u"发行", blank=True)
+    fawu = models.BooleanField(u"法务/律师", blank=True)
+    qita = models.BooleanField(u"其他", blank=True)
     
     #Company related info
     company_name = models.CharField(u'公司名称', max_length=50, blank=True)
