@@ -90,6 +90,7 @@
 	<main class="body-wrapper">
 		<div class="container">
 			<div class="row">
+				{% if user.is_authenticated %}
 				<div class="col-sm-3">
 					<ul class="nav nav-tabs nav-pills nav-stacked" role="tablist">
 						<li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">账号信息</a></li>
@@ -122,7 +123,7 @@
 														<label for="name" class="form-control">用户名</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="text" name="name" class="form-control">
+														<input type="text" name="name" class="form-control" value="{{ user.username }}" readonly="readonly">
 													</div>
 												</div>
 											</div>
@@ -132,12 +133,12 @@
 														<label for="email" class="form-control">电子邮箱</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="email" name="email" class="form-control">
+														<input type="email" name="email" class="form-control" value="{{ user.email }}" readonly="readonly"> 
 													</div>
 												</div>
 											</div>
 										</fieldset>
-										<button type="submit" class="btn">提交修改</button>
+										<!--<button type="submit" class="btn">提交修改</button>-->
 									</form>
 								</div>
 							</div>
@@ -196,7 +197,7 @@
 														<label for="company" class="form-control">所属公司</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="text" name="company" class="form-control">
+														<input type="text" name="company" class="form-control" value="{{ user.userprofile.company_name }}">
 													</div>
 												</div>
 											</div>
@@ -206,7 +207,7 @@
 														<label for="address" class="form-control">联系地址</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="text" name="address" class="form-control">
+														<input type="text" name="address" class="form-control" value="{{ user.userprofile.company_address }}">
 													</div>
 												</div>
 											</div>
@@ -216,7 +217,7 @@
 														<label for="company-email" class="form-control">公司邮箱</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="email" name="company-email" class="form-control">
+														<input type="email" name="company-email" class="form-control" value="{{ user.userprofile.company_email}}">
 													</div>
 												</div>
 											</div>
@@ -267,7 +268,8 @@
 						<div role="tabpanel" class="tab-pane fade" id="password">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form" action="url" method="post">
+									<form role="form" action="/reset-password/" method="post">
+									{% csrf_token %}
 										<fieldset>
 											<legend>修改密码</legend>
 											<div hidden class="form-group">
@@ -318,6 +320,7 @@
 						</div>
 					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</main>

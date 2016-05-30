@@ -110,7 +110,37 @@ def preview_contract(request, offset):
         response = HttpResponseNotFound()
     return response
             
+def contract_delete(request, offset):
+    print "goes here ok!"
+    try:
+        offset = int(offset)
+    except ValueError:
+        raise Http404()
     
+    contract = UserContract.objects.get(id=offset, user=request.user)
+    if contract is not None:
+        print "can delete"
+        contract.delete()
+    
+    return HttpResponseRedirect("/contract-info/");
+
+def reset_password(request):
+    if request.method == 'POST':
+        origin_password = request.POST['origin-password']
+        new_password = request.POST['new-password']
+        re_new_password = request.POST['re-new-password']
+        
+        if new_password != re_new_password:
+            return HttpResponse(u"新密码输入不一致");
+        username = request.user.username
+        user = authenticate(username=username, password=origin_password)
+        if user is not None:
+            user.set_password(new_password)
+            user.save()
+            return HttpResponse(u"密码设置成功，请重新登录")
+        else:
+            return HttpResponse(u"原始密码输入错误")
+    return HttpResponse(u"无效页面！")
 
 def register(request):
     #err_msg = ""

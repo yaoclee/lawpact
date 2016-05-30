@@ -19,6 +19,8 @@ urlpatterns = patterns('',
         url(r'^user-info/$', views.user_info, name='user_info'),
         url(r'^about/$', views.about, name='about'),
         url(r'^preview-contract/(\d+)/$', views.preview_contract, name='preview_contract'),
+        url(r'^contract/delete/(\d+)/$', views.contract_delete, name='contract_delete'),
+        url(r'^reset-password/$', views.reset_password, name='reset_password'),
 
         url(r'^activate/(?P<key>.+)$', views.activation, name='activation'),
         url(r'^spdf/(?P<html>.+)$', views.save_pdf, name='generate_pdf'),

@@ -18,7 +18,7 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 class UserContractAdmin(admin.ModelAdmin):
     list_display = ('user', 'name', 'type', 'contract_status', 'law_status')
-    list_filter = ('user', 'type')
+    list_filter = ('contract_status','type')
     #list_filter = ('user', )
     raw_id_admin = ('user')
     search_fields = ['user__username', 'type', 'name']

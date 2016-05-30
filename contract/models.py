@@ -5,15 +5,47 @@ from django.contrib.auth.models import User
 
 from django.utils.translation import ugettext_lazy as _
 
+USER_PROPERTY_CHOICES = (
+    ('0', u'个人'),
+    ('1', u'公司'),
+    ('2', u'工作室'),
+    ('3', u'其他'),
+)
+
+USER_OCCUPATION_CHOICES = (
+    ('0', u'编剧'),
+    ('1', u'导演'),
+    ('2', u'演员'),
+    ('3', u'经纪人'),
+    ('4', u'制片人'),
+    ('5', u'策划'),
+    ('6', u'宣传'),
+    ('7', u'发行'),
+    ('8', u'法务/律师'),
+    ('7', u'其他'),
+)
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, verbose_name=u"用户")
-    phone_number = models.CharField(u"电话号码", max_length=15, blank=True)
     pic = models.ImageField(u"头像", upload_to='images', blank=True)
     contract_url = models.URLField(blank=True)
     
     #For user active by the email
-    activation_key = models.CharField(max_length=40, null=True)
+    activation_key = models.CharField(max_length=40, null=True, blank=True)
     key_expires = models.DateTimeField(blank=True, null=True)
+    
+    #detailed info
+    real_name = models.CharField(u'姓名', max_length=10, blank=True)
+    phone_number = models.CharField(u"电话号码", max_length=15, blank=True)
+    
+    #optional info
+    property = models.CharField(verbose_name = u"用户性质", max_length=1, choices=USER_PROPERTY_CHOICES, blank=True)
+    occupation = models.CharField(verbose_name = u"职业", max_length=1, choices=USER_OCCUPATION_CHOICES, blank=True)
+    
+    #Company related info
+    company_name = models.CharField(u'公司名称', max_length=50, blank=True)
+    company_address = models.CharField(u'公司地址', max_length=100, blank=True)
+    company_email = models.EmailField(u'公司邮箱', blank=True)
    
     class Meta:
         verbose_name = u"1.注册用户信息"
