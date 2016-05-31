@@ -124,6 +124,13 @@ def contract_delete(request, offset):
     
     return HttpResponseRedirect("/contract-info/");
 
+def update_user_image(request):
+    if request.method == 'POST':
+        file = request.FILES
+        print file
+        HttpResponse("OK")
+    HttpResponse("fail")
+
 def update_user_info(request):
     if request.method == 'POST':
         if request.user.is_authenticated():
