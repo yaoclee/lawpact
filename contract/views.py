@@ -124,6 +124,60 @@ def contract_delete(request, offset):
     
     return HttpResponseRedirect("/contract-info/");
 
+def update_user_info(request):
+    if request.method == 'POST':
+        if request.user.is_authenticated():
+            username = request.user.username
+            user = request.user
+            
+            #radio box info
+            property = request.POST.get('property', '')
+            
+            #check box info
+            bianju = request.POST.get('bianju', '')
+            daoyan = request.POST.get('daoyan', '')
+            yanyuan = request.POST.get('yanyuan', '')
+            jingjiren = request.POST.get('jingjiren', '')
+            zhipianren = request.POST.get('zhipianren', '')
+            cehua = request.POST.get('cehua', '')
+            xuanchuan = request.POST.get('xuanchuan', '')
+            faxing = request.POST.get('faxing', '')
+            fawu = request.POST.get('fawu', '')
+            qita = request.POST.get('qita', '')
+            
+            #company info
+            companyname = request.POST.get('companyname', '')
+            companyaddress = request.POST.get('companyaddress', '')
+            companyemail = request.POST.get('companyemail', '')
+            print "company name =%s" % companyname
+            print "company address =%s" % companyaddress
+            print "company email =%s" % companyemail
+            #user = User.objects.filter(id = request.user.id)
+            userprofile = UserProfile.objects.get(user = request.user)
+            #userprofile = UserProfile(user,)
+            userprofile.property = property
+            
+            userprofile.bianju = bianju
+            userprofile.daoyan = daoyan
+            userprofile.yanyuan = yanyuan
+            userprofile.jingjiren = jingjiren
+            userprofile.zhipianren = zhipianren
+            userprofile.cehua = cehua
+            userprofile.xuanchuan = xuanchuan
+            userprofile.faxing = faxing
+            userprofile.fawu = fawu
+            userprofile.qita = qita
+            
+            userprofile.company_name = companyname
+            userprofile.company_address = companyaddress
+            userprofile.company_email = companyemail
+            
+            userprofile.save()
+            
+            return HttpResponseRedirect("/user-info/")
+    return HttpResponse(u"请求无效")
+
+
 def reset_password(request):
     if request.method == 'POST':
         origin_password = request.POST['origin-password']

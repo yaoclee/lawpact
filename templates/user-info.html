@@ -146,7 +146,8 @@
 						<div role="tabpanel" class="tab-pane fade" id="information">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form" action="url" method="post">
+									<form role="form" action="/update-user-info/" method="post">
+										{% csrf_token %}
 										<fieldset>
 											<legend>用户信息</legend>
 											<div hidden class="form-group">
@@ -165,10 +166,10 @@
 														<label for="property" class="form-control">用户性质:{{ user.userprofile.property }}</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="radio" name="property" value="个人" {% ifequal user.userprofile.property '0' %} checked {% endifequal %}>个人
-														<input type="radio" name="property" value="公司" {% ifequal user.userprofile.property '1' %} checked {% endifequal %}>公司
-														<input type="radio" name="property" value="工作室" {% ifequal user.userprofile.property '2' %} checked {% endifequal %}>工作室
-														<input type="radio" name="property" value="其他" {% ifequal user.userprofile.property '3' %} checked {% endifequal %}>其他
+														<input type="radio" name="property" value="0" {% ifequal user.userprofile.property '0' %} checked="true" {% endifequal %}>个人
+														<input type="radio" name="property" value="1" {% ifequal user.userprofile.property '1' %} checked="true" {% endifequal %}>公司
+														<input type="radio" name="property" value="2" {% ifequal user.userprofile.property '2' %} checked="true" {% endifequal %}>工作室
+														<input type="radio" name="property" value="3" {% ifequal user.userprofile.property '3' %} checked="true" {% endifequal %}>其他
 													</div>
 												</div>
 											</div>
@@ -178,16 +179,16 @@
 														<label for="" class="form-control">职业/职务:</label>
 													</div>
 													<div class="col-sm-9">
-														<input type="checkbox" name="编剧" {% if user.userprofile.bianju %} checked="checked" {% endif %}>编剧
-														<input type="checkbox" name="导演" {% if user.userprofile.daoyan %} checked="checked" {% endif %}>导演
-														<input type="checkbox" name="演员" {% if user.userprofile.yanyuan %} checked="checked" {% endif %}>演员
-														<input type="checkbox" name="经纪人" {% if user.userprofile.jingjiren %} checked="checked" {% endif %}>经纪人
-														<input type="checkbox" name="制片人" {% if user.userprofile.zhipianren %} checked="checked" {% endif %}>制片人
-														<input type="checkbox" name="策划" {% if user.userprofile.cehua %} checked="checked" {% endif %}>策划
-														<input type="checkbox" name="宣传" {% if user.userprofile.xuanchuan %} checked="checked" {% endif %}>宣传
-														<input type="checkbox" name="发行" {% if user.userprofile.faxing %} checked="checked" {% endif %}>发行
-														<input type="checkbox" name="法务/律师" {% if user.userprofile.fawu %} checked="checked" {% endif %}>法务/律师
-														<input type="checkbox" name="其他" {% if user.userprofile.qita %} checked="checked" {% endif %}>其他
+														<input type="checkbox" name="bianju" {% if user.userprofile.bianju %} checked="checked" {% endif %}>编剧
+														<input type="checkbox" name="daoyan" {% if user.userprofile.daoyan %} checked="checked" {% endif %}>导演
+														<input type="checkbox" name="yanyuan" {% if user.userprofile.yanyuan %} checked="checked" {% endif %}>演员
+														<input type="checkbox" name="jingjiren" {% if user.userprofile.jingjiren %} checked="checked" {% endif %}>经纪人
+														<input type="checkbox" name="zhipianren" {% if user.userprofile.zhipianren %} checked="checked" {% endif %}>制片人
+														<input type="checkbox" name="cehua" {% if user.userprofile.cehua %} checked="checked" {% endif %}>策划
+														<input type="checkbox" name="xuanchuan" {% if user.userprofile.xuanchuan %} checked="checked" {% endif %}>宣传
+														<input type="checkbox" name="faxing" {% if user.userprofile.faxing %} checked="checked" {% endif %}>发行
+														<input type="checkbox" name="fawu" {% if user.userprofile.fawu %} checked="checked" {% endif %}>法务/律师
+														<input type="checkbox" name="qita" {% if user.userprofile.qita %} checked="checked" {% endif %}>其他
 													</div>
 												</div>
 											</div>
@@ -197,7 +198,7 @@
 														<label for="company" class="form-control">所属公司</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="text" name="company" class="form-control" value="{{ user.userprofile.company_name }}">
+														<input type="text" name="companyname" class="form-control" value="{{ user.userprofile.company_name }}">
 													</div>
 												</div>
 											</div>
@@ -207,7 +208,7 @@
 														<label for="address" class="form-control">联系地址</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="text" name="address" class="form-control" value="{{ user.userprofile.company_address }}">
+														<input type="text" name="companyaddress" class="form-control" value="{{ user.userprofile.company_address }}">
 													</div>
 												</div>
 											</div>
@@ -217,7 +218,7 @@
 														<label for="company-email" class="form-control">公司邮箱</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="email" name="company-email" class="form-control" value="{{ user.userprofile.company_email}}">
+														<input type="email" name="companyemail" class="form-control" value="{{ user.userprofile.company_email}}">
 													</div>
 												</div>
 											</div>
