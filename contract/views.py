@@ -124,6 +124,19 @@ def contract_delete(request, offset):
     
     return HttpResponseRedirect("/contract-info/");
 
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def contract_delete2(request):
+    print "goes here"
+    id = request.POST['id']
+    print "id = %s" % id
+    
+    contract = UserContract.objects.get(id=id, user=request.user)
+    if contract is not None:
+        print "can delete"
+        contract.delete()
+    return HttpResponse("ok")
+
 def update_user_image(request):
     if request.method == 'POST':
         file = request.FILES

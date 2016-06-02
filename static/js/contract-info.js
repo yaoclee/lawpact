@@ -84,7 +84,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
 
         //新建事件
         jQuery.post(
-            'url', 
+            'url4', 
             {
                 title:  $('textarea[placeholder="事件说明"]').val(),
                 start:  start.format('YYYY-MM-DD'),
@@ -100,7 +100,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
     {
         //修改事件
         jQuery.post(
-            'url', 
+            'url5', 
             {
                 id:     $('input[name="id"]').val(),
                 title:  $('textarea[placeholder="事件说明"]').val(),
@@ -120,7 +120,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
 $('div.modal-footer button.btn-danger').click(function(event) {
     //删除事件
     jQuery.post(
-        'url', 
+        'url6', 
         {
             id:     $('input[name="id"]').val()
         },
@@ -251,7 +251,7 @@ $('table.info tbody button.delete').each(function(index, el) {
     $(this).click(function(event) {
         //删除合同
         jQuery.post(
-            'url', 
+            '/contract/delete2/', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text()
             },
@@ -275,7 +275,7 @@ $('table.info tbody input[name="lable"]').each(function(index, el) {
     $(this).change(function(event) {
         //修改lable
         jQuery.post(
-            'url', 
+            'url1', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text(),
                 lable:$(this).val()
@@ -290,7 +290,7 @@ $('table.info tbody input[name="name"]').each(function(index, el) {
     $(this).change(function(event) {
         //修改name
         jQuery.post(
-            'url', 
+            'url2', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text(),
                 name:$(this).val()
