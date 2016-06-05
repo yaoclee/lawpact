@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils.translation import ugettext_lazy as _
+from test.test_imageop import MAX_LEN
 
 USER_PROPERTY_CHOICES = (
     ('0', u'个人'),
@@ -105,8 +106,11 @@ class UserContract(models.Model):
 
 class Backlog(models.Model):
     user = models.ForeignKey(User)
-    date = models.DateField()
-    content = models.TextField()
+    start_date = models.DateField(blank=True)
+    end_date = models.DateField(blank=True)
+    back_color = models.CharField(max_length=10, blank=True)
+    description = models.CharField(max_length = 300, blank=True)
+    contract_name = models.CharField(max_length = 50, blank=True)
     
     class Meta:
         verbose_name = u"3.待办事项列表"

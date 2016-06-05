@@ -5,9 +5,9 @@ from django.template.context import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render_to_response, render, get_object_or_404
 from django.http.response import HttpResponseRedirect, Http404,\
-    StreamingHttpResponse, HttpResponseNotFound
+    StreamingHttpResponse, HttpResponseNotFound, HttpResponse
 from contract.form import RegisterForm
-from contract.models import UserProfile, UserContract
+from contract.models import UserProfile, UserContract, Backlog
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
@@ -177,6 +177,26 @@ def contract_update_law_status(request):
             return HttpResponse('update law status succeed!')
             
     return HttpResponse('update law status failed!')
+
+############################Calender Handling#######################################
+
+@csrf_exempt
+def calendar_new(request):
+    title = request.POST['title']
+    ref = request.POST['ref']
+    start_date = request.POST['start']
+    end_date = request.POST['end']
+    back_color = request.POST['backgroundColor']
+    
+    user = request.user
+    if not user.is_authenticated():
+        return HttpResponse("User invalid")
+
+    backlog = Backlog(user=request.user, start_date=start_date, end_date=end_date, back_color=back_color,
+                      description = title, contract_name=ref)
+    backlog.save()
+    
+    return HttpResponse("Create new calendar success!!!")
 
 ############################update user related info#################################
 def update_user_image(request):

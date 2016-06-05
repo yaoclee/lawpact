@@ -19,10 +19,14 @@ urlpatterns = patterns('',
         url(r'^user-info/$', views.user_info, name='user_info'),
         url(r'^about/$', views.about, name='about'),
         url(r'^preview-contract/(\d+)/$', views.preview_contract, name='preview_contract'),
-        #url(r'^contract/delete/(\d+)/$', views.contract_delete, name='contract_delete'),
+        
+        # contract row 
         url(r'^contract/delete/$', views.contract_delete, name='contract_delete'),
         url(r'^contract/update-name/$', views.contract_update_name, name='contract_update_name'),
         url(r'^contract/update-law-status/$', views.contract_update_law_status, name='contract_update_law_status'),
+        
+        # calender
+        url(r'^calendar/new/$', views.calendar_new, name='calendar_new'),
 
         url(r'^reset-password/$', views.reset_password, name='reset_password'),
         url(r'^update-user-info/$', views.update_user_info, name='update_user_info'),

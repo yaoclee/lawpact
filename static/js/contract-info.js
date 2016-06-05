@@ -84,7 +84,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
 
         //新建事件
         jQuery.post(
-            'url4', 
+            '/calendar/new/', 
             {
                 title:  $('textarea[placeholder="事件说明"]').val(),
                 start:  start.format('YYYY-MM-DD'),
@@ -93,7 +93,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
                 ref:    $('select[name="ref"]').val()
             },
             function (data, textStatus, jqXHR){
-                alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
+                alert($(this).parents('tr').children('td:eq(0)').text()+'添加成功');
             });
     }
     else

@@ -36,9 +36,12 @@ class ContractOpts(admin.ModelAdmin):
     raw_id_admin = ('user')
 """
 
+class BacklogAdmin(admin.ModelAdmin):
+    list_display = ('user', 'description', 'start_date', 'end_date')
+
 admin.site.register(models.UserProfile, UserProfileAdmin)
 admin.site.register(models.UserContract, UserContractAdmin)
-admin.site.register(models.Backlog)
+admin.site.register(models.Backlog, BacklogAdmin)
 
 
 #admin.site.unregister(User)
