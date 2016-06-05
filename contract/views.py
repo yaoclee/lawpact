@@ -110,6 +110,7 @@ def preview_contract(request, offset):
         response = HttpResponseNotFound()
     return response
             
+"""
 def contract_delete(request, offset):
     print "goes here ok!"
     try:
@@ -123,20 +124,61 @@ def contract_delete(request, offset):
         contract.delete()
     
     return HttpResponseRedirect("/contract-info/");
+"""
 
+#delete user contract
 from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
-def contract_delete2(request):
-    print "goes here"
+def contract_delete(request):
+    #print "goes here"
     id = request.POST['id']
-    print "id = %s" % id
+    #print "id = %s" % id
     
     contract = UserContract.objects.get(id=id, user=request.user)
     if contract is not None:
-        print "can delete"
+        print "contract deleted!!!"
         contract.delete()
-    return HttpResponse("ok")
+    return HttpResponse("delete failed!")
 
+@csrf_exempt
+def contract_update_name(request):
+    id = request.POST['id']
+    new_name = request.POST['name']
+    
+    print "id=%s" % id
+    print "new_name is %s" % new_name
+    if len(new_name.strip()) == 0:
+        return HttpResponse("input name is empty")
+
+    contract = UserContract.objects.get(id=id, user=request.user)
+    if contract is not None:
+        contract.name = new_name
+        contract.save()
+        return HttpResponse('update name success!')
+    return HttpResponse('failed to update name!')
+
+@csrf_exempt
+def contract_update_law_status(request):
+    id = request.POST['id']
+    status = request.POST['status']
+    new_status = 0
+    if status == "1":
+        new_status = 1
+    
+    contract = UserContract.objects.get(id=id, user=request.user)
+    if contract is not None:
+        law_status = contract.law_status
+        print "law_status is: %s" % law_status
+        print "new_status is: %s" % new_status
+        
+        if law_status != new_status:
+            contract.law_status = new_status 
+            contract.save()
+            return HttpResponse('update law status succeed!')
+            
+    return HttpResponse('update law status failed!')
+
+############################update user related info#################################
 def update_user_image(request):
     if request.method == 'POST':
         file = request.FILES

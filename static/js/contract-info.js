@@ -251,7 +251,7 @@ $('table.info tbody button.delete').each(function(index, el) {
     $(this).click(function(event) {
         //删除合同
         jQuery.post(
-            '/contract/delete2/', 
+            '/contract/delete/', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text()
             },
@@ -290,13 +290,13 @@ $('table.info tbody input[name="name"]').each(function(index, el) {
     $(this).change(function(event) {
         //修改name
         jQuery.post(
-            'url2', 
+            '/contract/update-name/', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text(),
                 name:$(this).val()
             },
             function (data, textStatus, jqXHR){
-                alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
+                alert($(this).parents('tr').children('td:eq(0)').text()+'合同名称修改成功');
             });
     });
 });
@@ -305,7 +305,7 @@ $('table.info tbody select[name="status"]').each(function(index, el) {
     $(this).change(function(event) {
         //修改status
         jQuery.post(
-            'url', 
+            '/contract/update-law-status/', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text(),
                 status:$(this).val()
