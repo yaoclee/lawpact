@@ -213,6 +213,7 @@ def calendar_events(request):
         #print "******start-date is: %s" % backlog.start_date
         events.append(event)
     
+    return HttpResponse(json.dumps(events), content_type='application/json')
 
 ############################update user related info#################################
 def update_user_image(request):

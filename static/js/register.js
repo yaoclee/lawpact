@@ -39,15 +39,29 @@ $(document).ready(function() {
 	      }
 	    },
         submitHandler:function(form){
-            alert("提交事件!");   
             form.submit();
         },
         errorClass:'input-error',
-        validClass:'input-valid',
-		errorPlacement: function(error, element) {  
-		    var index = error.appendTo(element.parent());
-		    $(index).removeClass('input-error');
-		}
+        validClass:'input-valid'
 	});
+});
+
+$('div#agreement input[type="checkbox"]').click(function(event) {
+	/* Act on the event */
+	if ($(this).is(':checked'))
+	{
+		$('form button[type="submit"]').removeClass('disabled');
+	}
+	else
+	{
+		$('form button[type="submit"]').addClass('disabled');
+	}
+});
+
+$('form button[type="submit"]').click(function(event) {
+	if ($(this).is('.disabled'))
+	{
+		return false;
+	}
 });
 
