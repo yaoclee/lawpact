@@ -198,6 +198,22 @@ def calendar_new(request):
     
     return HttpResponse("Create new calendar success!!!")
 
+import json
+def calendar_events(request):
+    user = request.user
+    if not user.is_authenticated():
+        return HttpResponse("User invalid")
+    
+    backlogs = Backlog.objects.filter(user=user)
+    events = []
+    
+    for backlog in backlogs:
+        event = {'id' : backlog.id, 'title' : backlog.description, 'start' : str(backlog.start_date),
+                 'end' : str(backlog.end_date), 'backgroundColor' : backlog.back_color, 'ref' : 3}
+        #print "******start-date is: %s" % backlog.start_date
+        events.append(event)
+    
+
 ############################update user related info#################################
 def update_user_image(request):
     if request.method == 'POST':

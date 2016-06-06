@@ -27,6 +27,7 @@ urlpatterns = patterns('',
         
         # calender
         url(r'^calendar/new/$', views.calendar_new, name='calendar_new'),
+        url(r'^calendar/events/$', views.calendar_events, name='calendar_events'),
 
         url(r'^reset-password/$', views.reset_password, name='reset_password'),
         url(r'^update-user-info/$', views.update_user_info, name='update_user_info'),
