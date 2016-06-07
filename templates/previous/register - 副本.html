@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>注册</title>
+    <meta name="description" content="有娱-注册">
+    <meta name="author" content="xiao kai, peng">
+
+    <!-- 导入Roboto字体
+    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
+    <!-- 导入noto sans sc字体
+    <link rel="stylesheet" href="http://fonts.useso.com/earlyaccess/notosanssc.css"> -->
+
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../static/css/style.css">
+
+    <!-- 加载各种icon -->
+    <link rel="icon" href="../static/img/logo.ico">
+    <link rel="shortcut icon" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/img/logo.ico">
+    <link rel="apple-touch-icon-precomposed" href="../static/img/logo.ico">
+
+
+</head>
+
+<body>
+	<header>
+		<!-- 置顶导航 -->
+		<nav role="navigation" class="navbar navbar-static-top">
+			<div class="container">
+				<a class="brand" href="#">
+					<img alt="Brand" src="../static/img/logo.ico">
+				</a>
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="collapse navbar-collapse" id="main_top_navbar">
+					<!-- 以下填充置顶导航中的链接 -->
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<a href="./index.html">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+						</li>
+						<li>
+							<a href="./contract-guider.html">合同生成</a>
+						</li>
+						<li>
+							<a href="./contract-info.html">合同管理</a>
+						</li>
+						<li>
+							<a href="./about.html">联系我们</a>
+						</li>
+					</ul>
+
+					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
+					<!-- 这里示例下拉菜单 -->
+					<ul class="nav navbar-nav navbar-right no-avatar">
+						<li>
+							<a href="./register.html">注册</a>
+						</li>
+						<li>
+							<span>/</span>
+						</li>
+						<li>
+							<a href="./login.html">登录</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 hidden-xs welcome">
+					<h1 class="default-h1"><strong>欢迎</strong>新用户！</h1>
+					<div>
+						<h3>
+							我们为您提供<strong>专业的</strong>影视合同服务。
+						</h3>
+						<h3>
+							无论您是编剧、演员、还是导演，您都可以通过我们的网站<strong>免费</strong>生成为您<strong>量身定制的</strong>各种类型的合同。
+						</h3>
+						<h3>
+							另外，您也可以通过我们的<a href="#"><strong>邮箱</strong></a>获得更进一步的法律帮助。
+						</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="form-box">
+						<div class="form-top">
+							<div class="form-top-left">
+								<h3 class="default-h3">
+									请在这里注册
+								</h3>
+								<p>
+									填写几个简单的表单即可马上登陆
+								</p>
+							</div>
+							<div class="form-top-right">
+								<i class="fa fa-pencil"></i>
+							</div>
+						</div>
+						<div class="form-bottom">
+							<form id="regiser" role="form" action="url" method="post">
+								<div class="form-group">
+									<label for="regiser-account" class="sr-only">账号</label>
+									<input type="text" name="regiser-account" placeholder="请输入账号，以字母开头..." class="form-account form-control">
+								</div>
+								<div class="form-group">
+									<label for="regiser-password" class="sr-only">密码</label>
+									<input type="password" name="regiser-password" placeholder="请输入8至16位密码..." class="form-password form-control">
+								</div>
+								<div class="form-group">
+									<label for="regiser-duplicate-password" class="sr-only">请重复输入密码</label>
+									<input type="password" name="regiser-duplicate-password" placeholder="请重复输入密码..." class="form-duplicate-password form-control">
+								</div>
+								<div class="form-group">
+									<label for="regiser-email" class="sr-only">电子邮箱</label>
+									<input type="email" name="regiser-email" placeholder="请输入电子邮箱..." class="form-email form-control">
+								</div>
+								<button type="submit" class="btn">提交注册信息</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer-border"></div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p>Copyright  2016 有娱. All Rights Reserved</p>
+				</div>
+				<div class="col-sm-4">
+					<div class="bdsharebuttonbox">
+						<a href="#" class="fa fa-qq" data-cmd="tqq"></a>
+						<a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
+						<a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<ul class="info">
+						<li><span class="fa fa-question-circle"></span><a href="./about.html">关于我们</a></li>
+						<li><span class="fa fa-user-plus"></span><a href="./about.html">商务合作</a></li>
+						<li><span class="fa fa-info-circle"></span><a href="./about.html">免责声明</a></li>
+						<li><span class="fa fa-envelope"></span><a href="./about.html">联系我们</a></li>
+						<li><span class="fa fa-h-square"></span><a href="./about.html">帮助</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- 返回顶部悬浮按钮 -->
+	<span id="top-link-block" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
+	        <i class="fa fa-arrow-up"></i>返回顶部
+	    </a>
+	</span>
+
+	<!-- 加载JS -->
+	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+	<script src="../static/js/script.js"></script>
+	<script src="../static/js/register.js"></script>
+</body>
+</html>
