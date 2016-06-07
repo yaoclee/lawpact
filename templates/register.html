@@ -39,22 +39,23 @@
 							</div>
 						</div>
 						<div class="form-bottom">
-							<form id="regiser" role="form" action="url" method="post">
+							<form id="regiser" role="form" action="/register/" method="post">
+								{% csrf_token %}
 								<div class="form-group">
 									<label for="regiser-account" class="sr-only">账号</label>
-									<input type="text" name="regiser-account" placeholder="请输入账号，以字母开头..." class="form-account form-control">
+									<input type="text" name="username" placeholder="请输入账号，以字母开头..." class="form-account form-control">
 								</div>
 								<div class="form-group">
 									<label for="regiser-password" class="sr-only">密码</label>
-									<input type="password" name="regiser-password" placeholder="请输入8至16位密码..." class="form-password form-control">
+									<input id="password" type="password" name="password" placeholder="请输入8至16位密码..." class="form-password form-control">
 								</div>
 								<div class="form-group">
 									<label for="regiser-duplicate-password" class="sr-only">请重复输入密码</label>
-									<input type="password" name="regiser-duplicate-password" placeholder="请重复输入密码..." class="form-duplicate-password form-control">
+									<input type="password" name="confirm_password" placeholder="请重复输入密码..." class="form-duplicate-password form-control">
 								</div>
 								<div class="form-group">
 									<label for="regiser-email" class="sr-only">电子邮箱</label>
-									<input type="email" name="regiser-email" placeholder="请输入电子邮箱..." class="form-email form-control">
+									<input type="email" name="email" placeholder="请输入电子邮箱..." class="form-email form-control">
 								</div>
 								<button type="submit" class="btn">提交注册信息</button>
 							</form>
