@@ -90,6 +90,7 @@ class UserContract(models.Model):
     #contract_status = models.BooleanField(verbose_name = u"合同状态", blank=True)
     contract_status = models.CharField(verbose_name = u"合同状态", max_length=1, choices=CONTRACT_STATUS_CHOICES, blank=True)
     law_status = models.CharField(verbose_name = u"法律状态", max_length=1, choices=LAW_STATUS_CHOICES, blank=True)
+    label = models.CharField(verbose_name = u"标签", max_length=10, blank=True)
 
     #backlog_date = models.DateField()
     #backlog = models.CharField(max_length=200)

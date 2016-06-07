@@ -158,6 +158,22 @@ def contract_update_name(request):
     return HttpResponse('failed to update name!')
 
 @csrf_exempt
+def contract_label(request):
+    id = request.POST['id']
+    new_label = request.POST['label']
+    
+    if len(new_label.strip()) == 0:
+        return HttpResponse("input label is empty")
+    
+    contract = UserContract.objects.get(id=id, user=request.user)
+    if contract is not None:
+        contract.label = new_label
+        contract.save()
+        return HttpResponse('update labe success!')
+    
+    return HttpResponse('failed to update label!')
+
+@csrf_exempt
 def contract_update_law_status(request):
     id = request.POST['id']
     status = request.POST['status']

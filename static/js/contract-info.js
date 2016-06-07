@@ -259,17 +259,17 @@ $('table.info tbody button.delete').each(function(index, el) {
     });
 });
 
-$('table.info tbody input[name="lable"]').each(function(index, el) {
+$('table.info tbody input[name="label"]').each(function(index, el) {
     $(this).change(function(event) {
         //修改lable
         jQuery.post(
-            'url1', 
+            '/contract/label/', 
             {
                 id:$(this).parents('tr').children('td:eq(0)').text(),
-                lable:$(this).val()
+                label:$(this).val()
             },
             function (data, textStatus, jqXHR){
-                alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
+                alert($(this).parents('tr').children('td:eq(0)').text()+'标签已更新');
             });
     });
 });
