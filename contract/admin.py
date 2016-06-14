@@ -12,7 +12,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ['user__username',]
     list_display = ('user', 'get_email', 'contract_url')
     #readonly_fields = ('get_email',)
-    fields = ('user', ('real_name', 'phone_number'), 
+    fields = ('user', ('real_name', 'phone_number', 'pic'), 
               'property', ('bianju', 'daoyan', 'yanyuan', 'jingjiren', 'zhipianren', 'cehua', 'xuanchuan', 'faxing', 'fawu', 'qita'), 
               ('company_name', 'company_address', 'company_email'))
     readonly_fields = ('get_email',)

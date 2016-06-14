@@ -32,7 +32,7 @@ urlpatterns = patterns('',
 
         url(r'^reset-password/$', views.reset_password, name='reset_password'),
         url(r'^update-user-info/$', views.update_user_info, name='update_user_info'),
-        url(r'^update-user-image/$', views.update_user_image, name='update_user_image'),
+        url(r'^upload-user-image/$', views.upload_user_image, name='upload_user_image'),
 
         url(r'^activate/(?P<key>.+)$', views.activation, name='activation'),
         url(r'^spdf/(?P<html>.+)$', views.save_pdf, name='generate_pdf'),

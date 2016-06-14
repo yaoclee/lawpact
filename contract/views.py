@@ -12,7 +12,8 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 import hashlib
 import cmd
-from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH
+from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH,\
+    USER_IMAGE_PATH
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.contrib import auth
@@ -232,12 +233,37 @@ def calendar_events(request):
     return HttpResponse(json.dumps(events), content_type='application/json')
 
 ############################update user related info#################################
-def update_user_image(request):
+@csrf_exempt
+def upload_user_image(request):
     if request.method == 'POST':
-        file = request.FILES
-        print file
-        HttpResponse("OK")
-    HttpResponse("fail")
+        uploaded_file = request.FILES
+        print "uploaded_file is: %s" % uploaded_file
+        chunk = request.REQUEST.get('chunk', '0')
+        chunks = request.REQUEST.get('chunks', '0')
+        #file = request.POST['name'] #request.POST['name']
+        name = request.REQUEST.get('name', '')
+        
+        #print "chunk is: %s, chunks is: %s, name is: %s" % (chunk, chunks, name)
+        
+        if not name:
+            name = uploaded_file.name
+
+        filepath_in_admin = 'images/' + name
+        temp_file = USER_IMAGE_PATH + name
+        _file = open(temp_file, 'wb')
+        for file in request.FILES:
+            f = request.FILES[file]
+            _file.write(f.read())
+        _file.close()
+        
+        user = request.user
+        userprofile = UserProfile.objects.get(user=user)
+        if userprofile is not None:
+            userprofile.pic = filepath_in_admin
+            userprofile.save()
+            return HttpResponse("upload image succeed!")
+        
+    return HttpResponse("upload image fail")
 
 def update_user_info(request):
     if request.method == 'POST':
@@ -341,7 +367,7 @@ def register(request):
                 user_profile.save()
 
                 ##send email##
-                mail_title = u'律律网账号激活'
+                mail_title = u'米律网账号激活'
                 mail_content = u'亲爱的，感谢您的注册，请点击下面链接激活账号\n\n'
                 active_link = 'http://localhost:8000/activate/' + activekey
                 mail_content += active_link
@@ -428,7 +454,7 @@ def create_contract(request):
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
 
-            user_contract = UserContract(user=user, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=1)
+            user_contract = UserContract(user=user, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=0)
             #user_contract.save()
      
             file_path = 'files/%s/%s%s' % (user.id, timestamp, '.pdf')

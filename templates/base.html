@@ -24,7 +24,8 @@
 	<link rel="stylesheet" href="{% static 'css/contract-info.css' %}">
 	<link rel="stylesheet" href="{% static 'css/contract-creater.css' %}">
 	<link rel="stylesheet" href="{% static 'css/about.css' %}">
-
+	<link rel="stylesheet" href="{% static 'css/user-info.css' %}">
+	
     <!-- 加载各种icon -->
     <link rel="icon" href="{% static 'img/logo.ico' %}">
     <link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
@@ -77,7 +78,7 @@
 						{% if user.is_authenticated %}
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								{{ user }}<img src="{% static 'img/avatar.jpg' %}" class="avatar">
+								{{ user }}<img src="{{ user.userprofile.pic.url }}" class="avatar">
 								<span class="caret"></span>
 							</a> 
 							<ul class="dropdown-menu">
@@ -148,9 +149,11 @@
 	<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 	<script src="https://cdn.bootcss.com/fullcalendar/2.6.1/lang/zh-cn.js"></script>
+	<script src="https://cdn.bootcss.com/plupload/2.1.8/plupload.full.min.js"></script>
 	<script src="{% static 'js/script.js' %}"></script>
 	<script src="{% static 'js/contract-info.js' %}"></script>
 	<script src="{% static 'js/contract-guider.js' %}"></script>
 	<script src="{% static 'js/001.js' %}"></script>
+	<script src="{% static 'js/user-info.js' %}"></script>
 </body>
 </html>
