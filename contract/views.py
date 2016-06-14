@@ -175,6 +175,20 @@ def contract_label(request):
     return HttpResponse('failed to update label!')
 
 @csrf_exempt
+def contract_for_review(request):
+    id = request.POST['id']
+    print "id is %s:" % id
+    contract = UserContract.objects.get(id=id, user=request.user)
+    if contract is not None:
+        print "ok"
+        if contract.contract_status != '2':
+            contract.contract_status = '2'
+            contract.save()
+            return HttpResponse("contract status is on reviewing!")
+            
+    return HttpResponse("fail to update contract status")
+
+@csrf_exempt
 def contract_update_law_status(request):
     id = request.POST['id']
     status = request.POST['status']

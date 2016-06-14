@@ -235,6 +235,20 @@ $(document).ready(function() {
     MakeRefOpt();
 });
 
+$('table.info tbody button.delivery').each(function(index, el) {
+    $(this).click(function(event) {
+        //提交审核
+        jQuery.post(
+            '/contract/for-review/', 
+            {
+                id:$(this).parents('tr').children('td:eq(0)').text()
+            },
+            function (data, textStatus, jqXHR){
+                alert($(this).parents('tr').children('td:eq(0)').text()+'提交审核成功');
+            });
+    });
+});
+
 $('table.info tbody button.delete').each(function(index, el) {
     $(this).click(function(event) {
         //删除合同

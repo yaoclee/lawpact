@@ -127,7 +127,11 @@ button.activation:hover
 button.preview,
 button.preview:active,
 button.preview:focus,
-button.preview:hover
+button.preview:hover,
+button.delivery,
+button.delivery:active,
+button.delivery:focus,
+button.delivery:hover
 {
     -webkit-border-radius: 0;
        -moz-border-radius: 0;

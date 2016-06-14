@@ -23,6 +23,7 @@ urlpatterns = patterns('',
         # contract row 
         url(r'^contract/delete/$', views.contract_delete, name='contract_delete'),
         url(r'^contract/label/$', views.contract_label, name='contract_label'),
+        url(r'^contract/for-review/$', views.contract_for_review, name='contract_for_reivew'),
         url(r'^contract/update-name/$', views.contract_update_name, name='contract_update_name'),
         url(r'^contract/update-law-status/$', views.contract_update_law_status, name='contract_update_law_status'),
         
