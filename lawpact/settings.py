@@ -129,6 +129,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+CRON_CLASSES = [
+    'contract.cron.MyCronJob',
+]
+
 ROOT_URLCONF = 'lawpact.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -154,6 +158,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'contract',
     'south',
+    'django_cron',
     #'wkhtmltopdf',
     #'django_evolution'
 )

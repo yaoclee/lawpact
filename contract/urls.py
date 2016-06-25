@@ -46,6 +46,7 @@ urlpatterns = patterns('',
 
         #test urls...
         url(r'^test_create/$', views.test_create, name='test_create_contract'),
+        url(r'^debug/$', views.debug, name='test_debug'),
         #url(r'^about/$', views.about, name='about'),
         #url(r'^add_category/$', views.add_category, name='add_category'),
         #url(r'^register/$', views.register, name='register'),
