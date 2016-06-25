@@ -7,6 +7,13 @@ from django_cron import CronJobBase, Schedule
 
 from django.core.mail import send_mail
 
+"""
+usage:
+>crontab -e //shows all cron job background
+>python manage.py runcrons //set up cron jobs in the project
+>python manage.py runcrons "my_app.cron.MyCronJob"
+
+"""
 class MyCronJob(CronJobBase):
     RUN_EVERY_MINS = 1
     
