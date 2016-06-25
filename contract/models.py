@@ -109,7 +109,7 @@ class Backlog(models.Model):
     user = models.ForeignKey(User)
     start_date = models.DateField(blank=True)
     end_date = models.DateField(blank=True)
-    back_color = models.CharField(max_length=10, blank=True)
+    back_color = models.CharField(max_length=20, blank=True)
     description = models.CharField(max_length = 300, blank=True)
     contract_name = models.CharField(max_length = 50, blank=True)
     
