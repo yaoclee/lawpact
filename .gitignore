@@ -1,2 +1,4 @@
 *.sqlite
 *.pyc
+*.pdf
+*.jpg
