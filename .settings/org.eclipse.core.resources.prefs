@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//contract/admin.py=utf-8
 encoding//contract/cron.py=utf-8
 encoding//contract/form.py=utf-8
+encoding//contract/management/commands/sendmail.py=utf-8
 encoding//contract/migrations/0002_auto__add_field_userprofile_validatecode.py=utf-8
 encoding//contract/models.py=utf-8
 encoding//contract/views.py=utf-8
