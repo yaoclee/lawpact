@@ -85,6 +85,7 @@ def user_file_folder(instance, filename):
     #return "files/user_{0}/{1}" % (instance.user.id, filename)
 class UserContract(models.Model):
     user = models.ForeignKey(User)
+    contract_id = models.CharField(max_length=25, verbose_name=u"合同编号", blank=True)
     name = models.CharField(max_length=50, verbose_name=_('name'))
     type = models.CharField(max_length=20, verbose_name=u"合同类型", blank=True)
     #contract_status = models.BooleanField(verbose_name = u"合同状态", blank=True)
@@ -97,6 +98,7 @@ class UserContract(models.Model):
     content = models.TextField(blank=True)
     #file = models.FileField(upload_to='files', blank=True)
     file = models.FileField(upload_to=user_file_folder)
+    create_at = models.DateField(auto_now_add = True, blank=True)
     
     class Meta:
         verbose_name = u"2.合同信息"

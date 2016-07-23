@@ -10,13 +10,15 @@ from contract.form import RegisterForm
 from contract.models import UserProfile, UserContract, Backlog
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
-import hashlib
-import cmd
 from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH,\
     USER_IMAGE_PATH
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.contrib import auth
+
+import hashlib
+import cmd
+from datetime import date
 
 def index(request):
     context = RequestContext(request)
@@ -467,12 +469,24 @@ def create_contract(request):
             content = html_content
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
+            
+            # Contract ID = user_id + class_id + today + user's n'th contract
+            u_id = "%s" % (user.id)
+            c_class_id = '101'  # 文学作品改编许可合同
+            today = date.today()
+            c_create_at = today.strftime("%Y%m%d")
+            ucs = UserContract.objects.filter(user=user)
+            
+            #c_id = 1
+            #if ucs is not None:
+            c_id = len(ucs) + 1
+            str_cid = '{v:04d}'.format(v=c_id)
+            str_c_id = u_id +  c_class_id + c_create_at + str_cid
+            # end...
 
-            user_contract = UserContract(user=user, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=0)
-            #user_contract.save()
-     
+            user_contract = UserContract(user=user, contract_id=str_c_id, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=0)
             file_path = 'files/%s/%s%s' % (user.id, timestamp, '.pdf')
-            print file_path
+            #print file_path
             user_contract.file = file_path #'files/14/upload.pdf'
             user_contract.save()
             #user_contract.file.save(html_file_name, ContentFile(djangofile.read()), save=True)
