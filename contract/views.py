@@ -137,7 +137,7 @@ def contract_delete(request):
     id = request.POST['id']
     #print "id = %s" % id
     
-    contract = UserContract.objects.get(id=id, user=request.user)
+    contract = UserContract.objects.get(contract_id=id, user=request.user)
     if contract is not None:
         print "contract deleted!!!"
         contract.delete()
@@ -153,7 +153,7 @@ def contract_update_name(request):
     if len(new_name.strip()) == 0:
         return HttpResponse("input name is empty")
 
-    contract = UserContract.objects.get(id=id, user=request.user)
+    contract = UserContract.objects.get(contract_id=id, user=request.user)
     if contract is not None:
         contract.name = new_name
         contract.save()
@@ -168,7 +168,7 @@ def contract_label(request):
     if len(new_label.strip()) == 0:
         return HttpResponse("input label is empty")
     
-    contract = UserContract.objects.get(id=id, user=request.user)
+    contract = UserContract.objects.get(contract_id=id, user=request.user)
     if contract is not None:
         contract.label = new_label
         contract.save()
@@ -180,7 +180,7 @@ def contract_label(request):
 def contract_for_review(request):
     id = request.POST['id']
     print "id is %s:" % id
-    contract = UserContract.objects.get(id=id, user=request.user)
+    contract = UserContract.objects.get(contract_id=id, user=request.user)
     if contract is not None:
         print "ok"
         if contract.contract_status != '2':
@@ -198,7 +198,7 @@ def contract_update_law_status(request):
     if status == "1":
         new_status = 1
     
-    contract = UserContract.objects.get(id=id, user=request.user)
+    contract = UserContract.objects.get(contract_id=id, user=request.user)
     if contract is not None:
         law_status = contract.law_status
         print "law_status is: %s" % law_status
