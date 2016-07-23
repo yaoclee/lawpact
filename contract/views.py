@@ -380,6 +380,9 @@ def register(request):
 
                 user_profile = UserProfile(user=user,)
                 user_profile.activation_key = activekey
+                
+                default_pic = 'images/default.jpg'
+                user_profile.pic = default_pic
                 user_profile.save()
 
                 ##send email##
