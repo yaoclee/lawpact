@@ -20,6 +20,16 @@ import hashlib
 import cmd
 from datetime import date
 
+def isUserInfoComplete(user):
+    tag = False
+    if user.is_authenticated():
+        profile = user.userprofile
+        if profile is not None:
+            if profile.company_address and profile.company_name and profile.company_email:
+                tag = True
+
+    return tag 
+
 def index(request):
     context = RequestContext(request)
     return render_to_response("index.html", context)
@@ -55,20 +65,33 @@ def user_logout(request):
 
 def guider(request):
     context = RequestContext(request)
+    user = request.user
+    print "user is:%s" % user
+    if not user.is_authenticated():
+        return HttpResponse(u"该功能需要登录后才能使用")
+    
+    if not isUserInfoComplete(user):
+        return HttpResponse(u"该功能需完善用户信息后才能使用")
+
     return render_to_response("contract-guider.html", context)
 
 def contract_info(request):
     context = RequestContext(request)
     user = request.user
+    if not user.is_authenticated():
+        return HttpResponse(u"该功能需要登录后才能使用")
     #user = auth.get_user(request)
     #contracts = UserContract.objects.all()
-    if user is not None:
-        contracts = UserContract.objects.filter(user=user)
+    contracts = UserContract.objects.filter(user=user)
     return render_to_response("contract-info.html", {'objs' : contracts}, context)
 
 
 def literature(request):
     context = RequestContext(request)
+    user = request.user
+    print "user is:%s" % user
+    if not user.is_authenticated():
+        return HttpResponse(u"该功能需要登录后才能使用")
     return render_to_response("001.html", context)
 
 def user_info(request):
