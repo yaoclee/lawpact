@@ -215,7 +215,7 @@ def contract_update_law_status(request):
 
 @csrf_exempt
 def calendar_new(request):
-    title = request.POST['title']
+    description = request.POST['title']
     ref = request.POST['ref']
     start_date = request.POST['start']
     end_date = request.POST['end']
@@ -226,10 +226,51 @@ def calendar_new(request):
         return HttpResponse("User invalid")
 
     backlog = Backlog(user=request.user, start_date=start_date, end_date=end_date, back_color=back_color,
-                      description = title, contract_name=ref)
+                      description = description, contract_name=ref)
     backlog.save()
     
     return HttpResponse("Create new calendar success!!!")
+
+#Edit
+@csrf_exempt
+def calendar_edit(request):
+    uid = request.POST['id']
+    description = request.POST['title']
+    ref = request.POST['ref']
+    start_date = request.POST['start']
+    end_date = request.POST['end']
+    
+    user = request.user
+    if not user.is_authenticated():
+        return HttpResponse("User invalid")
+
+    backlog = Backlog.objects.all().get(id=uid, user_id=user.id)
+    if backlog is not None:
+        backlog.description = description
+        backlog.start_date = start_date
+        backlog.end_date = end_date
+        backlog.contract_name = ref
+        
+        backlog.save()
+        return HttpResponse("OK")
+    
+    return HttpResponse("ERROR")
+
+#Delete
+@csrf_exempt
+def calendar_delete(request): 
+    user = request.user
+    if not user.is_authenticated():
+        return HttpResponse("User invalid")
+
+    uid = request.POST['id']
+
+    backlog = Backlog.objects.all().get(id=uid, user_id=user.id)
+    if backlog is not None:
+        backlog.delete()
+        return HttpResponse("OK")
+    
+    return HttpResponse("ERROR")
 
 import json
 def calendar_events(request):

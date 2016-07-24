@@ -87,7 +87,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
     {
         //修改事件
         jQuery.post(
-            'url5', 
+            '/calendar/edit/', 
             {
                 id:     $('input[name="id"]').val(),
                 title:  $('textarea[placeholder="事件说明"]').val(),
@@ -96,7 +96,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
                 ref:    $('select[name="ref"]').val()
             },
             function (data, textStatus, jqXHR){
-                alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
+                alert($(this).parents('tr').children('td:eq(0)').text()+'修改成功');
             });
     }
 
@@ -107,12 +107,12 @@ $('div.modal-footer button.btn-primary').click(function(event) {
 $('div.modal-footer button.btn-danger').click(function(event) {
     //删除事件
     jQuery.post(
-        'url6', 
+        '/calendar/delete/', 
         {
             id:     $('input[name="id"]').val()
         },
         function (data, textStatus, jqXHR){
-            alert($(this).parents('tr').children('td:eq(0)').text()+'被成功删除');
+            alert($(this).parents('tr').children('td:eq(0)').text()+'删除成功');
         });
 
     $('#add-event').modal('hide');
