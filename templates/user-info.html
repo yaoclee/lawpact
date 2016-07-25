@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
+
+{% block csslink %}
+	<link rel="stylesheet" href="{% static 'css/user-info.css' %}">
+{% endblock %}
+
 {% block content %}
 
 	<main class="body-wrapper">

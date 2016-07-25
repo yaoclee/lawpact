@@ -21,10 +21,11 @@
 	<link href="https://cdn.bootcss.com/fullcalendar/2.6.1/fullcalendar.min.css" rel="stylesheet">
 	<link href="https://cdn.bootcss.com/hint.css/2.1.0/hint.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'css/style.css'  %}" >
-	<link rel="stylesheet" href="{% static 'css/contract-info.css' %}">
-	<link rel="stylesheet" href="{% static 'css/contract-creater.css' %}">
-	<link rel="stylesheet" href="{% static 'css/about.css' %}">
-	<link rel="stylesheet" href="{% static 'css/user-info.css' %}">
+	<!-- link rel="stylesheet" href="{% static 'css/contract-creater.css' %}"-->
+	{% block csslink %}{% endblock %}
+	
+	<!-- link rel="stylesheet" href="{% static 'css/contract-info.css' %}" -->
+	<!-- link rel="stylesheet" href="{% static 'css/user-info.css' %}" -->
 	
     <!-- 加载各种icon -->
     <link rel="icon" href="{% static 'img/logo.ico' %}">
