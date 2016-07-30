@@ -5,7 +5,6 @@ from contract import models
 from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
-from django_evolution.models import Evolution
 from django.db.models.base import get_absolute_url
 
 class UserProfileAdmin(admin.ModelAdmin):

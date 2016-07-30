@@ -4,7 +4,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 from django.utils.translation import ugettext_lazy as _
-from test.test_imageop import MAX_LEN
 
 USER_PROPERTY_CHOICES = (
     ('0', u'个人'),
