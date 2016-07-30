@@ -22,7 +22,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     get_email.short_description = u"注册邮箱"
 
 class UserContractAdmin(admin.ModelAdmin):
-    list_display = ('user', 'name', 'type', 'contract_status', 'law_status')
+    list_display = ('user', 'name', 'type', 'contract_status', 'law_status', 'create_at')
     list_filter = ('contract_status','type')
     #list_filter = ('user', )
     raw_id_admin = ('user')

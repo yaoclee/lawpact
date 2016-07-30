@@ -98,7 +98,7 @@ class UserContract(models.Model):
     content = models.TextField(blank=True)
     #file = models.FileField(upload_to='files', blank=True)
     file = models.FileField(upload_to=user_file_folder)
-    create_at = models.DateField(auto_now_add = True, blank=True)
+    create_at = models.DateField(verbose_name = u"创建时间", auto_now_add = True, blank=True)
     
     class Meta:
         verbose_name = u"2.合同信息"

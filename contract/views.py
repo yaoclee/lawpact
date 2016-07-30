@@ -366,6 +366,10 @@ def update_user_info(request):
             fawu = request.POST.get('fawu', '')
             qita = request.POST.get('qita', '')
             
+            #user info
+            realname = request.POST.get('realname', '')
+            phonenumber = request.POST.get('phonenumber', '')
+            
             #company info
             companyname = request.POST.get('companyname', '')
             companyaddress = request.POST.get('companyaddress', '')
@@ -388,6 +392,9 @@ def update_user_info(request):
             userprofile.faxing = faxing
             userprofile.fawu = fawu
             userprofile.qita = qita
+            
+            userprofile.real_name = realname
+            userprofile.phone_number = phonenumber
             
             userprofile.company_name = companyname
             userprofile.company_address = companyaddress

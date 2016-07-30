@@ -83,6 +83,26 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
+														<label for="realname" class="form-control">真实姓名</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="realname" class="form-control" value="{{ user.userprofile.real_name }}">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
+														<label for="phonenumber" class="form-control">手机号</label>
+													</div>
+													<div class="col-sm-6">
+														<input type="text" name="phonenumber" class="form-control" value="{{ user.userprofile.phone_number }}">
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-3">
 														<label for="property" class="form-control">用户性质:</label>
 													</div>
 													<div class="col-sm-6">

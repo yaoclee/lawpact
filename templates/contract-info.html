@@ -51,6 +51,7 @@
 															<th>合同编号</th>
 															<th>合同名称</th>
 															<th>合同类型</th>
+															<th>创建时间</th>
 															<th>状态</th>
 															<th>法律状态</th>
 															<th>标签</th>
@@ -63,6 +64,7 @@
 															<td>{{ obj.contract_id }}</td>
 															<td><input type="text" name="name" value="{{ obj.name }}"></td>
 															<td>{{ obj.type }}</td>
+															<td>{{ obj.create_at|date:"Y-m-d" }}</td>
 															<td>{{ obj.get_contract_status_display }} 
 															</td>
 															<td>
