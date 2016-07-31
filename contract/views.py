@@ -129,7 +129,7 @@ def preview_contract(request, offset):
         mime_type_guess = mimetypes.guess_type(file_name)
         if mime_type_guess is not None:
             response = HttpResponse(fsock, mimetype=mime_type_guess[0])
-        name_for_user = request.user.username + '%' + file_name
+        name_for_user = request.user.username + '_' + file_name
         response['Content-Disposition'] = 'attachment; filename=%s' % name_for_user # + file_name
         #print "file_name is: %s, file type is %s" % (file_name, mime_type_guess[0])
     except IOError:
@@ -522,7 +522,7 @@ def create_contract(request):
             #save as html file
             print "user id is: %d" % request.user.id
             
-            timestamp = datetime.now().strftime("%Y%B%d%I%M")
+            timestamp = datetime.now().strftime("%Y%m%d%I%M")
             report_name = USER_FILE_PATH + str(request.user.id) + '/' +timestamp
             html_file_name = report_name + ".html"
 
