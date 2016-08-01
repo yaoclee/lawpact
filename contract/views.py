@@ -306,7 +306,7 @@ def calendar_events(request):
     
     for backlog in backlogs:
         event = {'id' : backlog.id, 'title' : backlog.description, 'start' : str(backlog.start_date),
-                 'end' : str(backlog.end_date), 'backgroundColor' : backlog.back_color, 'ref' : 3}
+                 'end' : str(backlog.end_date), 'backgroundColor' : backlog.back_color, 'ref' : backlog.contract_name}
         #print "******start-date is: %s" % backlog.start_date
         events.append(event)
     

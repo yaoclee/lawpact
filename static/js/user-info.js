@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var uploader = new plupload.Uploader({ //实例化一个plupload上传对象
 		browse_button : 'browse',
-		url : 'url',
+		url : '/upload-user-image/',
 		flash_swf_url : 'https://cdn.bootcss.com/plupload/2.1.7/Moxie.swf',
 		filters : {
 			mime_types : [
