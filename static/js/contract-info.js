@@ -356,7 +356,7 @@ $('button.search_btn').click(function(event) {
             var type    = $(this).children('td:eq(2)').text();
             var state   = $(this).children('td:eq(3)').text();
             var status  = $(this).find('select').val();
-            var tag     = $(this).find('input[name="lable"]').val();
+            var tag     = $(this).find('input[name="label"]').val();
 
             if ((id.match(search_text)) ||
                 (name.match(search_text)) ||
