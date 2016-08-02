@@ -24,7 +24,7 @@
 						<div role="tabpanel" class="tab-pane fade in active" id="profile">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form" action="url" method="post">
+									<form id="account-info" role="form" action="url" method="post">
 										<fieldset>
 											<legend>账号信息</legend>
 											<div hidden class="form-group">
@@ -66,7 +66,7 @@
 						<div role="tabpanel" class="tab-pane fade" id="information">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form" action="/update-user-info/" method="post">
+									<form id="user-info" role="form" action="/update-user-info/" method="post">
 										{% csrf_token %}
 										<fieldset>
 											<legend>用户信息</legend>
@@ -83,7 +83,7 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
-														<label for="realname" class="form-control">真实姓名</label>
+														<label for="real-name" class="form-control">真实姓名</label>
 													</div>
 													<div class="col-sm-6">
 														<input type="text" name="realname" class="form-control" value="{{ user.userprofile.real_name }}">
@@ -93,7 +93,7 @@
 											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
-														<label for="phonenumber" class="form-control">手机号</label>
+														<label for="mobile" class="form-control">手机号</label>
 													</div>
 													<div class="col-sm-6">
 														<input type="text" name="phonenumber" class="form-control" value="{{ user.userprofile.phone_number }}">
@@ -171,7 +171,7 @@
 						<div role="tabpanel" class="tab-pane fade" id="avatar">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form">
+									<form id="avatar" role="form">
 										<fieldset>
 											<legend>修改头像</legend>
 											<div hidden class="form-group">
@@ -209,7 +209,7 @@
 						<div role="tabpanel" class="tab-pane fade" id="password">
 							<div class="form-bottom user-info">
 								<div class="form-box">
-									<form role="form" action="/reset-password/" method="post">
+									<form id="change-password" role="form" action="/reset-password/" method="post">
 									{% csrf_token %}
 										<fieldset>
 											<legend>修改密码</legend>
@@ -223,27 +223,27 @@
 													</div>
 												</div>
 											</div>
-											<div id="origin-password" class="form-group">
+											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
 														<label for="origin-password" class="form-control">原密码</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="password" name="origin-password" class="form-control">
+														<input id="origin-password" type="password" name="origin-password" class="form-control">
 													</div>
 												</div>
 											</div>
-											<div id="new-password" class="form-group">
+											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
 														<label for="new-password" class="form-control">新密码</label>
 													</div>
 													<div class="col-sm-6">
-														<input type="password" name="new-password" class="form-control">
+														<input id="new-password" type="password" name="new-password" class="form-control">
 													</div>
 												</div>
 											</div>
-											<div id="re-new-password" class="form-group">
+											<div class="form-group">
 												<div class="row">
 													<div class="col-sm-3">
 														<label for="re-new-password" class="form-control">重复密码</label>
@@ -270,5 +270,6 @@
 
 {% block jslink %}
 	<script src="https://cdn.bootcss.com/plupload/2.1.8/plupload.full.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-validate/1.15.0/jquery.validate.min.js"></script>
 	<script src="{% static 'js/user-info.js' %}"></script>
 {% endblock %}

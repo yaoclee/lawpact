@@ -169,6 +169,7 @@ function MakeRefOptSel(value)
             $(this).attr("selected",false);
         }
     });
+	$('select[name="ref"]').val(value);
 }
 
 function setPage(tmp_page)

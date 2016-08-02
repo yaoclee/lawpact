@@ -85,3 +85,109 @@ function previewImage(file,callback){//file为plupload事件监听函数参数�
 	}	
 }
 	
+$(document).ready(function() {
+	$('#account-info').validate({
+	    rules: {
+	      'email': {
+	        required: true,
+	        email: true
+	      }
+	    },
+	    messages: {
+	      'email': {
+	        required: '请输入您的邮箱',
+	        email: '请输入一个合法的邮箱地址'
+	      }
+	    },
+        submitHandler:function(form){
+            form.submit();
+        },
+        errorClass:'input-error',
+        validClass:'input-valid'
+	});
+
+	// 手机号码验证
+	jQuery.validator.addMethod("isMobile", function(value, element) {
+	    var length = value.length;
+	    var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+	    return this.optional(element) || (length == 11 && mobile.test(value));
+	}, "请正确填写您的手机号码");
+
+	$('#user-info').validate({
+	    rules: {
+	      'mobile': {
+	        isMobile: true
+	      },
+	      'company-email': {
+	        email: true
+	      }
+	    },
+	    messages: {
+	      'mobile': {
+	        isMobile: '请正确填写您的手机号码'
+	      },
+	      'company-email': {
+	        email: '请输入一个合法的邮箱地址'
+	      }
+	    },
+        submitHandler:function(form){
+            form.submit();
+        },
+        errorClass:'input-error',
+        validClass:'input-valid'
+	});
+
+	//判断两个值是否相等
+	jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
+	return value != $(param).val();
+	}, $.validator.format("不能和原密码相同！"));
+
+	$('#change-password').validate({
+	    rules: {
+	      'origin-password': {
+	        required: true,
+	        minlength: 5
+	      },
+	      'new-password': {
+	        required: true,
+	        minlength: 5,
+	        notEqualTo: "#origin-password"
+	      },
+	      're-new-password': {
+	        required: true,
+	        minlength: 5,
+	        equalTo: "#new-password"
+	      }
+	    },
+	    messages: {
+	      'origin-password': {
+	        required: "请输入原密码",
+	        minlength: "密码长度不能小于5个字符"
+	      },
+	      'new-password': {
+	        required: "请输入新密码",
+	        minlength: "密码长度不能小于5个字符",
+	        notEqualTo: "不能和原密码相同！"
+	      },
+	      're-new-password': {
+	        required: "请重复输入新密码",
+	        minlength: "密码长度不能小于5个字符",
+	        equalTo: "两次密码输入不一致"
+	      }
+	    },
+        submitHandler:function(form){
+            form.submit();
+        },
+        errorClass:'input-error',
+        validClass:'input-valid'
+	});
+});
+
+$('form button[type="submit"]').each(function(index, el) {
+	$(this).click(function(event) {
+		if ($(this).is('.disabled'))
+		{
+			return false;
+		}
+	});
+});
