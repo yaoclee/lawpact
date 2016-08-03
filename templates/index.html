@@ -1,128 +1,222 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-	<main>
-		<div class="jumbotron">
-			<div class="container">
-			<h1>添加介绍</h1>
-			<p>...</p>
-			</div>
-		</div>
+	   <main>
+        <!-- 幻灯片 -->
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
 
-		<div class="container">
-			<!-- 幻灯片 -->
-			<div id="carousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#carousel" data-slide-to="0" class="active"></li>
-					<li data-target="#carousel" data-slide-to="1"></li>
-				</ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="{% static 'img/slide1.jpg' %}" alt="...">
+                    <div class="carousel-caption">
+                        <h1>我们是专业的影视娱乐行业</h1>
+                        <h1>法律解决方案提供商</h1>
+                        <p>^^^^^^^</p>
+                        <p>我们是专业的娱乐法律师团队，为文学影视创作、影视节目制播、演艺</p>
+                        <p>经纪和体育娱乐等文化娱乐传媒事业提供专业的法律服务</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/slide2.jpg' %}" alt="...">
+                    <div class="carousel-caption">
+                        <h1>通过有娱您可以享受到低成本</h1>
+                        <h1>高质量的娱乐法律服务</h1>
+                        <p>^^^^^^^</p>
+                        <p>我们的合同库中包括了影视娱乐行业从业人员或企业常用的合同类型</p>
+                        <p>通过线上自助服务，您可以迅速获取专业的业务合同。</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static 'img/slide3.jpg' %}" alt="...">
+                    <div class="carousel-caption">
+                        <h1>使用有娱管理影视娱乐项目</h1>
+                        <h1>能够清晰掌握项目动态减少、法律风险</h1>
+                        <p>^^^^^^^</p>
+                        <p>有娱根据影视娱乐项目的特点设计了项目管理解决方案</p>
+                        <p>能有效管理项目合同甚至整个项目，有助于把握项目动态、减少法律的风险。</p>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img src="{% static 'img/slide1.jpg' %}" alt="...">
-						<div class="carousel-caption">
-							<h1>我们是专业的饮食娱乐行业法律</h1>
-							<h1>法律解决方案提供商</h1>
-							<p>^^^^^^^</p>
-							<p>我们是专业的娱乐法律师团队，为文学影视创作、影视节目制播、演艺</p>
-							<p>经纪和体育娱乐等文化娱乐传媒事业提供专业的法律服务</p>
-						</div>
-					</div>
-					<div class="item">
-						<img src="{% static 'img/slide3.jpg' %}" alt="...">
-						<div class="carousel-caption">
-							<h1>我们是专业的饮食娱乐行业法律</h1>
-							<h1>法律解决方案提供商</h1>
-							<p>^^^^^^^</p>
-							<p>我们是专业的娱乐法律师团队，为文学影视创作、影视节目制播、演艺</p>
-							<p>经纪和体育娱乐等文化娱乐传媒事业提供专业的法律服务</p>
-						</div>
-					</div>
-				</div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">前一个介绍</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">后一个介绍</span>
+            </a>
+        </div>
+        <div class="b-promo" style="background:#E0DDDD;height:330px;">
+            <div class="container">
+                <h2 style="font-size:25px;color:#532883;margin-top:70px;">他们正在使用有娱生成、管理自己的合同</h2>
+                <p>我们正在为这些客户提供最优质的娱乐传媒领域法律服务，现在，你也可以成为他们中的一员</p>
+                <p><img src="{% static 'img/footer-logo.png' %}" alt=""/>  <img src="{% static 'img/footer-logo.png' %}" alt=""/><img src="{% static 'img/footer-logo.png' %}" alt=""/></p>
+                <div class="col-sm-12" style="margin-top:30px;">
+                    <a href="./contract-guider.html" class="立即生成 s-btn">登录或注册</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- 合同列表开始 -->
+            <div class="row thumbnail-wrapper">
+                <h2>CONTRACT LIST 合同列表</h2>
+                <p></p>
+                <p></p>
+                <p></p>
+                <div class="b-tabs__content">               
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">著作权许可合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Copyright Authorization Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;" style="text-align:left;">如果您希望授权他人对您的著作权进行使用，赶快生成一份著作权许可合同保障您的权益。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2016-09-23T20:00" class="date c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">前一个介绍</span>
-				</a>
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;">投融资合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Investment Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;">项目融资？企业融资？对外投资？您需要一份合同保障您的交易安全。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2016-09-24T20:00" class="date2 c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
 
-				<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">后一个介绍</span>
-				</a>
-			</div>
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;">人员聘用合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Labor Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;">现在就生成一份完善的人员聘用合同，人事争议不要再来烦我。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2016-09-25T20:00" class="date3 c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
 
-			<div class="row thumbnail-wrapper">
-				<div class="col-sm-12">
-					<h2>合同分类</h2>
-					<a href="./contract-guider.html" class="more s-btn">详细</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-1" class="thumbnail">
-						<img src="{% static 'img/1.png' %}" alt="...">
-						<div class="caption">
-							<h4>著作与许可</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-2" class="thumbnail">
-						<img src="{% static 'img/2.png' %}" alt="...">
-						<div class="caption">
-							<h4>投融资</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-3" class="thumbnail">
-						<img src="{% static 'img/3.png' %}" alt="...">
-						<div class="caption">
-							<h4>人员聘用</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-4" class="thumbnail">
-						<img src="{% static 'img/4.png' %}" alt="...">
-						<div class="caption">
-							<h4>器材场地</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-5" class="thumbnail">
-						<img src="{% static 'img/5.png' %}" alt="...">
-						<div class="caption">
-							<h4>委托制作</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-6" class="thumbnail">
-						<img src="{% static 'img/6.png' %}" alt="...">
-						<div class="caption">
-							<h4>发行</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-3">
-					<a href="./contract-guider.html#category-7" class="thumbnail">
-						<img src="{% static 'img/7.png' %}" alt="...">
-						<div class="caption">
-							<h4>其他合同</h4>
-							<p>...</p>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</main>
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;">器材场地合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Equipment & Venues Lease Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;">器材场地租赁也需要用一份合法、完善的合同保障您的交易安全。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2009-09-26T20:00" class="date4 c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;">委托制作合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Producing Commission Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;">委托制作纠纷不断？那是因为您的合同没有写好。现在就生成一份委托制作合同，为委托制作全程保驾护航。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2009-09-27T20:00" class="date5 c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="b-tabs__pane-item col-sm-6 col-md-4">
+                        <div class="c-box">
+                            <div class="c-box__inner">
+                                <div class="c-box__cont">
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;">发行合同</h3>
+                                    <h3  class="c-box__ttl-s3" style="text-align:left;" style="text-align:left;">Issue Contract</h3>
+                                    <hr class="hr-pattern">
+                                    <p  class="c-box__txt" style="text-align:left;">发行工作复杂庞大，风险四伏，一份靠谱的合同是你从容应对的必备工具。立即生成一份发行合同，为发行工作保驾护航。</p>
+                                </div>
+                                <div class="b-box__img-wrap b-box__grdnt-a bg-image"></div>
+                                <div class="c-box__date-item">
+                                    <time datetime="2009-09-28T20:00" class="date6 c-box__date"></time>
+                                </div>
+                                <div class="c-box__link-wrap">
+                                    <div class="btn-pointer__wrap">
+                                        <a class="btn btn-pointer" href="/guider/"><span class="btn-pointer__txt">立即生成</span></a>
+                                    </div>
+                                </div>
+                                <a href="event-open.html" rel="nofollow" class="b-box__link"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <a href="/guider/" class="立即生成 s-btn">更多合同</a>
+                </div>            
+            </div>
+            <!-- 合同列表结束 -->
+        </div>
+    </main>
 {% endblock %}

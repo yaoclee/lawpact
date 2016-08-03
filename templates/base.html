@@ -21,12 +21,12 @@
 	{% block csslink %}{% endblock %}
 	
     <!-- 加载各种icon -->
-    <link rel="icon" href="{% static 'img/logo.ico' %}">
-    <link rel="shortcut icon" href="{% static 'img/logo.ico' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/logo.ico' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/logo.ico' %}>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/logo.ico' %}>
-    <link rel="apple-touch-icon-precomposed" href="{% static 'img/logo.ico' %}">
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'img/logo.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/logo.png' %}>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/logo.png' %}>
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/logo.png' %}">
 
 
 </head>
@@ -37,7 +37,7 @@
 		<nav role="navigation" class="navbar navbar-static-top">
 			<div class="container">
 				<a class="brand" href="#">
-					<img alt="Brand" src="{% static 'img/logo.ico' %}">
+					<img alt="Brand" src="{% static 'img/logo.png' %}">
 				</a>
 
 				<div class="navbar-header">
@@ -53,7 +53,7 @@
 					<!-- 以下填充置顶导航中的链接 -->
 					<ul class="nav navbar-nav navbar-left">
 						<li>
-							<a href="/">首&nbsp;&nbsp;&nbsp;&nbsp;页</a>
+							<a href="/">首页</a>
 						</li>
 						<li>
 							<a href="/guider/">合同生成</a>
@@ -103,31 +103,51 @@
 	{% block content %}{% endblock %}
 
 	<footer>
-		<div class="container">
-			<div class="footer-border"></div>
-			<div class="row">
-				<div class="col-sm-4">
-					<p>Copyright  2016 有娱. All Rights Reserved</p>
-				</div>
-				<div class="col-sm-4">
-					<div class="bdsharebuttonbox">
-						<a href="#" class="fa fa-qq" data-cmd="tqq"></a>
-						<a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
-						<a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<ul class="info">
-						<li><span class="fa fa-question-circle"></span><a href="/about/">关于我们</a></li>
-						<li><span class="fa fa-user-plus"></span><a href="/about/">商务合作</a></li>
-						<li><span class="fa fa-info-circle"></span><a href="/about/">免责声明</a></li>
-						<li><span class="fa fa-envelope"></span><a href="/about/">联系我们</a></li>
-						<li><span class="fa fa-h-square"></span><a href="/about/">帮助</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
+        <div class="container">
+            <div class="footer-border"></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <ul class="info">
+                    <img src="{% static 'img/footer-logo.png' %}" alt=""/>
+                    <P></P>
+                    <P></P>
+                    <li><a href="/about/">关于我们</a>                   
+                    <a href="/about/">商业合作</a>
+                    <a href="/about/">免责声明</a>
+                    <a href="/about/">使用帮助</a>
+                    <a href="/about/">投诉建议</a></li>
+                    <li><h>© 2016 有娱. All Rights Reserved</h></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <ul class="info"><li><h2>Follow us on</h2></li></ul>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="fa fa-qq" data-cmd="tqq"></a>
+                        <a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
+                        <a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
+                        <a href="#" class="fa fa-twitter" data-cmd="facebook"></a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    
+                    <ul class="info">
+                        <li><span class="fa fa-map-marker"></span><h>上海市威海路755号文新报业大厦26楼</h></li>
+                        <li><h>26F Wenxin Building, No.755 Weihai Rd, Shnaghai, China</h></li>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+
+                        <li><span class="fa fa-envelope-square"></span><a>service@youyu.com</a></li>
+                        <li><span class="fa fa-phone"></span><a>400-400-4000</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 	<!-- 返回顶部悬浮按钮 -->
 	<span id="top-link-block" class="hidden">
