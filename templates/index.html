@@ -60,9 +60,11 @@
                 <h2 style="font-size:25px;color:#532883;margin-top:70px;">他们正在使用有娱生成、管理自己的合同</h2>
                 <p>我们正在为这些客户提供最优质的娱乐传媒领域法律服务，现在，你也可以成为他们中的一员</p>
                 <p><img src="{% static 'img/footer-logo.png' %}" alt=""/>  <img src="{% static 'img/footer-logo.png' %}" alt=""/><img src="{% static 'img/footer-logo.png' %}" alt=""/></p>
-                <div class="col-sm-12" style="margin-top:30px;">
-                    <a href="./contract-guider.html" class="立即生成 s-btn">登录或注册</a>
+                {% if not user.is_authenticated %}
+				<div class="col-sm-12" style="margin-top:30px;">
+                    <a href="/login/" class="立即生成 s-btn">登录</a> <a href="/register/" class="立即生成 s-btn">注册</a>
                 </div>
+				{% endif %}
             </div>
         </div>
         <div class="container">

@@ -36,7 +36,7 @@
 		<!-- 置顶导航 -->
 		<nav role="navigation" class="navbar navbar-static-top">
 			<div class="container">
-				<a class="brand" href="#">
+				<a class="brand" href="">
 					<img alt="Brand" src="{% static 'img/logo.png' %}">
 				</a>
 
@@ -82,17 +82,6 @@
 								<li><a href="/logout/">退出登录</a></li>
 							</ul>	
 						</li>
-						{% else %}
-							<li>
-								<a href="/login/">登录</a>
-							</li>
-							<li>
-								<span>|</span>
-							</li>
-							<li>
-								<a href="/register/">注册</a>
-							</li>
-
 						{% endif %}
 					</ul>
 				</div>
