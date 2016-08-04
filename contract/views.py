@@ -457,7 +457,7 @@ def register(request):
                 user_profile.save()
 
                 ##send email##
-                mail_title = u'米律网账号激活'
+                mail_title = u'有娱网账号激活'
                 mail_content = u'亲爱的，感谢您的注册，请点击下面链接激活账号\n\n'
                 active_link = 'http://localhost:8000/activate/' + activekey
                 mail_content += active_link
