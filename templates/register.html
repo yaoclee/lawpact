@@ -59,6 +59,8 @@
 									<input type="email" name="email" placeholder="请输入电子邮箱..." class="form-email form-control">
 								</div>
 								<button type="submit" class="btn">提交注册信息</button>
+								{{ form.username.errors }}
+								{{ form.email.errors }}
 							</form>
 						</div>
 					</div>

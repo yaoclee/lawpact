@@ -29,14 +29,14 @@ class RegisterForm(forms.Form):
         username = self.cleaned_data['username']
         res = User.objects.filter(username=username)
         if len(res) != 0:
-            raise forms.ValidationError(u'此昵称已经注册，请从新输入')
+            raise forms.ValidationError(u'此昵称已经注册，请重新输入')
         return username
     
     def clean_email(self):
         email = self.cleaned_data['email']
         res = User.objects.filter(email=email)
         if len(res) != 0:
-            raise forms.ValidationError(u'此邮箱已经注册，请从新输入')
+            raise forms.ValidationError(u'此邮箱已经注册，请重新输入')
         return email
     
     def clean_confirm_password(self):
