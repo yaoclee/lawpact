@@ -25,7 +25,7 @@ def isUserInfoComplete(user):
     if user.is_authenticated():
         profile = user.userprofile
         if profile is not None:
-            if profile.company_address and profile.company_name and profile.company_email:
+            if profile.real_name and profile.phone_number and profile.company_address and profile.company_name and profile.company_email:
                 tag = True
 
     return tag 
@@ -74,7 +74,7 @@ def guider(request):
         return HttpResponse(u"账号未激活，请到登录注册邮箱激活")
     
     if not isUserInfoComplete(user):
-        return HttpResponse(u"该功能需完善用户信息后才能使用")
+        return HttpResponse(u"该功能需完善<a href=/user-info/>用户信息</a>后才能使用")
 
     return render_to_response("contract-guider.html", context)
 
@@ -469,7 +469,7 @@ def register(request):
                 ##send email##
                 mail_title = u'有娱网账号激活'
                 mail_content = u'亲爱的，感谢您的注册，请点击下面链接激活账号\n\n'
-                active_link = 'http://localhost:8000/activate/' + activekey
+                active_link = 'http://http://101.201.70.131/activate/' + activekey
                 mail_content += active_link
                 mail_from = 'imblues@126.com'
                 mail_to = [user.email]
