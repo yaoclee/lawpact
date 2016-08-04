@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}注册{% endblock %}
+{% block title %}用户注册{% endblock %}
+
+{% block csslink %}
+	<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
 {% block content %}
 	<main>
 		<div class="container">

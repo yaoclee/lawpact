@@ -1,0 +1,26 @@
+div#agreement
+{
+	margin-top:15px;
+}
+
+div#agreement a,
+div#agreement a:hover,
+div#agreement a:focus
+{
+    font-size: inherit;
+    border-bottom: 1px solid #c0d23e;
+    color: #c0d23e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+form button[type="submit"].disabled,
+form button[type="submit"].disabled:active,
+form button[type="submit"].disabled:focus,
+form button[type="submit"].disabled:hover
+{
+    color: #ccc;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    outline: 0;
+}
