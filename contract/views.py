@@ -549,7 +549,7 @@ def create_contract(request):
             
             #Write user table
             user = request.user
-            name = u"影视合同"
+            name = u"改编许可合同"
             content = html_content
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
@@ -568,7 +568,7 @@ def create_contract(request):
             str_c_id = u_id +  c_class_id + c_create_at + str_cid
             # end...
 
-            user_contract = UserContract(user=user, contract_id=str_c_id, name=name, content=html_content, type=u'影视合同', contract_status=0, law_status=0)
+            user_contract = UserContract(user=user, contract_id=str_c_id, name=name, content=html_content, type=u'文学作品', contract_status=0, law_status=0)
             file_path = 'files/%s/%s%s' % (user.id, timestamp, '.pdf')
             #print file_path
             user_contract.file = file_path #'files/14/upload.pdf'
