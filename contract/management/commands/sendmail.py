@@ -3,6 +3,7 @@ from django.core.management.base import BaseCommand
 from contract.models import Backlog
 from django.utils import timezone
 from django.core.mail import send_mail
+import time
 
 class Command(BaseCommand):
     help= 'Send mail to user regularly if there have contacts needs reminder'
@@ -31,7 +32,7 @@ class Command(BaseCommand):
                     mail_title = u'合同事件处理--来自有娱网'
                     mail_content = u"亲爱的:%s，您有事件需要处理，请登录有娱网或者复制下面网址到浏览器查看\n\n" % user_name
                     #link = u"<a href='http://23.83.231.182/contract-info/'>点我查看</a>"
-                    link = u"http://23.83.231.182/contract-info/"
+                    link = u"http://101.201.70.131/contract-info/"
                     mail_content += link;
                     print "mail_content:%s" % mail_content
                     mail_from = 'imblues@126.com'
@@ -40,3 +41,4 @@ class Command(BaseCommand):
                           mail_content,
                           mail_from,
                           mail_to)
+                    time.sleep(5)
