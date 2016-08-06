@@ -545,7 +545,7 @@ def create_contract(request):
             pdf_file_name = report_name + ".pdf"
             para = ' --margin-left 20 --margin-right 20  --margin-bottom 20 --margin-top 20 '
             cmd = 'wkhtmltopdf ' + para + html_file_name + ' ' + pdf_file_name
-            #cmd = 'xvfb-run wkhtmltopdf ' + html_file_name + ' ' + pdf_file_name
+            #cmd = 'xvfb-run wkhtmltopdf ' + para + html_file_name + ' ' + pdf_file_name
             print cmd
             os.system(cmd)
             
