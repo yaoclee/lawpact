@@ -511,3 +511,58 @@ $('button[type="submit"]').click(function(event) {
 		$("<input hidden type='text' name='event1' value='"+tmpStr+"'>").insertBefore(this);
 	}
 });
+
+/*$("form").submit(function(e){
+    e.preventDefault();
+    alert("Submit prevented");
+});*/
+
+$(document).ready(function() {
+	$('#001').validate({
+	    rules: {
+	      '001-003': {
+	        minlength: 15
+	      },
+	      '001-005': {
+	        minlength: 11
+	      },
+	      '001-007': {
+	        email: true
+	      },
+	      '001-010': {
+	        minlength: 15
+	      },
+	      '001-012': {
+	        minlength: 11
+	      },
+	      '001-014': {
+	        email: true
+	      }
+	    },
+	    messages: {
+	      '001-003': {
+	        minlength: "请输入正确的身份证号"
+	      },
+	      '001-005': {
+	        minlength: "请输入正确的手机号"
+	      },
+	      '001-007': {
+	        email: "请输入一个合法的邮箱地址"
+	      },
+	      '001-010': {
+	        minlength: "请输入正确的身份证号"
+	      },
+	      '001-012': {
+	        minlength: "请输入正确的手机号"
+	      },
+	      '001-014': {
+	        email: "请输入一个合法的邮箱地址"
+	      }
+	    },
+        submitHandler:function(form){
+            form.submit();
+        },
+        errorClass:'input-error',
+        validClass:'input-valid'
+	});
+});

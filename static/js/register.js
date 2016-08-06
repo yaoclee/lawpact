@@ -1,39 +1,39 @@
 $(document).ready(function() {
 	$('#regiser').validate({
 	    rules: {
-	      'regiser-account': {
+	      'username': {
 	        required: true,
 	        minlength: 5
 	      },
-	      'regiser-password': {
+	      'password': {
 	        required: true,
 	        minlength: 5
 	      },
-	      'regiser-duplicate-password': {
+	      'confirm_password': {
 	        required: true,
 	        minlength: 5,
 	        equalTo: "#password"
 	      },
-	      'regiser-email': {
+	      'email': {
 	        required: true,
 	        email: true
 	      }
 	    },
 	    messages: {
-	      'regiser-account': {
+	      'username': {
 	        required: "请输入账户名称",
 	        minlength: "账户名称至少由5个字符"
 	      },
-	      'regiser-password': {
+	      'password': {
 	        required: "请输入密码",
 	        minlength: "密码长度不能小于5个字符"
 	      },
-	      'regiser-duplicate-password': {
+	      'confirm_password': {
 	        required: "请重复输入密码",
 	        minlength: "密码长度不能小于5个字符",
 	        equalTo: "两次密码输入不一致"
 	      },
-	      'regiser-email': {
+	      'email': {
 	        required: '请输入您的邮箱',
 	        email: '请输入一个合法的邮箱地址'
 	      }

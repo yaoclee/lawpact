@@ -169,7 +169,7 @@ function MakeRefOptSel(value)
             $(this).attr("selected",false);
         }
     });
-	$('select[name="ref"]').val(value);
+    $('select[name="ref"]').val(value);
 }
 
 function setPage(tmp_page)
@@ -298,7 +298,7 @@ $('table.info tbody button.delete').each(function(index, el) {
 
 $('table.info tbody input[name="label"]').each(function(index, el) {
     $(this).change(function(event) {
-        //修改lable
+        //修改label
         jQuery.post(
             '/contract/label/', 
             {

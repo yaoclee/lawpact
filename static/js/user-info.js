@@ -115,18 +115,18 @@ $(document).ready(function() {
 
 	$('#user-info').validate({
 	    rules: {
-	      'mobile': {
+	      'phonenumber': {
 	        isMobile: true
 	      },
-	      'company-email': {
+	      'companyemail': {
 	        email: true
 	      }
 	    },
 	    messages: {
-	      'mobile': {
+	      'phonenumber': {
 	        isMobile: '请正确填写您的手机号码'
 	      },
-	      'company-email': {
+	      'companyemail': {
 	        email: '请输入一个合法的邮箱地址'
 	      }
 	    },

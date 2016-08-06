@@ -64,6 +64,12 @@
 									<input type="email" name="email" placeholder="请输入电子邮箱..." class="form-email form-control">
 								</div>
 								<button type="submit" class="btn">提交注册信息</button>
+								<div id="agreement">
+									<label>
+										<input type="checkbox" checked>我已阅读并同意有娱
+										<a href="/about/">《用户注册协议》</a>
+									</label>
+								</div>
 								{{ form.username.errors }}
 								{{ form.email.errors }}
 							</form>

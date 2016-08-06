@@ -1015,81 +1015,81 @@ a.thumbnail:hover
 
 
 
-.date,
-.date-lg {
+.icon,
+.icon-lg {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/1.png);
   width:120px;
   height:120px;}
   
-.date2,
-.date-lg2 {
+.icon2,
+.icon-lg2 {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/2.png);
   width:120px;
   height:120px;}
   
-.date3,
-.date-lg3 {
+.icon3,
+.icon-lg3 {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/3.png);
   width:120px;
   height:120px;}
   
-.date4,
-.date-lg4 {
+.icon4,
+.icon-lg4 {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/4.png);
   width:120px;
   height:120px;}
 
-.date5,
-.date-lg5 {
+.icon5,
+.icon-lg5 {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/5.png);
   width:120px;
   height:120px;}
   
-.date6,
-.date-lg6 {
+.icon6,
+.icon-lg6 {
   display: inline-block;
   padding: 5px 6px;
   background:url(../img/6.png);
   width:120px;
   height:120px;}
 
-.date__dt,
-.date-lg__dt {
+.icon__dt,
+.icon-lg__dt {
   display: block;
   float: left;
   padding-right: 8px;
   font-size: 36px; }
 
-.date__rh,
-.date-lg__rh {
+.icon__rh,
+.icon-lg__rh {
   display: block;
   float: right; }
 
-.date__rh-m,
-.date-lg__rh-m {
+.icon__rh-m,
+.icon-lg__rh-m {
   display: block;
   margin-top: 2px;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold; }
 
-.date__rh-d,
-.date-lg__rh-d {
+.icon__rh-d,
+.icon-lg__rh-d {
   font-size: 12px;
   font-family: "PT Sans Caption Regular", sans-serif; }
 
-.date__ad,
-.date-lg__rh-t {
+.icon__ad,
+.icon-lg__rh-t {
   display: block;
   margin: 0 -6px -5px -6px;
   padding: 4px 8px 2px;
@@ -1099,16 +1099,16 @@ a.thumbnail:hover
   color: #fff;
   clear: both; }
 
-.date-lg {
+.icon-lg {
   position: relative;
   padding-top: 6px;
   border-color: #fff;
   color: #fff; }
 
-.date-lg__dt {
+.icon-lg__dt {
   line-height: 38px; }
 
-.date-lg__rh-m {
+.icon-lg__rh-m {
   width: 20px;
   padding: 0;
   margin-top: 3px;
@@ -1117,10 +1117,10 @@ a.thumbnail:hover
   overflow: hidden;
   white-space: nowrap; }
 
-.date-lg__rh-d {
+.icon-lg__rh-d {
   line-height: 15px; }
 
-.date-lg__rh-t {
+.icon-lg__rh-t {
   position: absolute;
   left: 4px;
   right: 4px;
@@ -1128,26 +1128,26 @@ a.thumbnail:hover
   color: #202020;
   background: #fff; }
 
-.date-lg__ad {
+.icon-lg__ad {
   display: none; }
 
-.date-sm {
+.icon-sm {
   display: inline-block;
   padding: 4px 12px 3px 5px;
   border: 2px solid #202020;
   font-family: "PT Sans Caption Bold", sans-serif; }
 
-.date-sm__dt {
+.icon-sm__dt {
   padding-right: 4px;
   padding-top: 1px;
   font-size: 24px;
   line-height: 1; }
 
-.date-sm__rh {
+.icon-sm__rh {
   display: block;
   float: right; }
 
-.date-sm__rh-m {
+.icon-sm__rh-m {
   display: block;
   margin-bottom: -4px;
   margin-top: 2px;
@@ -1155,7 +1155,7 @@ a.thumbnail:hover
   font-weight: bold;
   text-transform: uppercase; }
 
-.date-sm__rh-d {
+.icon-sm__rh-d {
   font-family: "PT Sans Caption Regular", sans-serif;
   font-size: 10px; }
 
@@ -1329,14 +1329,14 @@ a.thumbnail:hover
     min-height: 40px; } }
 
 @media (min-width: 768px) {
-  .date-lg {
+  .icon-lg {
     display: inline-block;
     width: 290px;
     padding: 11px 10px 0;
     border: 8px solid;
     font-family: "PT Sans Caption Bold", sans-serif;
     color: #fff; }
-  .date-lg__dt {
+  .icon-lg__dt {
     position: relative;
     display: block;
     float: left;
@@ -1344,7 +1344,7 @@ a.thumbnail:hover
     padding-bottom: 6px;
     font-size: 48px;
     line-height: 1; }
-  .date-lg__dt::after {
+  .icon-lg__dt::after {
     content: '';
     position: absolute;
     width: 8px;
@@ -1352,33 +1352,33 @@ a.thumbnail:hover
     right: 0;
     bottom: 0;
     background-color: #fff; }
-  .date-lg__rh {
+  .icon-lg__rh {
     display: block;
     float: left;
     padding-left: 10px; }
-  .date-lg__rh-m {
+  .icon-lg__rh-m {
     width: 100%;
     margin-top: 4px;
     padding-right: 8px;
     font-size: 14px; }
-  .date-lg__rh-d,
-  .date-lg__rh-t {
+  .icon-lg__rh-d,
+  .icon-lg__rh-t {
     display: block;
     font-size: 12px;
     line-height: 15px; }
-  .date-lg__rh-t {
+  .icon-lg__rh-t {
     position: static;
     padding: 0 0 0 6px;
     color: #fff;
     background: transparent; }
-  .date-lg__ad {
+  .icon-lg__ad {
     position: relative;
     display: block;
     padding: 25px 0 20px;
     font-size: 48px;
     text-align: center;
     clear: both; }
-  .date-lg__ad::before {
+  .icon-lg__ad::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1400,8 +1400,8 @@ a.thumbnail:hover
     font-size: 22px; } }
 
 @media (min-width: 1280px) {
-  .date-lg__dt,
-  .date-lg__ad {
+  .icon-lg__dt,
+  .icon-lg__ad {
     font-size: 60px; } }
 
 
@@ -1671,16 +1671,16 @@ a.thumbnail:hover
   text－align:left;
   line-height: 20px;}
 
-.c-box__date-item {
+.c-box__icon-item {
   position: absolute;
   top: 26px;
   right: -2px; }
 
-.c-box__date {
+.c-box__icon {
   color: #fff;
   border-color: #fff; }
 
-.c-box__date .date__ad {
+.c-box__icon .icon__ad {
   color: #000;
   background-color: #fff; }
 
@@ -1721,7 +1721,7 @@ a.thumbnail:hover
   max-width: 270px;
   float: left; }
 
-.c-box__date-item.c-box__date-item--float {
+.c-box__icon-item.c-box__icon-item--float {
   position: relative;
   top: auto;
   right: auto;
@@ -1762,10 +1762,10 @@ a.thumbnail:hover
 .c-box.c-box--sm .c-box__views {
   bottom: 10px; }
 
-.c-box__date--sm {
+.c-box__icon--sm {
   position: relative; }
 
-.c-box__date--sm .date__ad {
+.c-box__icon--sm .icon__ad {
   position: absolute;
   top: 33px;
   color: white;
@@ -1830,8 +1830,8 @@ a.thumbnail:hover
 .c-box-v__sm .c-box__cont .c-box__ttl-s3 {
    }
 
-.c-box-v .c-box__date-item,
-.c-box-v__sm .c-box__date-item {
+.c-box-v .c-box__icon-item,
+.c-box-v__sm .c-box__icon-item {
   position: absolute;
   top: 20px;
   right: auto;
@@ -1883,14 +1883,14 @@ a.thumbnail:hover
     padding-right: 70px; }
   .c-box.c-box--lg::before {
     right: 10px; }
-  .c-box__date.c-box__date--lg {
+  .c-box__icon.c-box__icon--lg {
     padding: 8px 20px 8px 10px; }
-  .c-box__date.c-box__date--lg .date__dt {
+  .c-box__icon.c-box__icon--lg .icon__dt {
     font-size: 48px; }
-  .c-box__date.c-box__date--lg .date__rh-m,
-  .c-box__date.c-box__date--lg .date__rh-d {
+  .c-box__icon.c-box__icon--lg .icon__rh-m,
+  .c-box__icon.c-box__icon--lg .icon__rh-d {
     font-size: 18px; }
-  .c-box__date.c-box__date--lg .date__rh-m {
+  .c-box__icon.c-box__icon--lg .icon__rh-m {
     margin-bottom: 2px; }
   .c-box__views > li {
     margin-right: 22px; }
