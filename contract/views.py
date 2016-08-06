@@ -71,7 +71,7 @@ def guider(request):
         return HttpResponse(u"该功能需要登录后才能使用")
 
     if user.is_active == False:
-        return HttpResponse(u"账号未激活，请到登录注册邮箱激活")
+        return HttpResponse(u"账号未激活，请登录注册邮箱激活")
     
     if not isUserInfoComplete(user):
         return HttpResponse(u"该功能需完善<a href=/user-info/>用户信息</a>后才能使用")
@@ -543,7 +543,8 @@ def create_contract(request):
                 f.write(html_content)
 
             pdf_file_name = report_name + ".pdf"
-            cmd = 'wkhtmltopdf ' + html_file_name + ' ' + pdf_file_name
+            para = ' --margin-left 20 --margin-right 20  --margin-bottom 20 --margin-top 20 '
+            cmd = 'wkhtmltopdf ' + para + html_file_name + ' ' + pdf_file_name
             #cmd = 'xvfb-run wkhtmltopdf ' + html_file_name + ' ' + pdf_file_name
             print cmd
             os.system(cmd)
