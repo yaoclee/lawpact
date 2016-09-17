@@ -469,7 +469,7 @@ def register(request):
                 ##send email##
                 mail_title = u'有娱网账号激活'
                 mail_content = u'亲爱的，感谢您的注册，请点击下面链接激活账号\n\n'
-                active_link = 'http://http://101.201.70.131/activate/' + activekey
+                active_link = 'http://101.201.70.131/activate/' + activekey
                 mail_content += active_link
                 mail_from = 'imblues@126.com'
                 mail_to = [user.email]
