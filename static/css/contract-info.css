@@ -107,6 +107,13 @@ div.search_div
     padding-bottom: 20px;
 }
 
+@media (max-width: 768px) {
+    div.search_div
+    {
+        padding-bottom: 0;
+    }
+}
+
 button.activation,
 button.activation:active,
 button.activation:focus,
@@ -182,6 +189,59 @@ button.delete:hover
     width: 100%;
 }
 
+.big-table-caption
+{
+    display: table-caption;
+}
+
+.big-table-head
+{
+    display: table-header-group;
+}
+
+.big-table-cell
+{
+    display: table-cell;
+}
+
+.small-table-cell
+{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .big-table-caption,
+    .big-table-head,
+    .big-table-cell
+    {
+        display: none;
+    }
+
+    .small-table-cell
+    {
+        display: table-cell;
+        padding: 0!important;
+        height: 60px;
+    }
+
+    .table
+    {
+        margin-bottom: 0;
+    }
+}
+
+.small-table-button
+{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: 20px;
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+}
+
+
 /* 列表风格end */
 
 /**************************************************
@@ -253,3 +313,47 @@ button.next.disabled:hover
             border-radius: 0;
 }
 
+@media (max-width: 768px) {
+    #calendar
+    {
+        padding-bottom: 0;
+        margin-left: -15px;
+        margin-right: -15px;
+        margin-bottom: 0;
+    }
+}
+
+/**************************************************
+ *
+ *
+ *
+ * small-box
+ *
+ *
+ *
+ **************************************************/
+#edit-contract .col-xs-3,
+#edit-contract .col-xs-9,
+#edit-contract label,
+#edit-contract .form-group,
+#edit-contract input,
+#edit-contract p
+{
+    padding: 0;
+    margin: 0;
+    line-height: 32px;
+    border: 0;
+    -webkit-box-shadow: inset 0 0 0;
+            box-shadow: inset 0 0 0;
+}
+
+#edit-contract label
+{
+    text-align: right;
+}
+
+#edit-contract input
+{
+    text-align: center;
+    font-size: 16px;
+}

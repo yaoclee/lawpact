@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12" id="doc-info-view">
-					<ul class="nav nav-tabs" id="switch-bar">
+                    <ul class="nav nav-tabs visible-lg-block" id="switch-bar">
 						<li role="presentation" class="active"><a href="#table-view" aria-controls="home" role="tab" data-toggle="tab">合同</a></li>
 						<li role="presentation"><a href="#calendar-view" aria-controls="profile" role="tab" data-toggle="tab">日历</a></li>
 					</ul>
@@ -25,7 +25,7 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="form-box">
-										<div class="form-top">
+                                        <div class="form-top visible-lg-block">
 											<div class="form-top-left">
 												<h3 class="default-h3">
 													合同列表
@@ -47,8 +47,8 @@
 										    </div>
 											<div>
 												<table class="table info">
-													<caption>您共有30份合同，显示第1-10份合同...</caption>
-													<thead>
+                                                    <caption class="big-table-caption">您共有30份合同，显示第1-10份合同...</caption>
+                                                    <thead class="big-table-head">
 														<tr>
 															<th>合同编号</th>
 															<th>合同名称</th>
@@ -58,6 +58,7 @@
 															<th>法律状态</th>
 															<th>标签</th>
 															<th>操作</th>
+                                                            <th class="small-table-cell">  </th>
 														</tr>
 													</thead>
 													<tbody>
@@ -83,18 +84,21 @@
 																	</button>
 																	<ul class="dropdown-menu">
 																		<li><a class="preview" href="/preview-contract/{{ obj.id }}">预览/下载</a></li>
-																		<li><button type="button" class="btn btn-default delivery">提交审核</button></li>
+																		<li><button type="button" class="btn btn-primary delivery">提交审核</button></li>
 																		<li role="separator" class="divider"></li>
-																		<li><button type="button" class="btn btn-default delete" href="/contract/delete/{{obj.id}}">删除</button></li>
+																		<li><button type="button" class="btn btn-danger delete" href="/contract/delete/{{obj.id}}">删除</button></li>
 																	</ul>
 																</div>
 															</td>
+                                                            <td class="small-table-cell">
+                                                                <button type="button" class="btn btn-default small-table-button"></button>
+                                                            </td>
 														</tr>
 													{% endfor %}
 													</tbody>
 												</table>
 											</div>
-											<div class="row">
+                                            <div class="row visible-lg-block" id="pagination">
 												<div class="col-sm-1 col-sm-offset-1">
 													<button type="button" class="btn btn-default prev">上一页</button>
 												</div>
@@ -104,6 +108,98 @@
 											</div>
 										</div>
 									</div>
+
+                                    <div class="modal fade" id="edit-contract" tabindex="-1" role="dialog" aria-labelledby="Label">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="Label">合同信息</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label class="form-control">合同编号</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label for="name" class="form-control">合同名称</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <input type="text" name="name" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label class="form-control">合同类型</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label class="form-control">创建时间</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label class="form-control">合同状态</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <p></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label for="status" class="form-control">法律状态</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <select name="status" class="table_select">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-xs-3">
+                                                                <label for="tag" class="form-control">标签</label>
+                                                            </div>
+                                                            <div class="col-xs-9">
+                                                                <input type="text" name="tag" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary">预览/下载</button>
+                                                    <button type="button" class="btn btn-primary">提交审核</button>
+                                                    <button type="button" class="btn btn-danger">删除</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>

@@ -393,34 +393,44 @@ function setProgress(tmpI)
 
 function setPage(tmpI)
 {
-	for (var i=1; i<=section_num; i++)
+	if ($('#pagination').css('display') == 'none')
 	{
-		if (tmpI == i)
+		for (var i=1; i<=section_num; i++)
 		{
 			$('#section-'+i).show();
 		}
-		else
-		{
-			$('#section-'+i).hide();
-		}
-	}
-
-	if (1 == tmpI)
-	{
-		$('button.prev').addClass("disabled");
-		$('button.next').removeClass("disabled");
-	}
-	else if (section_num == tmpI)
-	{
-		$('button.prev').removeClass("disabled");
-		$('button.next').addClass("disabled");
 	}
 	else
 	{
-		$('button.prev').removeClass("disabled");
-		$('button.next').removeClass("disabled");
+		for (var i=1; i<=section_num; i++)
+		{
+			if (tmpI == i)
+			{
+				$('#section-'+i).show();
+			}
+			else
+			{
+				$('#section-'+i).hide();
+			}
+		}
+
+		if (1 == tmpI)
+		{
+			$('button.prev').addClass("disabled");
+			$('button.next').removeClass("disabled");
+		}
+		else if (section_num == tmpI)
+		{
+			$('button.prev').removeClass("disabled");
+			$('button.next').addClass("disabled");
+		}
+		else
+		{
+			$('button.prev').removeClass("disabled");
+			$('button.next').removeClass("disabled");
+		}
+		setProgress(tmpI);
 	}
-	setProgress(tmpI);
 }
 
 function setPrev()
@@ -566,3 +576,23 @@ $(document).ready(function() {
         validClass:'input-valid'
 	});
 });
+
+
+/***********************************移动端界面处理***************************************/
+
+//删除所有data-hint，因为在移动端没有悬停，但该属性会占用宽度
+function RemoveHint()
+{
+	if ($('#pagination').css('display') == 'none')
+	{
+		$('[data-hint]').each(function(index, el) {
+			$(this).removeAttr('data-hint');
+		});
+	}
+}
+
+$(document).ready(function() {
+	RemoveHint();
+});
+
+

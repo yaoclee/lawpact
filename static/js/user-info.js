@@ -191,3 +191,4 @@ $('form button[type="submit"]').each(function(index, el) {
 		}
 	});
 });
+

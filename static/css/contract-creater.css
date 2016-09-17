@@ -199,8 +199,7 @@ div.section-box
 }
 
 /* 超小屏幕（手机，小于 768px） */
-@media (max-width: 21cm)
-{
+@media (max-width: 21cm) {
     .a4-paper
     {
         width:100%;

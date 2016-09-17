@@ -27,3 +27,39 @@ button.search_btn {
     background-color: #fff;
     padding: 11px;
 }
+
+@media (max-width: 768px){
+    main
+    {
+        margin-bottom: 50px;
+    }
+
+    div.search_div
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+    .thumbnail-wrapper
+    {
+        margin-top: 0!important;
+    }
+
+    .thumbnail-wrapper h2
+    {
+        margin-top: 10px !important;
+    }
+
+    a.thumbnail
+    {
+        margin-bottom: 2px !important;
+        background-color: transparent;
+        border: 1px solid #ccc;
+    }
+
+    .thumbnail h4
+    {
+        color: #333;
+    }
+}
+

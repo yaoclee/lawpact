@@ -25,11 +25,13 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
         header: {
 			    left:   '',
-			    center: 'title',
-			    right:  'prevYear,prev,today,next,nextYear'
+			    center: 'title,prevYear,prev,today,next,nextYear',
+			    right:  ''
 				},
 
 		weekNumbers:true,
+
+        height: 'auto',
 
         dayClick: function(date, allDay, jsEvent, view) { 
             $('#add-event').on('show.bs.modal', function (event) {
@@ -64,7 +66,7 @@ $(document).ready(function() {
     })
 });
 
-$('div.modal-footer button.btn-primary').click(function(event) {
+$('#add-event button.btn-primary').click(function(event) {
     var start = $.fullCalendar.moment($('input[placeholder="开始时间"]').val(), 'YYYY年MM月DD日');
     var end = $.fullCalendar.moment($('input[placeholder="结束时间"]').val(), 'YYYY年MM月DD日');
     end.add(1, 'day');
@@ -111,7 +113,7 @@ $('div.modal-footer button.btn-primary').click(function(event) {
     $('#add-event').modal('hide');
 });
 
-$('div.modal-footer button.btn-danger').click(function(event) {
+$('#add-event button.btn-danger').click(function(event) {
     //删除事件
     jQuery.post(
         '/calendar/delete/', 
@@ -174,7 +176,18 @@ function MakeRefOptSel(value)
 
 function setPage(tmp_page)
 {
+    //移动端列表不分页
+    if ($('#pagination').css('display') == 'none')
+    {
+        row_per_page = max_row_num;
+    }
+    else
+    {
+        row_per_page = 10;
+    }
+
     var min_row = tmp_page*row_per_page-row_per_page;
+
     if (tmp_page == max_page_num)
     {
         var max_row = max_row_num;
@@ -258,17 +271,28 @@ $(document).ready(function() {
 });
 
 $('table.info tbody button.delivery').each(function(index, el) {
+    var root = $(this).parents('tr');
+
+    if (root.children('td:eq(4)').text() != '未审核')
+    {
+        $(this).hide();
+    }
+
     $(this).click(function(event) {
-        //提交审核
-        jQuery.post(
-            '/contract/for-review/', 
-            {
-                id:$(this).parents('tr').children('td:eq(0)').text()
-            },
-            function (data, textStatus, jqXHR){
-                alert($(this).parents('tr').children('td:eq(0)').text()+'提交审核成功');
-                window.location.reload();
-            });
+        if ($(this).css('display') != 'none')
+        {
+            //提交审核
+            jQuery.post(
+                '/contract/for-review/', 
+                {
+                    id:$(this).parents('tr').children('td:eq(0)').text()
+                },
+                function (data, textStatus, jqXHR){
+                    alert($(this).parents('tr').children('td:eq(0)').text()+'提交审核成功');
+                    window.location.reload();
+                    $(this).hide();
+                });
+        }
     });
 });
 
@@ -355,13 +379,15 @@ $('button.search_btn').click(function(event) {
             var id      = $(this).children('td:eq(0)').text();
             var name    = $(this).find('input[name="name"]').val();
             var type    = $(this).children('td:eq(2)').text();
-            var state   = $(this).children('td:eq(3)').text();
+            var time    = $(this).children('td:eq(3)').text();
+            var state   = $(this).children('td:eq(4)').text();
             var status  = $(this).find('select').val();
             var tag     = $(this).find('input[name="label"]').val();
 
             if ((id.match(search_text)) ||
                 (name.match(search_text)) ||
                 (type.match(search_text)) ||
+                (time.match(search_text)) ||
                 (state.match(search_text)) ||
                 (status.match(search_text)) ||
                 (tag.match(search_text))
@@ -387,3 +413,81 @@ $('input[type="search"]').keypress(function(event) {
     }
 });
 
+/***********************************移动端界面处理***************************************/
+
+//列表按钮获取合同名字
+$(document).ready(function() {
+    $('table.info tbody tr').each(function(index, el) {
+        $(this).find('button.small-table-button').text($(this).find('input[name="name"]').val());
+    });
+});
+
+//移动端列表不分页
+$(window).resize(function(event) {
+    /* Act on the event */
+    setPage(1);
+});
+
+$('table.info tbody tr').each(function(index, el) {
+    var root = $(this);
+    $(this).find('button.small-table-button').click(function(event) {
+        /* Act on the event */
+        $('#edit-contract').on('show.bs.modal', function (event) {
+            $('#edit-contract').find('p:eq(0)').text(root.children('td:eq(0)').text());
+            $('#edit-contract').find('input:eq(0)').val(root.find('input[name="name"]').val());
+            $('#edit-contract').find('p:eq(1)').text(root.children('td:eq(2)').text());
+            $('#edit-contract').find('p:eq(2)').text(root.children('td:eq(3)').text());
+            $('#edit-contract').find('p:eq(3)').text(root.children('td:eq(4)').text());
+            if (root.children('td:eq(4)').text() == '未审核')
+            {
+                $('#edit-contract .modal-footer').find('button:eq(1)').show();
+            }
+            else
+            {
+                $('#edit-contract .modal-footer').find('button:eq(1)').hide();
+            }
+            $('#edit-contract').find('select').empty();
+            $(root.find('select').html()).appendTo($('#edit-contract').find('select'));
+            $('#edit-contract').find('select').css("background-color",$('#edit-contract').find('select').find("option:selected").css("background-color"));
+            $('#edit-contract').find('input:eq(1)').val(root.find('input[name="label"]').val());
+
+            /* 按键映射 */
+            $('#edit-contract .modal-footer').find('button:eq(0)').click(function(event) {
+                /* Act on the event */
+                root.find('a.preview').click();
+            });
+            $('#edit-contract .modal-footer').find('button:eq(1)').click(function(event) {
+                /* Act on the event */
+                root.find('button.delivery').click();
+            });
+            $('#edit-contract .modal-footer').find('button:eq(2)').click(function(event) {
+                /* Act on the event */
+                root.find('button.delete').click();
+                $('#edit-contract').modal('hide');
+            });
+
+            /* 事件处理 */
+            $('#edit-contract').find('input:eq(0)').change(function(event) {
+                /* Act on the event */
+                root.find('input[name="name"]').val($(this).val());
+                root.find('input[name="name"]').change();
+                root.find('button.small-table-button').text($(this).val());
+            });
+            $('#edit-contract').find('input:eq(1)').change(function(event) {
+                /* Act on the event */
+                root.find('input[name="label"]').val($(this).val());
+                root.find('input[name="label"]').change();
+            });
+            $('#edit-contract').find('select').change(function(event) {
+                /* Act on the event */
+                $(this).css("background-color",$(this).find("option:selected").css("background-color"));
+                root.find('select').val($(this).val());
+                root.find('select').css("background-color",$(this).find("option:selected").css("background-color"));
+                root.find('select').change();
+            });
+
+            $('button.btn-danger').show();
+        });
+        $('#edit-contract').modal();
+    });
+});

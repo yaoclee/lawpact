@@ -4,3 +4,26 @@
     background-color: #530d85;
     color: #fff;
 }
+
+@media (max-width: 768px){
+    #about,
+    #about legend
+    {
+        background-color: transparent;
+        color: #333;
+    }
+
+    .nav>li>a
+    {
+        margin: 0;
+        padding: 0 8px;
+        border: 0;
+    }
+
+    .nav>li.active>a, 
+    .nav>li.active>a:focus, 
+    .nav>li.active>a:hover
+    {
+        border: 0;
+    }
+}
