@@ -80,7 +80,7 @@ div.pagination button.disabled:hover
 
 #questionnaire div.form-bottom
 {
-    height: 470px;
+    min-height: 470px;
 }
 
 /* 超小屏幕（手机，小于 768px） */
@@ -135,6 +135,15 @@ div.section-box
     overflow: hidden;
     text-align: center;
     margin-bottom: 14px;
+}
+
+.radio-inner-input+input,
+.radio-inner-input+input:focus
+{
+    border: 1px solid #ccc!important;
+    background-color: white!important;
+    width: 50px!important;
+    color: #333;
 }
 
 /* 合同生成表单end */
@@ -196,6 +205,11 @@ div.section-box
     text-align: center;
     font-size: 28pt;
     font-weight: bold;
+}
+
+.center
+{
+    text-align: center;
 }
 
 /* 超小屏幕（手机，小于 768px） */

@@ -1,3 +1,6 @@
+
+/*********************************** 初始化 ***************************************/
+
 var section_num = 11;
 var datetimepicker_num = 8;
 
@@ -11,6 +14,7 @@ for (var i=1; i<=datetimepicker_num; i++)
     });
 }
 
+/* radio控制初始化隐藏 */
 $(document).ready(function() {
 	$("#001-019").hide()
 	$("#001-023").hide()
@@ -19,6 +23,32 @@ $(document).ready(function() {
 	$("#001-036-3").hide()
 	$("#001-065").hide()
 });
+
+/* 设置时间显示 */
+function setTime()
+{
+	var d=new Date();
+	var month=new Array(12);
+	month[0]="January";
+	month[1]="February";
+	month[2]="March";
+	month[3]="April";
+	month[4]="May";
+	month[5]="June";
+	month[6]="July";
+	month[7]="August";
+	month[8]="September";
+	month[9]="October";
+	month[10]="November";
+	month[11]="December";
+
+	var string = month[d.getMonth()]+' '+d.getDate()+', '+d.getHours()+':'+d.getMinutes();
+	$('#time').html(string);
+
+	setTimeout('setTime()',500);
+}
+
+/*********************************** radio控制 ***************************************/
 
 $("input:radio[name='001-019']").click(function(event) {
 	var value = $("input:radio[name='001-019']:checked").val();
@@ -90,6 +120,8 @@ $("input:radio[name='001-065']").click(function(event) {
 	}
 });
 
+/*********************************** 自动填写 ***************************************/
+
 $("input[name=001-015]").change(function(event) {
 	$("input[name=001-068]").val($("input[name=001-015]").val())
 });
@@ -148,6 +180,9 @@ $("input[name=001-059]").change(function(event) {
 	}
 });
 
+/*********************************** 预览控制 ***************************************/
+
+/* 获取表单取值，没有则返回下横线 */
 function getVal (selector)
 {
 	if ('' != selector.val())
@@ -355,28 +390,7 @@ $('a[href="#sample-view"]').on('hidden.bs.tab', function (e) {
 	$('#sample-view').empty();
 })
 
-function setTime()
-{
-	var d=new Date();
-	var month=new Array(12);
-	month[0]="January";
-	month[1]="February";
-	month[2]="March";
-	month[3]="April";
-	month[4]="May";
-	month[5]="June";
-	month[6]="July";
-	month[7]="August";
-	month[8]="September";
-	month[9]="October";
-	month[10]="November";
-	month[11]="December";
-
-	var string = month[d.getMonth()]+' '+d.getDate()+', '+d.getHours()+':'+d.getMinutes();
-	$('#time').html(string);
-
-	setTimeout('setTime()',500);
-}
+/*********************************** 翻页控制 ***************************************/
 
 function setProgress(tmpI)
 {
@@ -478,6 +492,9 @@ $(document).ready(function() {
 	setPage(1);
 });
 
+/*********************************** 合同提交 ***************************************/
+
+/* 为提交给后端的html添加CSS */
 function ReplaceCSS(text)
 {
 	var para_reg = new RegExp('class="para"','g');
@@ -496,6 +513,7 @@ function ReplaceCSS(text)
 	return text;
 }
 
+/* html提交给后端 */
 $('button[type="submit"]').click(function(event) {
 	preview_html();
 	var head = '<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"></head><body>';
@@ -526,6 +544,8 @@ $('button[type="submit"]').click(function(event) {
     e.preventDefault();
     alert("Submit prevented");
 });*/
+
+/*********************************** 表单校验 ***************************************/
 
 $(document).ready(function() {
 	$('#001').validate({
@@ -578,7 +598,7 @@ $(document).ready(function() {
 });
 
 
-/***********************************移动端界面处理***************************************/
+/*********************************** 移动端界面处理 ***************************************/
 
 //删除所有data-hint，因为在移动端没有悬停，但该属性会占用宽度
 function RemoveHint()

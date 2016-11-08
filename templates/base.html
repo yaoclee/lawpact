@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<header>
+    <header class="visible-lg-block">
 		<!-- 置顶导航 -->
 		<nav role="navigation" class="navbar navbar-static-top">
 			<div class="container">
@@ -103,7 +103,10 @@
 	
 	{% block content %}{% endblock %}
 
-	<footer>
+	<!-- 移动端底部导航平分为4个区域，其中第3个区域根据页面不同显示不同的内容，具体内容详见对应页面
+	拆分时可以把底部导航和footer放在一起，这样后端不用区分客户端类型，原有的footer.html可以废弃 -->
+
+    <footer class="visible-lg-block">
         <div class="container">
             <div class="footer-border"></div>
             <div class="row">
@@ -150,12 +153,41 @@
         </div>
     </footer>
 
-	<!-- 返回顶部悬浮按钮 -->
-	<span id="top-link-block" class="hidden">
-	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
-	        <i class="fa fa-arrow-up"></i>返回顶部
-	    </a>
-	</span>
+    <nav role="navigation" id="bottom-nav" class="navbar navbar-fixed-bottom hidden-lg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-3">
+                    <a href="./index.html">首页</a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="./contract-guider.html">生成</a>
+                </div>
+                <div class="col-xs-3"><!-- 这里页面不同显示不同，见具体页面静态模板 -->
+                    <p> </p>
+                </div>
+                <div class="col-xs-3"><!-- 这里页面不同显示不同，见具体页面静态模板 -->
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            我的
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./user-info.html">个人资料</a></li>
+                            <li><a href="./contract-info.html">我的合同</a></li>
+                            <li><a href="#">退出登录</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 返回顶部悬浮按钮 -->
+    <span id="top-link-block" class="hidden visible-lg-block">
+        <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
+            <i class="fa fa-arrow-up"></i>返回顶部
+        </a>
+    </span>
 
 	<!-- 加载JS -->
 	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>

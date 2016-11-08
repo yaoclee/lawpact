@@ -64,20 +64,20 @@
 													<tbody>
 													{% for obj in objs %}
 														<tr>
-															<td>{{ obj.contract_id }}</td>
-															<td><input type="text" name="name" value="{{ obj.name }}"></td>
-															<td>{{ obj.type }}</td>
-															<td>{{ obj.create_at|date:"Y-m-d" }}</td>
-															<td>{{ obj.get_contract_status_display }} 
+															<td class="big-table-cell">{{ obj.contract_id }}</td>
+															<td class="big-table-cell"><input type="text" name="name" value="{{ obj.name }}"></td>
+															<td class="big-table-cell">{{ obj.type }}</td>
+															<td class="big-table-cell">{{ obj.create_at|date:"Y-m-d" }}</td>
+															<td class="big-table-cell">{{ obj.get_contract_status_display }} 
 															</td>
-															<td>
+															<td class="big-table-cell">
 																<select name="status" class="table_select">
 																	<option value="0" class="label label-success" {% if obj.law_status == '0' %} selected="selected" {% endif %}>已生效</option>
 																	<option value="1" class="label label-danger" {% if obj.law_status == '1' %} selected="selected" {% endif %}>已终止</option>
 																</select>
 															</td>
-															<td><input type="text" name="label" placeholder="未设置" value="{{obj.label}}"></td>
-															<td>
+															<td class="big-table-cell"><input type="text" name="label" placeholder="未设置" value="{{obj.label}}"></td>
+															<td class="big-table-cell">
 																<div class="btn-group">
 																	<button type="button" class="btn btn-default activation dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">操作
 																		<span class="caret"></span>
