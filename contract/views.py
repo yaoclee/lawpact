@@ -104,6 +104,36 @@ def literature(request):
     
     return render_to_response("001.html", context)
 
+def television_delegate(request):
+    context = RequestContext(request)
+    user = request.user
+    print "user is:%s" % user
+    if not user.is_authenticated():
+        return HttpResponse(u"该功能需要登录后才能使用")
+    
+    if user.is_active == False:
+        return HttpResponse(u"账号未激活，请到登录注册邮箱激活")
+    
+    if not isUserInfoComplete(user):
+        return HttpResponse(u"该功能需完善用户信息后才能使用")
+    
+    return render_to_response("002.html", context)
+
+def movie_delegate(request):
+    context = RequestContext(request)
+    user = request.user
+    print "user is:%s" % user
+    if not user.is_authenticated():
+        return HttpResponse(u"该功能需要登录后才能使用")
+    
+    if user.is_active == False:
+        return HttpResponse(u"账号未激活，请到登录注册邮箱激活")
+    
+    if not isUserInfoComplete(user):
+        return HttpResponse(u"该功能需完善用户信息后才能使用")
+    
+    return render_to_response("003.html", context)
+
 def user_info(request):
     context = RequestContext(request)
     return render_to_response("user-info.html", context)
