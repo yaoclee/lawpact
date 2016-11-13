@@ -1,94 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+{% load static %}
 
-	<title>电影剧本委托创作合同</title>
-    <meta name="description" content="有娱-电影剧本委托创作合同">
-    <meta name="author" content="xiao kai, peng">
+{% block title %}电影剧本委托创作合同{% endblock %}
 
-    <!-- 导入Roboto字体
-    <link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500"> -->
-    <!-- 导入noto sans sc字体
-    <link rel="stylesheet" href="http://fonts.useso.com/earlyaccess/notosanssc.css"> -->
-
-	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-	<link href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+{% block csslink %}
+	<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 	<link href="https://cdn.bootcss.com/hint.css/2.1.0/hint.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../static/css/style.css">
-	<link rel="stylesheet" href="../static/css/contract-creater.css">
+	<link rel="stylesheet" href="{% static 'css/contract-creater.css' %}">
+{% endblock %}
 
-    <!-- 加载各种icon -->
-    <link rel="icon" href="../static/img/logo.png">
-    <link rel="shortcut icon" href="../static/img/logo.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/img/logo.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/img/logo.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/img/logo.png">
-    <link rel="apple-touch-icon-precomposed" href="../static/img/logo.png">
-
-
-</head>
-
-<body>
-    <header class="visible-lg-block">
-        <!-- 置顶导航 -->
-        <nav role="navigation" class="navbar navbar-static-top">
-            <div class="container">
-                <a class="brand" href="#">
-                    <img alt="Brand" src="../static/img/logo.png">
-                </a>
-
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_top_navbar" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-
-				<div class="collapse navbar-collapse" id="main_top_navbar">
-					<!-- 以下填充置顶导航中的链接 -->
-					<ul class="nav navbar-nav navbar-left">
-						<li>
-							<a href="./index.html">首页</a>
-						</li>
-						<li>
-							<a href="./contract-guider.html">合同生成</a>
-						</li>
-						<li>
-							<a href="./contract-info.html">合同管理</a>
-						</li>
-						<li>
-							<a href="./about.html">联系我们</a>
-						</li>
-					</ul>
-
-					<!-- 这里是登录的按钮或者用户管理的下拉菜单 -->
-					<!-- 这里示例下拉菜单 -->
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								用户名
-								<img src="../static/img/avatar.jpg" class="avatar">
-								<span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu">
-								<li><a href="./user-info.html">个人资料</a></li>
-								<li><a href="./contract-info.html">我的合同</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">退出登录</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
+{% block content %}
 	<main class="body-wrapper">
 		<div class="jumbotron visible-lg-block">
 			<div class="container">
@@ -130,7 +51,8 @@
 								</div>
 								<div class="form-bottom">
 									<form id="003" role="form" action="/create_contract/" method="post">
-                                        <div id="section-1">
+                                        {% csrf_token %}
+										<div id="section-1">
                                             <div class="section-box">
                                                 <hr class="separator" /><p class="separator-title">委托方</p><hr class="separator" />
                                             </div>
@@ -961,117 +883,14 @@
 			</div>
 		</div>
 	</main>
+	
+{% endblock %}
 
-    <footer class="visible-lg-block">
-        <div class="container">
-            <div class="footer-border"></div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <ul class="info">
-                    <img src="../static/img/footer-logo.png" alt=""/>
-                    <P></P>
-                    <P></P>
-                    <li><a href="./about.html">关于我们</a>                   
-                    <a href="./about.html">商业合作</a>
-                    <a href="./about.html">免责声明</a>
-                    <a href="./about.html">使用帮助</a>
-                    <a href="./about.html">投诉建议</a></li>
-					<li><h>© 2016 有娱. All Rights Reserved</h></li>
-                    </ul>
-				</div>
-				<div class="col-sm-4">
-                    <ul class="info"><li><h2>Follow us on</h2></li></ul>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-					<div class="bdsharebuttonbox">
-						<a href="#" class="fa fa-qq" data-cmd="tqq"></a>
-						<a href="#" class="fa fa-weixin" data-cmd="weixin"></a>
-						<a href="#" class="fa fa-weibo" data-cmd="tsina"></a>
-        				<a href="#" class="fa fa-twitter" data-cmd="facebook"></a>
-					</div>
-				</div>
-				<div class="col-sm-4">
-                    
-					<ul class="info">
-						<li><span class="fa fa-map-marker"></span><h>上海市威海路755号文新报业大厦26楼</h></li>
-                        <li><h>26F Wenxin Building, No.755 Weihai Rd, Shnaghai, China</h></li>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                        <p></p>
-
-						<li><span class="fa fa-envelope-square"></span><a>service@youyu.com</a></li>
-						<li><span class="fa fa-phone"></span><a>400-400-4000</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-    <nav role="navigation" id="bottom-nav" class="navbar navbar-fixed-bottom hidden-lg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-3">
-                    <a href="./index.html">首页</a>
-                </div>
-                <div class="col-xs-3">
-                    <a href="./contract-guider.html">生成</a>
-                </div>
-                <div class="col-xs-3">
-                   <div class="dropdown" id="tab">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            问卷
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-								<ul class="nav">
-									<li role="presentation" class="active">
-										<a href="#questionnaire-view" aria-controls="questionnaire" role="tab" data-toggle="tab">问卷</a>
-									</li>
-									<li role="presentation">
-										<a href="#sample-view" aria-controls="sample" role="tab" data-toggle="tab">预览</a>
-									</li>
-								</ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            我的
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="./user-info.html">个人资料</a></li>
-                            <li><a href="./contract-info.html">我的合同</a></li>
-                            <li><a href="#">退出登录</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-    <!-- 返回顶部悬浮按钮 -->
-    <span id="top-link-block" class="hidden visible-lg-block">
-        <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'fast');return false;">
-            <i class="fa fa-arrow-up"></i>返回顶部
-        </a>
-    </span>
-
-	<!-- 加载JS -->
-	<script src="https://cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+{% block jslink %}
 	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment.min.js"></script>
 	<script src="https://cdn.bootcss.com/moment.js/2.11.2/locale/zh-cn.js"></script>
 	<script src="https://cdn.bootcss.com/moment.js/2.11.2/moment-with-locales.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 	<script src="https://cdn.bootcss.com/jquery-validate/1.15.0/jquery.validate.min.js"></script>
-	<script src="../static/js/script.js"></script>
-	<script src="../static/js/003.js"></script>
-</body>
-</html>
+	<script src="{% static 'js/003.js' %}"></script>
+{% endblock %}

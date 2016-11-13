@@ -15,10 +15,12 @@ from lawpact.settings import USER_FILE_PATH, MEDIA_PATH, STATIC_PATH,\
 from django.core.files import File
 from django.core.files.base import ContentFile
 from django.contrib import auth
+from bs4 import BeautifulSoup
 
 import hashlib
 import cmd
 from datetime import date
+import random
 
 def isUserInfoComplete(user):
     tag = False
@@ -558,6 +560,12 @@ def create_contract(request):
     if request.method == 'POST':
         html_content = request.POST['html']
         #print html_content
+        type_name = BeautifulSoup(html_content)
+
+        contract_type = u"默认合同名(可修改)"
+        if type_name.body.p:
+            contract_type = type_name.body.p.string
+            
         if len(html_content) > 0:
             #save as html file
             print "user id is: %d" % request.user.id
@@ -581,7 +589,7 @@ def create_contract(request):
             
             #Write user table
             user = request.user
-            name = u"改编许可合同"
+            name = u"合同名称(请修改)"
             content = html_content
             file = open(pdf_file_name, 'r')
             djangofile = File(file)
@@ -591,16 +599,12 @@ def create_contract(request):
             c_class_id = '101'  # 文学作品改编许可合同
             today = date.today()
             c_create_at = today.strftime("%Y%m%d")
-            ucs = UserContract.objects.filter(user=user)
-            
-            #c_id = 1
-            #if ucs is not None:
-            c_id = len(ucs) + 1
-            str_cid = '{v:04d}'.format(v=c_id)
-            str_c_id = u_id +  c_class_id + c_create_at + str_cid
+            str_random = random.randint(1000,2000)
+
+            str_c_id = u_id +  c_class_id + c_create_at + str(str_random)
             # end...
 
-            user_contract = UserContract(user=user, contract_id=str_c_id, name=name, content=html_content, type=u'文学作品', contract_status=0, law_status=0)
+            user_contract = UserContract(user=user, contract_id=str_c_id, name=name, content=html_content, type=contract_type, contract_status=0, law_status=0)
             file_path = 'files/%s/%s%s' % (user.id, timestamp, '.pdf')
             #print file_path
             user_contract.file = file_path #'files/14/upload.pdf'
