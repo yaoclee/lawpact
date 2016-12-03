@@ -273,7 +273,11 @@ $(document).ready(function() {
 $('table.info tbody button.delivery').each(function(index, el) {
     var root = $(this).parents('tr');
 
-    if (root.children('td:eq(4)').text() != '未审核')
+    if (root.children('td:eq(4)').text().indexOf('未审核') != -1)
+    {
+        $(this).show();
+    }
+    else
     {
         $(this).hide();
     }
@@ -438,7 +442,7 @@ $('table.info tbody tr').each(function(index, el) {
             $('#edit-contract').find('p:eq(1)').text(root.children('td:eq(2)').text());
             $('#edit-contract').find('p:eq(2)').text(root.children('td:eq(3)').text());
             $('#edit-contract').find('p:eq(3)').text(root.children('td:eq(4)').text());
-            if (root.children('td:eq(4)').text() == '未审核')
+            if (root.children('td:eq(4)').text().indexOf('未审核') != -1)
             {
                 $('#edit-contract .modal-footer').find('button:eq(1)').show();
             }
