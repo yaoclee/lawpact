@@ -156,11 +156,12 @@
     <nav role="navigation" id="bottom-nav" class="navbar navbar-fixed-bottom hidden-lg">
         <div class="container">
             <div class="row">
+			{% if user.is_authenticated %}
                 <div class="col-xs-3">
-                    <a href="./index.html">首页</a>
+                    <a href="/">首页</a>
                 </div>
                 <div class="col-xs-3">
-                    <a href="./contract-guider.html">生成</a>
+                    <a href="/guider/">生成</a>
                 </div>
                 <div class="col-xs-3"><!-- 这里页面不同显示不同，见具体页面静态模板 -->
                     <p> </p>
@@ -172,12 +173,26 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="./user-info.html">个人资料</a></li>
-                            <li><a href="./contract-info.html">我的合同</a></li>
-                            <li><a href="#">退出登录</a></li>
+                            <li><a href="/user-info/">个人资料</a></li>
+                            <li><a href="/contract-info/">我的合同</a></li>
+                            <li><a href="/logout/">退出登录</a></li>
                         </ul>
                     </div>
                 </div>
+			{% else %}
+				<div class="col-xs-3">
+                    <a href="/">首页</a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="/guider/">生成</a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="/register/">注册</a>
+                </div>
+                <div class="col-xs-3">
+                    <a href="/login/">登陆</a>
+                </div>
+			{% endif %}
             </div>
         </div>
     </nav>
